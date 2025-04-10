@@ -12,16 +12,11 @@ export default function SkillsSection() {
         <div className="sidebar-section">
             <div className="sidebar-section-title">Skills</div>
             <div className="sidebar-section-content">
-                <div className="skills-container" id="sidebarSkills">
+                <ul className={`skills-list ${skills.length > 5 ? 'two-column' : ''}`} id="sidebarSkills">
                     {skills.map((skill, index) => (
-                        <div key={index} className="skill-item">
-                            <div className="skill-name">{skill}</div>
-                            <div className="skill-bar">
-                                <div className="skill-level" style={{ width: '80%' }}></div>
-                            </div>
-                        </div>
+                        <li key={index}>{skill}</li>
                     ))}
-                </div>
+                </ul>
             </div>
         </div>
     );

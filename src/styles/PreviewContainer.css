@@ -1,3 +1,15 @@
+.preview-container {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+
+}
+
 .overflow-warning {
     color: var(--danger);
     padding: 10px;
@@ -87,6 +99,13 @@
     font-size: 11px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#sidebarSummary {
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .contact-item {
@@ -227,6 +246,22 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.skills-list {
+    list-style: disc;
+    padding-left: 16px;
+    margin-top: 5px;
+}
+
+.skills-list.two-column {
+    column-count: 2;
+    column-gap: 10px;
+}
+
+.skills-list li {
+    margin-bottom: 4px;
+    font-size: 11px;
 }
 
 .skill-category {
