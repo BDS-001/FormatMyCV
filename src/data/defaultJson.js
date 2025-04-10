@@ -6,6 +6,7 @@ let resumeDefault = {
     "phone": "",
     "location": "",
     "linkedin": "",
+    "github": "",
     "website": "",
     "summary": ""
   },
@@ -41,6 +42,7 @@ resumeDefault = {
     "location": "San Francisco, CA",
     "linkedin": "linkedin.com/in/johnsmith",
     "website": "johnsmith.dev",
+    "github": "github.com/johnsmith",
     "summary": "Experienced software engineer with 8+ years of expertise in full-stack development. Passionate about creating scalable web applications and solving complex problems."
   },
   "education": [

@@ -81,6 +81,16 @@ export default function PersonalInfo() {
         />
       </div>
       <div className="form-group">
+        <label htmlFor="github">github (Optional)</label>
+        <input 
+          type="text" 
+          id="github" 
+          placeholder="e.g. github.com/johnsmith" 
+          value={personalInfo.github || ""} 
+          onChange={(e) => handleUpdate("github", e.target.value)}
+        />
+      </div>
+      <div className="form-group">
         <label htmlFor="website">Website (Optional)</label>
         <input 
           type="text" 
