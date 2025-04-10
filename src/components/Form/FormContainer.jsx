@@ -4,6 +4,7 @@ import Education from "./Education";
 import WorkExperience from "./WorkExperience";
 import Skills from "./Skills";
 import AdditionalInfo from "./AdditionalInfo";
+import '../../styles/FormContainer.css'
 
 const FormContainer = () => {
     return (

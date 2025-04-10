@@ -1,6 +1,7 @@
 import '../styles/App.css'
 import ResumeProvider from '../provider/resumeProvider'
-import FormContainer from './FormContainer'
+import FormContainer from './Form/FormContainer'
+import PreviewContainer from './Preview/PreviewContainer'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
     <ResumeProvider>
       <div className="container">
         <FormContainer/>
+        <PreviewContainer/>
       </div>
       </ResumeProvider>
   )

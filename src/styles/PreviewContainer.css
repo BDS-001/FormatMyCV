@@ -1,0 +1,328 @@
+.overflow-warning {
+    color: var(--danger);
+    padding: 10px;
+    background-color: #ffeeee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.resume {
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    min-height: 1056px; /* Letter size paper height */
+    width: 816px; /* Letter size paper width */
+    margin: 0 auto;
+    border: 1px solid #eee;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.resume-sidebar {
+    width: 220px;
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    padding: 30px 20px;
+    height: 1056px;
+}
+
+.resume-main {
+    flex: 1;
+    padding: 30px;
+}
+
+.sidebar-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.sidebar-photo img {
+    width: 100%;
+    height: auto;
+}
+
+.sidebar-photo-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.sidebar-section {
+    margin-bottom: 25px;
+}
+
+.sidebar-section-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sidebar-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.sidebar-section-content {
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.contact-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    font-size: 11px;
+    word-break: break-word;
+}
+
+.resume-header {
+    position: relative;
+    text-align: left;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.resume-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.resume-title {
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.resume-section-title {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--primary);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    position: relative;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.resume-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.resume-item {
+    margin-bottom: 14px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.resume-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.resume-item-content {
+    margin-top: 3px;
+    color: #444;
+    line-height: 1.4;
+}
+
+.bullet-points {
+    padding-left: 5px;
+}
+
+.bullet-points > * {
+    position: relative;
+    padding-left: 10px;
+}
+
+.bullet-points > *::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.resume-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background-color: rgba(87, 55, 44, 0.1);
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    border: 1px solid rgba(87, 55, 44, 0.3);
+    font-weight: 500;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-category {
+    margin-bottom: 6px;
+}
+
+.skill-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: var(--secondary);
+    border-radius: 4px;
+}
+
+.skill-name {
+    font-size: 11px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-level {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+@media print {
+    body, html {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+    
+    .form-container, .preview-container > h1, .overflow-warning {
+        display: none !important;
+    }
+    
+    .container, .preview-container {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        display: block !important;
+        overflow: visible !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+    
+    .resume {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-inside: avoid !important;
+        display: flex !important;
+    }
+    
+    .resume-sidebar {
+        display: block !important;
+        width: 220px !important;
+        height: auto !important;
+        min-height: 100% !important;
+        background-color: var(--primary) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .resume-main {
+        display: block !important;
+        flex: 1 !important;
+        padding: 30px !important;
+    }
+    
+    /* Ensure text is selectable */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        text-rendering: geometricPrecision !important;
+    }
+    
+    /* Ensure text doesn't get clipped */
+    .resume-item-content, .sidebar-section-content, .contact-text {
+        overflow: visible !important;
+    }
+    
+    /* Set paper size */
+    @page {
+        size: letter portrait;
+        margin: 0;
+    }
+}

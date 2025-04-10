@@ -18,3 +18,39 @@
 .form-group {
     margin-bottom: 15px;
 }
+
+.button-group {
+    display: flex;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dynamic-list {
+    margin-top: 10px;
+}
+
+.list-item {
+    background-color: var(--secondary-light);
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}

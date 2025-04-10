@@ -3,3 +3,14 @@
     min-height: 100vh;
     padding: 20px;
 }
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+    .form-container, .preview-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
