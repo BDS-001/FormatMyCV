@@ -209,6 +209,19 @@
     line-height: 1.4;
 }
 
+/* Project link styling */
+.resume-item-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    transition: opacity 0.2s;
+}
+
+.resume-item-link a:hover {
+    opacity: 0.8;
+}
+
 .bullet-points {
     padding-left: 5px;
 }
