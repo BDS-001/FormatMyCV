@@ -10,7 +10,7 @@ import { resumeContext } from "../../context/resumeContext";
 import '../../styles/FormContainer.css';
 
 const FormContainer = () => {
-    const { clearData } = useContext(resumeContext);
+    const { clearData, loadExample } = useContext(resumeContext);
     const [showModal, setShowModal] = useState(false);
 
     const handleClearClick = () => {
@@ -51,7 +51,8 @@ const FormContainer = () => {
             <AdditionalInfo/>
   
             <div className="button-group">
-                <button type="button" id="printResume">Print / Save PDF</button>
+                <button type="button" id="printResume" onClick={() => window.print()} >Print / Save PDF</button>
+                <button type="button" id="loadExample" onClick={loadExample} >Load Example</button>
                 <button type="button" id="exportJson">Export Data</button>
                 <button type="button" id="importJsonBtn">Import Data</button>
                 <input type="file" id="importJson" accept=".json" style={{display: 'none'}} />

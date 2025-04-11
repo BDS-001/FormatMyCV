@@ -1,6 +1,6 @@
 import { resumeContext } from "../context/resumeContext"
 import { useState } from "react";
-import { resumeDefault } from "../data/defaultJson";
+import { resumeDefault, example } from "../data/defaultJson";
 
 export default function ResumeProvider({children}) {
     const [resumeData, setResumeData] = useState(resumeDefault)
@@ -8,9 +8,13 @@ export default function ResumeProvider({children}) {
     function clearData() {
         setResumeData(resumeDefault)
     }
+
+    function loadExample() {
+        setResumeData(example)
+    }
     
     return (
-        <resumeContext.Provider value={{resumeData, setResumeData, clearData}}>
+        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample}}>
             {children}
         </resumeContext.Provider>
     )
