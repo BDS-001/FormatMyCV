@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import PersonalInfo from "./PersonalInfo";
 import Summary from "./Summary";
 import Education from "./Education";
@@ -10,8 +10,9 @@ import { resumeContext } from "../../context/resumeContext";
 import '../../styles/FormContainer.css';
 
 const FormContainer = () => {
-    const { clearData, loadExample, exportResumeJson } = useContext(resumeContext);
+    const { clearData, loadExample, exportResumeJson, importResumeJson } = useContext(resumeContext);
     const [showModal, setShowModal] = useState(false);
+    const fileInputRef = useRef(null);
 
     const handleClearClick = () => {
         setShowModal(true);
@@ -24,6 +25,10 @@ const FormContainer = () => {
 
     const handleCancelClear = () => {
         setShowModal(false);
+    };
+
+    const handleImportJson = () => {
+        fileInputRef.current.click();
     };
 
     return (
@@ -54,8 +59,8 @@ const FormContainer = () => {
                 <button type="button" id="loadExample" onClick={loadExample} >Load Example</button>
                 <button type="button" onClick={handleClearClick}>Clear Form</button>
                 <button type="button" id="exportJson" onClick={exportResumeJson} >Export Data</button>
-                <button type="button" id="importJsonBtn">Import Data</button>
-                <input type="file" id="importJson" accept=".json" style={{display: 'none'}} />
+                <button type="button" id="importJsonBtn" onClick={handleImportJson}>Import Data</button>
+                <input type="file" id="importJson" accept=".json" style={{display: 'none'}} ref={fileInputRef} onChange={importResumeJson}/>
             </div>
         </form>
 

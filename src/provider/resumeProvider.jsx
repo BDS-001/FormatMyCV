@@ -31,9 +31,33 @@ export default function ResumeProvider({children}) {
         // Clean up
         URL.revokeObjectURL(url);
     }
+
+    function importResumeJson(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const importedResumeData = JSON.parse(e.target.result);
+                setResumeData({...resumeDefault, ...importedResumeData})
+                
+                alert('Resume data imported successfully!');
+                
+            } catch (error) {
+                console.error('Error importing resume data:', error);
+                alert('Error importing resume data. Please check if the file format is correct.');
+            }
+            
+            // Reset file input
+            event.target.value = '';
+        };
+        
+        reader.readAsText(file);
+    }
     
     return (
-        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson}}>
+        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson, importResumeJson}}>
             {children}
         </resumeContext.Provider>
     )
