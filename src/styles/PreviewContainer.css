@@ -294,6 +294,41 @@
     opacity: 0.8;
 }
 
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.preview-header h1 {
+    margin-bottom: 0;
+}
+
+.print-button {
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    margin-right: 0;
+}
+
+.print-button:hover {
+    background-color: var(--primary);
+}
+
+.print-button::before {
+    content: "🖨️";
+    margin-right: 8px;
+    font-size: 16px;
+}
+
 @media print {
     body, html {
         margin: 0;
@@ -301,7 +336,7 @@
         background-color: white;
     }
     
-    .form-container, .preview-container > h1, .overflow-warning {
+    .form-container, .preview-container > h1, .overflow-warning, .preview-header {
         display: none !important;
     }
     

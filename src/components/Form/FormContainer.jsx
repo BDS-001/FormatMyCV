@@ -51,7 +51,6 @@ const FormContainer = () => {
             <AdditionalInfo/>
   
             <div className="button-group">
-                <button type="button" id="printResume" onClick={() => window.print()} >Print / Save PDF</button>
                 <button type="button" id="loadExample" onClick={loadExample} >Load Example</button>
                 <button type="button" id="exportJson">Export Data</button>
                 <button type="button" id="importJsonBtn">Import Data</button>
