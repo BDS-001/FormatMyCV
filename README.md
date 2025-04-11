@@ -11,6 +11,7 @@ resume data json structure:
     "phone": "(555) 123-4567",
     "location": "San Francisco, CA",
     "linkedin": "linkedin.com/in/johnsmith",
+    "github": "github.com/johnsmith",
     "website": "johnsmith.dev",
     "summary": "Experienced software engineer with 8+ years of expertise in full-stack development. Passionate about creating scalable web applications and solving complex problems."
   },
