@@ -1,7 +1,7 @@
 import useResume from "../../context/resumeContext"
 import { useMemo, useState } from "react"
 
-export default function AdditionalInfo() {
+export default function Projects() {
   const { resumeData, setResumeData } = useResume()
   const [currentProject, setCurrentProject] = useState({
     title: "",
@@ -63,7 +63,7 @@ export default function AdditionalInfo() {
 
   return (
     <div className="form-section">
-      <h2>Projects / Additional Information (Optional)</h2>
+      <h2>Projects (Optional)</h2>
       
       {/* Display existing projects */}
       {projects.length > 0 && (
