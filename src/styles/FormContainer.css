@@ -1,3 +1,6 @@
+/* =================================
+   FORM CONTAINER LAYOUT
+   ================================= */
 .form-container {
     width: 40%;
     padding: 20px;
@@ -9,6 +12,9 @@
     max-height: calc(100vh - 40px);
 }
 
+/* =================================
+   FORM SECTIONS AND GROUPS
+   ================================= */
 .form-section {
     margin-bottom: 25px;
     padding-bottom: 15px;
@@ -19,6 +25,9 @@
     margin-bottom: 15px;
 }
 
+/* =================================
+   BUTTON GROUPS
+   ================================= */
 .button-group {
     display: flex;
     margin-top: 15px;
@@ -26,6 +35,9 @@
     gap: 10px;
 }
 
+/* =================================
+   DYNAMIC LIST COMPONENTS
+   ================================= */
 .dynamic-list {
     margin-top: 10px;
 }

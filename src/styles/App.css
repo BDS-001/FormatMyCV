@@ -1,9 +1,15 @@
-.container {
+/* =================================
+   MAIN LAYOUT
+   ================================= */
+   .container {
     display: flex;
     min-height: 100vh;
     padding: 20px;
 }
 
+/* =================================
+   RESPONSIVE LAYOUT
+   ================================= */
 @media (max-width: 992px) {
     .container {
         flex-direction: column;

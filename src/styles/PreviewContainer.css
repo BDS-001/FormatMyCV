@@ -1,3 +1,6 @@
+/* =================================
+   PREVIEW CONTAINER LAYOUT
+   ================================= */
 .preview-container {
     flex: 1;
     padding: 20px;
@@ -7,7 +10,6 @@
     margin-right: 20px;
     overflow-y: auto;
     max-height: calc(100vh - 40px);
-
 }
 
 .overflow-warning {
@@ -19,6 +21,9 @@
     display: none;
 }
 
+/* =================================
+   RESUME CONTAINER
+   ================================= */
 .resume {
     padding: 0;
     background-color: white;
@@ -33,17 +38,15 @@
     overflow: hidden;
 }
 
+/* =================================
+   RESUME SIDEBAR
+   ================================= */
 .resume-sidebar {
     width: 220px;
     background-color: var(--primary);
     color: var(--text-on-primary);
     padding: 30px 20px;
     height: 1056px;
-}
-
-.resume-main {
-    flex: 1;
-    padding: 30px;
 }
 
 .sidebar-photo {
@@ -108,6 +111,9 @@
     overflow-y: auto;
 }
 
+/* =================================
+   CONTACT INFORMATION
+   ================================= */
 .contact-item {
     display: flex;
     align-items: flex-start;
@@ -125,6 +131,14 @@
 .contact-text {
     font-size: 11px;
     word-break: break-word;
+}
+
+/* =================================
+   RESUME MAIN CONTENT
+   ================================= */
+.resume-main {
+    flex: 1;
+    padding: 30px;
 }
 
 .resume-header {
@@ -152,6 +166,9 @@
     letter-spacing: 0.5px;
 }
 
+/* =================================
+   RESUME SECTIONS
+   ================================= */
 .resume-section {
     margin-bottom: 20px;
     position: relative;
@@ -179,6 +196,9 @@
     background-color: var(--primary);
 }
 
+/* =================================
+   RESUME ITEMS
+   ================================= */
 .resume-item {
     margin-bottom: 14px;
     position: relative;
@@ -209,7 +229,9 @@
     line-height: 1.4;
 }
 
-/* Project link styling */
+/* =================================
+   PROJECT LINKS
+   ================================= */
 .resume-item-link a {
     color: var(--primary);
     text-decoration: none;
@@ -222,6 +244,9 @@
     opacity: 0.8;
 }
 
+/* =================================
+   BULLET POINTS
+   ================================= */
 .bullet-points {
     padding-left: 5px;
 }
@@ -239,6 +264,9 @@
     font-weight: bold;
 }
 
+/* =================================
+   SKILLS SECTION
+   ================================= */
 .resume-skills {
     display: flex;
     flex-wrap: wrap;
@@ -307,6 +335,9 @@
     opacity: 0.8;
 }
 
+/* =================================
+   PREVIEW HEADER AND PRINT BUTTON
+   ================================= */
 .preview-header {
     display: flex;
     justify-content: space-between;
@@ -342,6 +373,9 @@
     font-size: 16px;
 }
 
+/* =================================
+   PRINT STYLES
+   ================================= */
 @media print {
     body, html {
         margin: 0;
