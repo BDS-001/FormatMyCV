@@ -11,6 +11,16 @@
     max-height: calc(100vh - 40px);
 }
 
+.test {
+    display: none;
+}
+
+.test2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .overflow-warning {
     color: var(--danger);
     padding: 10px;
