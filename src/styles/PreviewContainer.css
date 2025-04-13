@@ -1,7 +1,7 @@
 /* =================================
    PREVIEW CONTAINER LAYOUT
    ================================= */
-.preview-container {
+   .preview-container {
     flex: 2;
     padding: 20px;
     background-color: white;
@@ -11,14 +11,20 @@
     max-height: calc(100vh - 40px);
 }
 
-.test {
+.preview-hidden {
     display: none;
 }
 
-.test2 {
-    position: absolute;
+.preview-fullscreen {
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: white;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .overflow-warning {
@@ -28,6 +34,76 @@
     border-radius: 4px;
     margin-bottom: 10px;
     display: none;
+}
+
+/* =================================
+   PREVIEW CLOSE BUTTON
+   ================================= */
+.preview-close-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-close-button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.preview-close-button:active {
+    transform: translateY(0);
+}
+
+/* =================================
+   PREVIEW HEADER AND PRINT BUTTON
+   ================================= */
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.preview-header h1 {
+    margin-bottom: 0;
+}
+
+.print-button {
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    margin-right: 0;
+}
+
+.print-button:hover {
+    background-color: var(--primary);
+}
+
+.print-button::before {
+    content: "🖨️";
+    margin-right: 8px;
+    font-size: 16px;
 }
 
 /* =================================
@@ -45,6 +121,19 @@
     position: relative;
     display: flex;
     overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .resume {
+        width: 100%;
+        scale: 0.9;
+        transform-origin: top center;
+    }
+    
+    .preview-header {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }
 
 /* =================================
@@ -345,44 +434,6 @@
 }
 
 /* =================================
-   PREVIEW HEADER AND PRINT BUTTON
-   ================================= */
-.preview-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.preview-header h1 {
-    margin-bottom: 0;
-}
-
-.print-button {
-    background-color: var(--primary-dark);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s;
-    margin-right: 0;
-}
-
-.print-button:hover {
-    background-color: var(--primary);
-}
-
-.print-button::before {
-    content: "🖨️";
-    margin-right: 8px;
-    font-size: 16px;
-}
-
-/* =================================
    PRINT STYLES
    ================================= */
 @media print {
@@ -392,11 +443,11 @@
         background-color: white;
     }
     
-    .form-container, .preview-container > h1, .overflow-warning, .preview-header {
+    .form-container, .preview-container > h1, .overflow-warning, .preview-header, .mobile-preview-button, .preview-close-button {
         display: none !important;
     }
     
-    .container, .preview-container {
+    .container, .preview-container, .preview-fullscreen, .preview-hidden {
         width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
@@ -405,6 +456,7 @@
         overflow: visible !important;
         height: auto !important;
         max-height: none !important;
+        position: static !important;
     }
     
     .resume {
@@ -416,6 +468,8 @@
         border: none !important;
         page-break-inside: avoid !important;
         display: flex !important;
+        scale: 1 !important;
+        transform: none !important;
     }
     
     .resume-sidebar {

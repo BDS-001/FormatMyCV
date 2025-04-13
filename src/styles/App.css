@@ -9,12 +9,45 @@
 }
 
 /* =================================
+   TOGGLE PREVIEW BUTTON FOR MOBILE
+   ================================= */
+.mobile-preview-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mobile-preview-button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.mobile-preview-button:active {
+    transform: translateY(0);
+}
+
+/* =================================
    RESPONSIVE LAYOUT
    ================================= */
 @media (max-width: 1365px) {
     .container {
         flex-direction: column;
     }
+    
     .form-container, .preview-container {
         width: auto;
         margin-right: 0;
@@ -22,6 +55,11 @@
     }
     
     .container {
-        padding: 40px;
+        padding: 20px;
+    }
+    
+    /* These styles ensure the form is always visible on smaller screens */
+    .form-container {
+        margin-bottom: 80px; /* Make room for the floating button */
     }
 }

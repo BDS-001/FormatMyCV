@@ -5,11 +5,11 @@ import PreviewContainer from './Preview/PreviewContainer'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [isDesktopView, setIsDestopView] = useState(window.innerWidth >= 1366)
+  const [isDesktopView, setIsDesktopView] = useState(window.innerWidth >= 1366)
   const [showPreview, setShowPreview] = useState(false)
 
   const handleResize = () => {
-    setIsDestopView(window.innerWidth >= 1366)
+    setIsDesktopView(window.innerWidth >= 1366)
   }
 
   const togglePreview = () => {
@@ -18,17 +18,33 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   return (
     <ResumeProvider>
-      {!isDesktopView && <button onClick={togglePreview} >Show Preview</button>}
+      {!isDesktopView && (
+        <button 
+          onClick={togglePreview} 
+          className="mobile-preview-button"
+          aria-label="Toggle Resume Preview"
+        >
+          View Resume
+        </button>
+      )}
+      
       <div className="container">
-        <FormContainer/>
-        <PreviewContainer isDesktopView={isDesktopView} showPreview={showPreview} />
+        <FormContainer />
+        <PreviewContainer 
+          isDesktopView={isDesktopView} 
+          showPreview={showPreview} 
+          onClose={togglePreview} 
+        />
       </div>
-      </ResumeProvider>
+    </ResumeProvider>
   )
 }
 

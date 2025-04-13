@@ -2,10 +2,17 @@ import '../../styles/PreviewContainer.css'
 import ResumeSidebar from './ResumeSidebar'
 import ResumeMain from './ResumeMain'
 
-export default function PreviewContainer({isDesktopView, showPreview}) {
-    console.log(isDesktopView)
+export default function PreviewContainer({isDesktopView, showPreview, onClose}) {
+    const getContainerClass = () => {
+        if (isDesktopView) {
+            return "preview-container";
+        } else {
+            return showPreview ? "preview-fullscreen" : "preview-hidden";
+        }
+    };
+
     return (
-        <div className={isDesktopView ? "preview-container" : showPreview ? 'test2' : 'test'}>
+        <div className={getContainerClass()}>
             <div className="preview-header">
                 <h1>Resume Preview</h1>
                 <button 
@@ -17,6 +24,16 @@ export default function PreviewContainer({isDesktopView, showPreview}) {
                     Print / Save PDF
                 </button>
             </div>
+            
+            {!isDesktopView && showPreview && (
+                <button 
+                    className="preview-close-button"
+                    onClick={onClose}
+                >
+                    Back to Editor
+                </button>
+            )}
+            
             <div className="resume" id="resumePreview">
                 <ResumeSidebar />
                 <ResumeMain />
