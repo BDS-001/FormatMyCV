@@ -1,19 +1,19 @@
 import { resumeContext } from "../context/resumeContext"
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { resumeDefault, example } from "../data/defaultJson";
 
 export default function ResumeProvider({children}) {
     const [resumeData, setResumeData] = useState(resumeDefault)
 
-    function clearData() {
+    const clearData = useCallback(() => {
         setResumeData(resumeDefault)
-    }
+    }, []);
 
-    function loadExample() {
+    const loadExample = useCallback(() => {
         setResumeData(example)
-    }
+    }, []);
 
-    function exportResumeJson() {
+    const exportResumeJson = useCallback(() => {
         const jsonString = JSON.stringify(resumeData, null, 2);
         
         // Create a blob and download link
@@ -30,9 +30,9 @@ export default function ResumeProvider({children}) {
         
         // Clean up
         URL.revokeObjectURL(url);
-    }
+    }, [resumeData]);
 
-    function importResumeJson(event) {
+    const importResumeJson = useCallback((event) => {
         const file = event.target.files[0];
         if (!file) return;
         
@@ -40,7 +40,7 @@ export default function ResumeProvider({children}) {
         reader.onload = function(e) {
             try {
                 const importedResumeData = JSON.parse(e.target.result);
-                setResumeData({...resumeDefault, ...importedResumeData})
+                setResumeData({...resumeDefault, ...importedResumeData});
                 
                 alert('Resume data imported successfully!');
                 
@@ -54,7 +54,7 @@ export default function ResumeProvider({children}) {
         };
         
         reader.readAsText(file);
-    }
+    }, []);
     
     return (
         <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson, importResumeJson}}>
