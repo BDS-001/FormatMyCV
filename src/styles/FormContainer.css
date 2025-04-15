@@ -11,6 +11,12 @@
     max-height: calc(100vh - 40px);
 }
 
+@media (max-width: 1365px) {
+    .form-container {
+        max-height: none;
+    }
+}
+
 /* =================================
    FORM SECTIONS AND GROUPS
    ================================= */
