@@ -3,6 +3,7 @@ import { useState } from "react"
 
 export default function Skills() {
   const { resumeData, setResumeData } = useResume()
+  const [display, setDisplay] = useState(false)
   const [skillInput, setSkillInput] = useState(resumeData.skills.join(', '))
 
   const updateSkills = () => {
@@ -19,26 +20,38 @@ export default function Skills() {
     })
   }
 
+  const toggleDisplay = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setDisplay(prev => !prev)
+  }
+
   return (
-    <div className="form-section">
+    <>
       <h2>Skills</h2>
-      <div className="form-group">
-        <label htmlFor="skills">List your skills (separated by commas)</label>
-        <input 
-          type="text" 
-          id="skills" 
-          placeholder="e.g. JavaScript, React, Node.js, Python, AWS" 
-          value={skillInput}
-          onChange={(e) => setSkillInput(e.target.value)}
-        />
-      </div>
-      <button 
-        type="button" 
-        id="updateSkills"
-        onClick={updateSkills}
-      >
-        Update Skills
-      </button>
-    </div>
+      <button onClick={toggleDisplay}>{display ? "Hide" : "Show"}</button>
+      
+      {display && (
+        <div className="form-section">
+          <div className="form-group">
+            <label htmlFor="skills">List your skills (separated by commas)</label>
+            <input 
+              type="text" 
+              id="skills" 
+              placeholder="e.g. JavaScript, React, Node.js, Python, AWS" 
+              value={skillInput}
+              onChange={(e) => setSkillInput(e.target.value)}
+            />
+          </div>
+          <button 
+            type="button" 
+            id="updateSkills"
+            onClick={updateSkills}
+          >
+            Update Skills
+          </button>
+        </div>
+      )}
+    </>
   )
 }

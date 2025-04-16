@@ -22,7 +22,6 @@ export default function Summary() {
     e.preventDefault()
     e.stopPropagation()
     setDisplay(prev => !prev)
-    console.log("Toggle clicked, new display value should be:", !display)
   }
 
   return (

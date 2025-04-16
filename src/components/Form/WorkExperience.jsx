@@ -3,6 +3,7 @@ import { useMemo, useState } from "react"
 
 export default function WorkExperience() {
   const { resumeData, setResumeData } = useResume()
+  const [display, setDisplay] = useState(false)
   const [currentExperience, setCurrentExperience] = useState({
     company: "",
     position: "",
@@ -67,151 +68,162 @@ export default function WorkExperience() {
     })
   }
 
+  const toggleDisplay = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setDisplay(prev => !prev)
+  }
+
   return (
-    <div className="form-section">
+    <>
       <h2>Work Experience</h2>
+      <button onClick={toggleDisplay}>{display ? "Hide" : "Show"}</button>
       
-      {/* Display existing experiences */}
-      {experiences.length > 0 && (
-        <div id="experienceList" className="dynamic-list">
-          {experiences.map((exp, index) => (
-            <div key={index} className="list-item">
-              <h3>{exp.position} at {exp.company}</h3>
-              <p>{exp.startDate} - {exp.endDate} | {exp.location}</p>
-              <div className="form-group">
-                <label htmlFor={`company-${index}`}>Company</label>
-                <input 
-                  type="text" 
-                  id={`company-${index}`} 
-                  value={exp.company} 
-                  onChange={(e) => updateExperience(index, "company", e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor={`position-${index}`}>Position</label>
-                <input 
-                  type="text" 
-                  id={`position-${index}`} 
-                  value={exp.position} 
-                  onChange={(e) => updateExperience(index, "position", e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor={`workLocation-${index}`}>Location (Optional)</label>
-                <input 
-                  type="text" 
-                  id={`workLocation-${index}`} 
-                  value={exp.location} 
-                  onChange={(e) => updateExperience(index, "location", e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor={`workStart-${index}`}>Start Date</label>
-                <input 
-                  type="text" 
-                  id={`workStart-${index}`} 
-                  value={exp.startDate} 
-                  onChange={(e) => updateExperience(index, "startDate", e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor={`workEnd-${index}`}>End Date</label>
-                <input 
-                  type="text" 
-                  id={`workEnd-${index}`} 
-                  value={exp.endDate} 
-                  onChange={(e) => updateExperience(index, "endDate", e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor={`responsibilities-${index}`}>Responsibilities & Achievements</label>
-                <textarea 
-                  id={`responsibilities-${index}`} 
-                  value={exp.responsibilities} 
-                  onChange={(e) => updateExperience(index, "responsibilities", e.target.value)}
-                ></textarea>
-              </div>
-              <button 
-                type="button" 
-                className="remove-button" 
-                onClick={() => removeExperience(index)}
-              >
-                Remove
-              </button>
+      {display && (
+        <div className="form-section">
+          {/* Display existing experiences */}
+          {experiences.length > 0 && (
+            <div id="experienceList" className="dynamic-list">
+              {experiences.map((exp, index) => (
+                <div key={index} className="list-item">
+                  <h3>{exp.position} at {exp.company}</h3>
+                  <p>{exp.startDate} - {exp.endDate} | {exp.location}</p>
+                  <div className="form-group">
+                    <label htmlFor={`company-${index}`}>Company</label>
+                    <input 
+                      type="text" 
+                      id={`company-${index}`} 
+                      value={exp.company} 
+                      onChange={(e) => updateExperience(index, "company", e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`position-${index}`}>Position</label>
+                    <input 
+                      type="text" 
+                      id={`position-${index}`} 
+                      value={exp.position} 
+                      onChange={(e) => updateExperience(index, "position", e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`workLocation-${index}`}>Location (Optional)</label>
+                    <input 
+                      type="text" 
+                      id={`workLocation-${index}`} 
+                      value={exp.location} 
+                      onChange={(e) => updateExperience(index, "location", e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`workStart-${index}`}>Start Date</label>
+                    <input 
+                      type="text" 
+                      id={`workStart-${index}`} 
+                      value={exp.startDate} 
+                      onChange={(e) => updateExperience(index, "startDate", e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`workEnd-${index}`}>End Date</label>
+                    <input 
+                      type="text" 
+                      id={`workEnd-${index}`} 
+                      value={exp.endDate} 
+                      onChange={(e) => updateExperience(index, "endDate", e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor={`responsibilities-${index}`}>Responsibilities & Achievements</label>
+                    <textarea 
+                      id={`responsibilities-${index}`} 
+                      value={exp.responsibilities} 
+                      onChange={(e) => updateExperience(index, "responsibilities", e.target.value)}
+                    ></textarea>
+                  </div>
+                  <button 
+                    type="button" 
+                    className="remove-button" 
+                    onClick={() => removeExperience(index)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
+          
+          {/* Form to add new experience */}
+          <div className="experience-form">
+            <div className="form-group">
+              <label htmlFor="company">Company</label>
+              <input 
+                type="text" 
+                id="company" 
+                placeholder="e.g. Google" 
+                value={currentExperience.company}
+                onChange={(e) => handleInputChange("company", e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="position">Position</label>
+              <input 
+                type="text" 
+                id="position" 
+                placeholder="e.g. Senior Software Engineer" 
+                value={currentExperience.position}
+                onChange={(e) => handleInputChange("position", e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="workLocation">Location (Optional)</label>
+              <input 
+                type="text" 
+                id="workLocation" 
+                placeholder="e.g. Mountain View, CA" 
+                value={currentExperience.location}
+                onChange={(e) => handleInputChange("location", e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="workStart">Start Date</label>
+              <input 
+                type="text" 
+                id="workStart" 
+                placeholder="e.g. Jan 2020" 
+                value={currentExperience.startDate}
+                onChange={(e) => handleInputChange("startDate", e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="workEnd">End Date</label>
+              <input 
+                type="text" 
+                id="workEnd" 
+                placeholder="e.g. Dec 2022 or Present" 
+                value={currentExperience.endDate}
+                onChange={(e) => handleInputChange("endDate", e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="responsibilities">Responsibilities & Achievements</label>
+              <textarea 
+                id="responsibilities" 
+                placeholder="• Developed a feature that increased user engagement by 20%&#10;• Led a team of 5 engineers to deliver project ahead of schedule"
+                value={currentExperience.responsibilities}
+                onChange={(e) => handleInputChange("responsibilities", e.target.value)}
+              ></textarea>
+            </div>
+            <button 
+              type="button" 
+              id="addExperience"
+              onClick={addExperience}
+            >
+              Add Experience
+            </button>
+          </div>
         </div>
       )}
-      
-      {/* Form to add new experience */}
-      <div className="experience-form">
-        <div className="form-group">
-          <label htmlFor="company">Company</label>
-          <input 
-            type="text" 
-            id="company" 
-            placeholder="e.g. Google" 
-            value={currentExperience.company}
-            onChange={(e) => handleInputChange("company", e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="position">Position</label>
-          <input 
-            type="text" 
-            id="position" 
-            placeholder="e.g. Senior Software Engineer" 
-            value={currentExperience.position}
-            onChange={(e) => handleInputChange("position", e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="workLocation">Location (Optional)</label>
-          <input 
-            type="text" 
-            id="workLocation" 
-            placeholder="e.g. Mountain View, CA" 
-            value={currentExperience.location}
-            onChange={(e) => handleInputChange("location", e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="workStart">Start Date</label>
-          <input 
-            type="text" 
-            id="workStart" 
-            placeholder="e.g. Jan 2020" 
-            value={currentExperience.startDate}
-            onChange={(e) => handleInputChange("startDate", e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="workEnd">End Date</label>
-          <input 
-            type="text" 
-            id="workEnd" 
-            placeholder="e.g. Dec 2022 or Present" 
-            value={currentExperience.endDate}
-            onChange={(e) => handleInputChange("endDate", e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="responsibilities">Responsibilities & Achievements</label>
-          <textarea 
-            id="responsibilities" 
-            placeholder="• Developed a feature that increased user engagement by 20%&#10;• Led a team of 5 engineers to deliver project ahead of schedule"
-            value={currentExperience.responsibilities}
-            onChange={(e) => handleInputChange("responsibilities", e.target.value)}
-          ></textarea>
-        </div>
-        <button 
-          type="button" 
-          id="addExperience"
-          onClick={addExperience}
-        >
-          Add Experience
-        </button>
-      </div>
-    </div>
+    </>
   )
 }
