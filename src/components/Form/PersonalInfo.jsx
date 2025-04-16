@@ -27,8 +27,10 @@ export default function PersonalInfo() {
 
   return (
     <>
-    <h2>Personal Information</h2>
-    <button onClick={toggleDisplay}>Test</button>
+    <div className="section-header">
+      <h2>Personal Information</h2>
+      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
+    </div>
     {display && <div className="form-section">
       <div className="form-group">
         <label htmlFor="fullName">Full Name</label>

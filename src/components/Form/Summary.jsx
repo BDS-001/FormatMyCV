@@ -26,8 +26,10 @@ export default function Summary() {
 
   return (
     <>
+    <div className="section-header">
       <h2>Professional Summary</h2>
-      <button onClick={toggleDisplay}>{display ? "Hide" : "Show"}</button>
+      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
+    </div>
       
       {display && (
         <div className="form-section">

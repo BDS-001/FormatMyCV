@@ -1,7 +1,7 @@
 /* =================================
    CSS VARIABLES / ROOT
    ================================= */
-:root {
+   :root {
     --primary: #57372c; /* Brown PQ-483C */
     --primary-light: #7b5a4f;
     --primary-dark: #3d251e;
@@ -91,4 +91,49 @@ button {
 
 button:hover {
     background-color: var(--primary-light);
+}
+
+/* =================================
+   SECTION HEADER
+   ================================= */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+}
+
+/* =================================
+   TOGGLE BUTTON
+   ================================= */
+.toggle-button {
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 1px solid var(--primary-light);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    margin-right: 0;
+}
+
+.toggle-button:hover {
+    background-color: var(--primary-light);
+    color: white;
+    transform: scale(1.05);
+}
+
+.toggle-button:active {
+    transform: scale(0.95);
 }

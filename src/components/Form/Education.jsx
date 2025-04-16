@@ -78,8 +78,10 @@ export default function Education() {
 
   return (
     <>
-      <h2>Education</h2>
-      <button onClick={toggleDisplay}>{display ? "Hide" : "Show"}</button>
+      <div className="section-header">
+        <h2>Education</h2>
+        <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
+      </div>
       
       {display && (
         <div className="form-section">
