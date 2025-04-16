@@ -1,8 +1,9 @@
 import useResume from "../../context/resumeContext"
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 
 export default function Summary() {
   const { resumeData, setResumeData } = useResume()
+  const [display, setDisplay] = useState(false)
   const personalInfo = useMemo(() => {
     return resumeData.personalInfo
   }, [resumeData.personalInfo])
@@ -17,18 +18,31 @@ export default function Summary() {
     })
   }
 
+  const toggleDisplay = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setDisplay(prev => !prev)
+    console.log("Toggle clicked, new display value should be:", !display)
+  }
+
   return (
-    <div className="form-section">
+    <>
       <h2>Professional Summary</h2>
-      <div className="form-group">
-        <label htmlFor="summary">Brief summary of your professional background</label>
-        <textarea 
-          id="summary" 
-          placeholder="e.g. Experienced software engineer with 5+ years in web development..." 
-          value={personalInfo.summary || ""}
-          onChange={(e) => handleUpdate(e.target.value)}
-        />
-      </div>
-    </div>
+      <button onClick={toggleDisplay}>{display ? "Hide" : "Show"}</button>
+      
+      {display && (
+        <div className="form-section">
+          <div className="form-group">
+            <label htmlFor="summary">Brief summary of your professional background</label>
+            <textarea 
+              id="summary" 
+              placeholder="e.g. Experienced software engineer with 5+ years in web development..." 
+              value={personalInfo.summary || ""}
+              onChange={(e) => handleUpdate(e.target.value)}
+            />
+          </div>
+        </div>
+      )}
+    </>
   )
 }
