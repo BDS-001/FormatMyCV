@@ -109,13 +109,13 @@
 /* =================================
    RESUME CONTAINER
    ================================= */
-.resume {
+   .resume {
     padding: 0;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 12px;
-    min-height: 1056px; /* Letter size paper height */
     width: 816px; /* Letter size paper width */
+    height: 1056px; /* Letter size paper height */
     margin: 0 auto;
     border: 1px solid #eee;
     position: relative;
@@ -124,15 +124,29 @@
 }
 
 @media (max-width: 900px) {
-    .resume {
-        width: 100%;
-        scale: 0.9;
-        transform-origin: top center;
+    /* Create a container with horizontal scrolling for the resume */
+    .preview-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding-bottom: 20px; /* Add some space at the bottom for scrolling */
     }
     
-    .preview-header {
-        flex-wrap: wrap;
-        gap: 15px;
+    .resume {
+        /* Keep original dimensions - don't let it squish */
+        width: 816px; /* Fixed width - don't change this */
+        height: 1056px; /* Fixed height */
+        min-width: 816px; /* Ensure it doesn't get smaller */
+        transform: none; /* Remove any transformations */
+        margin: 0 auto; /* Center it if container is wider */
+    }
+    
+    /* Fix for responsive UI on very small screens */
+    @media (max-width: 500px) {
+        .preview-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
     }
 }
 
