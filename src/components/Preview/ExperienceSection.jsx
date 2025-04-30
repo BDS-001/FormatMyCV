@@ -18,8 +18,7 @@ export default function ExperienceSection() {
                             <div className="resume-item-title">{exp.company}</div>
                             <div className="resume-item-date">{exp.startDate} - {exp.endDate}</div>
                         </div>
-                        <div className="resume-item-subtitle">{exp.position}</div>
-                        <div className="resume-item-location">{exp.location}</div>
+                        <div className="resume-item-subtitle">{exp.position} | {exp.location}</div>
                         <div className="resume-item-description" 
                              dangerouslySetInnerHTML={{ __html: exp.responsibilities.replace(/\n/g, '<br/>') }}>
                         </div>
