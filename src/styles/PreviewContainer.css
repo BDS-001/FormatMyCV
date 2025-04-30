@@ -115,12 +115,13 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 12px;
     width: 816px; /* Letter size paper width */
-    height: 1056px; /* Letter size paper height */
+    min-height: 1056px; /* Minimum height matches letter size paper height */
+    height: 1056px; /* Fixed letter size paper height for empty/minimal content */
     margin: 0 auto;
     border: 1px solid #eee;
     position: relative;
     display: flex;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible to allow content overflow */
 }
 
 @media (max-width: 900px) {
@@ -134,7 +135,7 @@
     .resume {
         /* Keep original dimensions - don't let it squish */
         width: 816px; /* Fixed width - don't change this */
-        height: 1056px; /* Fixed height */
+        min-height: 1056px; /* Changed from height to min-height */
         min-width: 816px; /* Ensure it doesn't get smaller */
         transform: none; /* Remove any transformations */
         margin: 0 auto; /* Center it if container is wider */
@@ -158,7 +159,8 @@
     background-color: var(--primary);
     color: var(--text-on-primary);
     padding: 30px 20px;
-    height: 1056px;
+    height: 100%; /* Fixed to always be the full height of the parent */
+    min-height: 1056px; /* Always at least letter page height */
 }
 
 .sidebar-photo {
@@ -219,8 +221,8 @@
 }
 
 #sidebarSummary {
-    max-height: 200px;
-    overflow-y: auto;
+    max-height: none; /* Changed from 200px to none to avoid cutting off content */
+    overflow-y: visible; /* Changed from auto to visible */
 }
 
 /* =================================
@@ -251,6 +253,7 @@
 .resume-main {
     flex: 1;
     padding: 30px;
+    height: 100%; /* Fixed to always be the full height of the parent */
 }
 
 .resume-header {
@@ -475,32 +478,44 @@
     
     .resume {
         width: 100% !important;
-        height: 100% !important;
+        min-height: 1056px !important; /* Minimum height matches letter paper */
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
         border: none !important;
-        page-break-inside: avoid !important;
         display: flex !important;
         scale: 1 !important;
         transform: none !important;
+        overflow: visible !important;
+        page-break-inside: auto !important; /* Allow page breaks for multi-page resumes */
     }
     
     .resume-sidebar {
         display: block !important;
         width: 220px !important;
-        height: auto !important;
-        min-height: 100% !important;
+        min-height: 1056px !important; /* Minimum height matches letter paper */
         background-color: var(--primary) !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        position: relative !important;
     }
     
     .resume-main {
         display: block !important;
         flex: 1 !important;
         padding: 30px !important;
+        min-height: 1056px !important; /* Minimum height matches letter paper */
     }
+    
+    /* Handle long content sections properly */
+    .resume-section {
+        page-break-inside: auto !important; /* Allow page breaks within sections if needed */
+    }
+    
+    .resume-item {
+        page-break-inside: avoid !important; /* Try to keep individual items together */
+    }
+}
     
     /* Ensure text is selectable */
     * {
@@ -519,4 +534,3 @@
         size: letter portrait;
         margin: 0;
     }
-}
