@@ -15,10 +15,10 @@ export default function ExperienceSection() {
                 {experience.map((exp, index) => (
                     <div key={index} className="resume-item">
                         <div className="resume-item-header">
-                            <div className="resume-item-title">{exp.company}</div>
+                            <div className="resume-item-title">{exp.position}</div>
                             <div className="resume-item-date">{exp.startDate} - {exp.endDate}</div>
                         </div>
-                        <div className="resume-item-subtitle">{exp.position} | {exp.location}</div>
+                        <div className="resume-item-subtitle">{exp.company} | {exp.location}</div>
                         <div className="resume-item-description" 
                              dangerouslySetInnerHTML={{ __html: exp.responsibilities.replace(/\n/g, '<br/>') }}>
                         </div>
