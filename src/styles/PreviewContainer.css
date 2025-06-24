@@ -515,7 +515,6 @@
     .resume-item {
         page-break-inside: avoid !important; /* Try to keep individual items together */
     }
-}
     
     /* Ensure text is selectable */
     * {
@@ -534,3 +533,4 @@
         size: letter portrait;
         margin: 0;
     }
+}
