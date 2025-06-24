@@ -3,12 +3,13 @@
    ================================= */
    .preview-container {
     flex: 2;
-    padding: 20px;
+    padding: 32px;
     background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     overflow-y: auto;
     max-height: calc(100vh - 40px);
+    border: 1px solid rgba(87, 55, 44, 0.1);
 }
 
 .preview-hidden {
@@ -109,19 +110,18 @@
 /* =================================
    RESUME CONTAINER
    ================================= */
-   .resume {
+.resume {
     padding: 0;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 12px;
     width: 816px; /* Letter size paper width */
-    min-height: 1056px; /* Minimum height matches letter size paper height */
     height: 1056px; /* Fixed letter size paper height for empty/minimal content */
     margin: 0 auto;
     border: 1px solid #eee;
     position: relative;
     display: flex;
-    overflow: visible; /* Changed from hidden to visible to allow content overflow */
+    overflow: visible;
 }
 
 @media (max-width: 900px) {

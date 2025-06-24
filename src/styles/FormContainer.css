@@ -3,12 +3,13 @@
    ================================= */
 .form-container {
     flex: 1;
-    padding: 20px;
+    padding: 32px;
     background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     overflow-y: auto;
     max-height: calc(100vh - 40px);
+    border: 1px solid rgba(87, 55, 44, 0.1);
 }
 
 @media (max-width: 1365px) {
@@ -21,9 +22,14 @@
    FORM SECTIONS AND GROUPS
    ================================= */
 .form-section {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--secondary);
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-light);
+    position: relative;
+}
+
+.form-section:last-child {
+    border-bottom: none;
 }
 
 .form-group {
@@ -49,25 +55,39 @@
 
 .list-item {
     background-color: var(--secondary-light);
-    padding: 12px;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
     position: relative;
+    border: 1px solid var(--secondary);
+    transition: all 0.2s ease;
+}
+
+.list-item:hover {
+    box-shadow: 0 4px 12px rgba(87, 55, 44, 0.1);
+    transform: translateY(-1px);
 }
 
 .remove-btn {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 8px;
+    right: 8px;
     background-color: var(--danger);
     color: white;
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 12px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(198, 40, 40, 0.3);
+}
+
+.remove-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
 }
