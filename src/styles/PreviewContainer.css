@@ -116,12 +116,41 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 12px;
     width: 816px; /* Letter size paper width */
-    height: 1056px; /* Fixed letter size paper height for empty/minimal content */
+    min-height: 1056px;
     margin: 0 auto;
     border: 1px solid #eee;
     position: relative;
     display: flex;
     overflow: visible;
+}
+
+/* Page cutoff indicator - shows only in preview, not in print */
+.resume.show-cutoff-line::after {
+    content: "";
+    position: absolute;
+    top: 1056px; /* Letter size hight */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 50%, #ff6b6b 100%);
+    z-index: 10;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
+}
+
+.page-cutoff-warning {
+    position: absolute;
+    top: 1058px;
+    left: 10px;
+    right: 10px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px dashed #ff6b6b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #d63031;
+    text-align: center;
+    z-index: 10;
+    font-weight: 500;
 }
 
 @media (max-width: 900px) {
@@ -513,7 +542,9 @@
     }
     
     .resume-item {
-        page-break-inside: avoid !important; /* Try to keep individual items together */
+        page-break-inside: auto !important; /* Allow items to break across pages */
+        orphans: 2;
+        widows: 2;
     }
     
     /* Ensure text is selectable */
@@ -526,6 +557,12 @@
     /* Ensure text doesn't get clipped */
     .resume-item-content, .sidebar-section-content, .contact-text {
         overflow: visible !important;
+    }
+    
+    /* Hide page cutoff indicators in print */
+    .resume::after,
+    .page-cutoff-warning {
+        display: none !important;
     }
     
     /* Set paper size */
