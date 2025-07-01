@@ -4,6 +4,7 @@ import { resumeDefault, example } from "../data/defaultJson";
 
 export default function ResumeProvider({children}) {
     const [resumeData, setResumeData] = useState(resumeDefault)
+    const [toast, setToast] = useState({ isVisible: false, message: '', type: 'success' })
 
     const clearData = useCallback(() => {
         setResumeData(resumeDefault)
@@ -11,6 +12,14 @@ export default function ResumeProvider({children}) {
 
     const loadExample = useCallback(() => {
         setResumeData(example)
+    }, []);
+
+    const showToast = useCallback((message, type = 'success') => {
+        setToast({ isVisible: true, message, type });
+    }, []);
+
+    const hideToast = useCallback(() => {
+        setToast(prev => ({ ...prev, isVisible: false }));
     }, []);
 
     const exportResumeJson = useCallback(() => {
@@ -42,11 +51,11 @@ export default function ResumeProvider({children}) {
                 const importedResumeData = JSON.parse(e.target.result);
                 setResumeData({...resumeDefault, ...importedResumeData});
                 
-                alert('Resume data imported successfully!');
+                showToast('Resume data imported successfully!');
                 
             } catch (error) {
                 console.error('Error importing resume data:', error);
-                alert('Error importing resume data. Please check if the file format is correct.');
+                showToast('Error importing resume data. Please check if the file format is correct.', 'error');
             }
             
             // Reset file input
@@ -54,10 +63,10 @@ export default function ResumeProvider({children}) {
         };
         
         reader.readAsText(file);
-    }, []);
+    }, [showToast]);
     
     return (
-        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson, importResumeJson}}>
+        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson, importResumeJson, toast, showToast, hideToast}}>
             {children}
         </resumeContext.Provider>
     )

@@ -2,11 +2,14 @@ import '../styles/App.css'
 import ResumeProvider from '../provider/resumeProvider'
 import FormContainer from './Form/FormContainer'
 import PreviewContainer from './Preview/PreviewContainer'
-import { useEffect, useState } from 'react'
+import Toast from './Toast/Toast'
+import { useEffect, useState, useContext } from 'react'
+import { resumeContext } from '../context/resumeContext'
 
-function App() {
+function AppContent() {
   const [isDesktopView, setIsDesktopView] = useState(window.innerWidth >= 1366)
   const [showPreview, setShowPreview] = useState(false)
+  const { toast, hideToast } = useContext(resumeContext)
 
   const handleResize = () => {
     setIsDesktopView(window.innerWidth >= 1366)
@@ -25,7 +28,14 @@ function App() {
   }, [])
 
   return (
-    <ResumeProvider>
+    <>
+      <Toast 
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={hideToast}
+      />
+      
       {!isDesktopView && (
         <button 
           onClick={togglePreview} 
@@ -44,6 +54,14 @@ function App() {
           onClose={togglePreview} 
         />
       </div>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <ResumeProvider>
+      <AppContent />
     </ResumeProvider>
   )
 }
