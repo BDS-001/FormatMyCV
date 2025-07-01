@@ -5,7 +5,7 @@ import ExperienceSection from '../Preview/ExperienceSection'
 import EducationSection from '../Preview/EducationSection'
 import ProjectsSection from '../Preview/ProjectsSection'
 import AboutMeSection from '../Preview/AboutMeSection'
-import SkillsSection from '../Preview/SkillsSection'
+import ATSSkillsSection from '../Preview/ATSSkillsSection'
 
 function ATSHeader() {
     const { resumeData } = useResume()
@@ -28,12 +28,14 @@ function ATSHeader() {
             <div className="ats-name">{headerData.fullName}</div>
             <div className="ats-title">{headerData.jobTitle}</div>
             <div className="ats-contact-info">
-                {headerData.email && <span>{headerData.email}</span>}
-                {headerData.phone && <span>{headerData.phone}</span>}
-                {headerData.location && <span>{headerData.location}</span>}
-                {headerData.linkedin && <span>{headerData.linkedin}</span>}
-                {headerData.github && <span>{headerData.github}</span>}
-                {headerData.website && <span>{headerData.website}</span>}
+                {[
+                    headerData.email,
+                    headerData.phone,
+                    headerData.location,
+                    headerData.linkedin,
+                    headerData.github,
+                    headerData.website
+                ].filter(Boolean).join('   |   ')}
             </div>
         </div>
     )
@@ -52,7 +54,7 @@ export default function ATSTemplate() {
             <ProjectsSection />
             <div className="ats-section">
                 <div className="ats-section-title">Skills</div>  
-                <SkillsSection />
+                <ATSSkillsSection />
             </div>
         </div>
     )

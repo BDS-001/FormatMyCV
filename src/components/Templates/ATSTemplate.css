@@ -167,11 +167,22 @@
     content: "";
 }
 
-.resume.ats .skills-list {
+.resume.ats .skills-list,
+.resume.ats .skills-list.two-column,
+.resume.ats .ats-skills-list {
     list-style: none;
     padding-left: 0;
     column-count: 3;
     column-gap: 15px;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.resume.ats .ats-skills-section .ats-skills-list {
+    column-count: 3;
+    column-gap: 15px;
+    list-style: none;
+    padding-left: 0;
     font-size: 11px;
     line-height: 1.3;
 }
@@ -193,20 +204,7 @@
     font-size: 10px;
     color: #000;
     line-height: 1.3;
-}
-
-.ats-contact-info span {
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 3px;
-    padding-right: 10px;
-    border-right: 1px solid #666;
-}
-
-.ats-contact-info span:last-child {
-    margin-right: 0;
-    padding-right: 0;
-    border-right: none;
+    white-space: pre-wrap;
 }
 
 .resume.ats .sidebar-section {
