@@ -1,7 +1,7 @@
 /* =================================
    PREVIEW CONTAINER LAYOUT
    ================================= */
-   .preview-container {
+.preview-container {
     flex: 2;
     padding: 32px;
     background-color: white;
@@ -131,27 +131,49 @@
 }
 
 /* =================================
-   RESUME CONTAINER
+   MOBILE PREVIEW BUTTON
    ================================= */
-.resume {
-    padding: 0;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 12px;
-    width: 816px; /* Letter size paper width */
-    min-height: 1056px;
-    margin: 0 auto;
-    border: 1px solid #eee;
-    position: relative;
+.mobile-preview-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     display: flex;
-    overflow: visible;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-preview-button:hover {
+    background-color: var(--primary-light);
+    transform: scale(1.05);
+}
+
+.mobile-preview-button:active {
+    transform: scale(0.95);
+}
+
+/* =================================
+   TEMPLATE WRAPPER
+   ================================= */
+.template-wrapper {
+    position: relative;
 }
 
 /* Page cutoff indicator - shows only in preview, not in print */
-.resume.show-cutoff-line::after {
+.template-wrapper.show-cutoff-line::after {
     content: "";
     position: absolute;
-    top: 1056px; /* Letter size hight */
+    top: 1056px; /* Letter size height */
     left: 0;
     right: 0;
     height: 2px;
@@ -176,6 +198,9 @@
     font-weight: 500;
 }
 
+/* =================================
+   RESPONSIVE STYLES
+   ================================= */
 @media (max-width: 900px) {
     /* Create a container with horizontal scrolling for the resume */
     .preview-container {
@@ -184,7 +209,7 @@
         padding-bottom: 20px; /* Add some space at the bottom for scrolling */
     }
     
-    .resume {
+    .template-wrapper {
         /* Keep original dimensions - don't let it squish */
         width: 816px; /* Fixed width - don't change this */
         min-height: 1056px; /* Changed from height to min-height */
@@ -202,306 +227,6 @@
         }
     }
 }
-
-/* =================================
-   RESUME SIDEBAR
-   ================================= */
-.resume-sidebar {
-    width: 220px;
-    background-color: var(--primary);
-    color: var(--text-on-primary);
-    padding: 30px 20px;
-    height: 100%; /* Fixed to always be the full height of the parent */
-    min-height: 1056px; /* Always at least letter page height */
-}
-
-.sidebar-photo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: var(--primary-light);
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-.sidebar-photo img {
-    width: 100%;
-    height: auto;
-}
-
-.sidebar-photo-placeholder {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 40px;
-    font-weight: 300;
-}
-
-.sidebar-section {
-    margin-bottom: 25px;
-}
-
-.sidebar-section-title {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    position: relative;
-    padding-bottom: 8px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.sidebar-section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background-color: var(--secondary);
-}
-
-.sidebar-section-content {
-    font-size: 11px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-#sidebarSummary {
-    max-height: none; /* Changed from 200px to none to avoid cutting off content */
-    overflow-y: visible; /* Changed from auto to visible */
-}
-
-/* =================================
-   CONTACT INFORMATION
-   ================================= */
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-}
-
-.contact-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    opacity: 0.9;
-    flex-shrink: 0;
-}
-
-.contact-text {
-    font-size: 11px;
-    word-break: break-word;
-}
-
-/* =================================
-   RESUME MAIN CONTENT
-   ================================= */
-.resume-main {
-    flex: 1;
-    padding: 30px;
-    height: 100%; /* Fixed to always be the full height of the parent */
-}
-
-.resume-header {
-    position: relative;
-    text-align: left;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--primary);
-}
-
-.resume-name {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    color: var(--primary);
-    text-transform: uppercase;
-}
-
-.resume-title {
-    color: var(--dark);
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-}
-
-/* =================================
-   RESUME SECTIONS
-   ================================= */
-.resume-section {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.resume-section-title {
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: var(--primary);
-    padding-bottom: 6px;
-    margin-bottom: 12px;
-    position: relative;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--secondary);
-}
-
-.resume-section-title::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background-color: var(--primary);
-}
-
-/* =================================
-   RESUME ITEMS
-   ================================= */
-.resume-item {
-    margin-bottom: 14px;
-    position: relative;
-    padding-left: 16px;
-}
-
-.resume-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--primary);
-}
-
-.resume-item-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    margin-bottom: 3px;
-}
-
-.resume-item-content {
-    margin-top: 3px;
-    color: #444;
-    line-height: 1.4;
-}
-
-/* =================================
-   PROJECT LINKS
-   ================================= */
-.resume-item-link a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 11px;
-    transition: opacity 0.2s;
-}
-
-.resume-item-link a:hover {
-    opacity: 0.8;
-}
-
-/* =================================
-   BULLET POINTS
-   ================================= */
-.bullet-points {
-    padding-left: 5px;
-}
-
-.bullet-points > * {
-    position: relative;
-    padding-left: 10px;
-}
-
-.bullet-points > *::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-}
-
-/* =================================
-   SKILLS SECTION
-   ================================= */
-.resume-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.skill-tag {
-    background-color: rgba(87, 55, 44, 0.1);
-    color: var(--primary);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 11px;
-    border: 1px solid rgba(87, 55, 44, 0.3);
-    font-weight: 500;
-}
-
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.skills-list {
-    list-style: disc;
-    padding-left: 16px;
-    margin-top: 5px;
-}
-
-.skills-list.two-column {
-    column-count: 2;
-    column-gap: 10px;
-}
-
-.skills-list li {
-    margin-bottom: 4px;
-    font-size: 11px;
-}
-
-.skill-category {
-    margin-bottom: 6px;
-}
-
-.skill-bar-container {
-    width: 100%;
-    height: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-bar {
-    height: 100%;
-    background-color: var(--secondary);
-    border-radius: 4px;
-}
-
-.skill-name {
-    font-size: 11px;
-    margin-bottom: 4px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.skill-level {
-    font-size: 10px;
-    opacity: 0.8;
-}
-
 
 /* =================================
    PRINT STYLES
@@ -529,62 +254,21 @@
         position: static !important;
     }
     
-    .resume {
+    .template-wrapper {
         width: 100% !important;
         min-height: 1056px !important; /* Minimum height matches letter paper */
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
         border: none !important;
-        display: flex !important;
         scale: 1 !important;
         transform: none !important;
         overflow: visible !important;
         page-break-inside: auto !important; /* Allow page breaks for multi-page resumes */
     }
     
-    .resume-sidebar {
-        display: block !important;
-        width: 220px !important;
-        min-height: 1056px !important; /* Minimum height matches letter paper */
-        background-color: var(--primary) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        position: relative !important;
-    }
-    
-    .resume-main {
-        display: block !important;
-        flex: 1 !important;
-        padding: 30px !important;
-        min-height: 1056px !important; /* Minimum height matches letter paper */
-    }
-    
-    /* Handle long content sections properly */
-    .resume-section {
-        page-break-inside: auto !important; /* Allow page breaks within sections if needed */
-    }
-    
-    .resume-item {
-        page-break-inside: auto !important; /* Allow items to break across pages */
-        orphans: 2;
-        widows: 2;
-    }
-    
-    /* Ensure text is selectable */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        text-rendering: geometricPrecision !important;
-    }
-    
-    /* Ensure text doesn't get clipped */
-    .resume-item-content, .sidebar-section-content, .contact-text {
-        overflow: visible !important;
-    }
-    
     /* Hide page cutoff indicators in print */
-    .resume::after,
+    .template-wrapper::after,
     .page-cutoff-warning {
         display: none !important;
     }

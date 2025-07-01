@@ -1,0 +1,431 @@
+/* =================================
+   MODERN TEMPLATE STYLES
+   ================================= */
+.modern-template-container {
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    width: 816px; /* Letter size paper width */
+    min-height: 1056px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    position: relative;
+    display: flex;
+    overflow: visible;
+}
+
+/* Page cutoff indicator - shows only in preview, not in print */
+.modern-template-container.show-cutoff-line::after {
+    content: "";
+    position: absolute;
+    top: 1056px; /* Letter size height */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 50%, #ff6b6b 100%);
+    z-index: 10;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
+}
+
+.page-cutoff-warning {
+    position: absolute;
+    top: 1058px;
+    left: 10px;
+    right: 10px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px dashed #ff6b6b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 11px;
+    color: #d63031;
+    text-align: center;
+    z-index: 10;
+    font-weight: 500;
+}
+
+/* =================================
+   RESUME SIDEBAR
+   ================================= */
+.modern-template-container .resume-sidebar {
+    width: 220px;
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    padding: 30px 20px;
+    height: 100%; /* Fixed to always be the full height of the parent */
+    min-height: 1056px; /* Always at least letter page height */
+}
+
+.modern-template-container .sidebar-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.modern-template-container .sidebar-photo img {
+    width: 100%;
+    height: auto;
+}
+
+.modern-template-container .sidebar-photo-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.modern-template-container .sidebar-section {
+    margin-bottom: 25px;
+}
+
+.modern-template-container .sidebar-section-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.modern-template-container .sidebar-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.modern-template-container .sidebar-section-content {
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.modern-template-container #sidebarSummary {
+    max-height: none; /* Changed from 200px to none to avoid cutting off content */
+    overflow-y: visible; /* Changed from auto to visible */
+}
+
+/* =================================
+   CONTACT INFORMATION
+   ================================= */
+.modern-template-container .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.modern-template-container .contact-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+
+.modern-template-container .contact-text {
+    font-size: 11px;
+    word-break: break-word;
+}
+
+/* =================================
+   RESUME MAIN CONTENT
+   ================================= */
+.modern-template-container .resume-main {
+    flex: 1;
+    padding: 30px;
+    height: 100%; /* Fixed to always be the full height of the parent */
+}
+
+.modern-template-container .resume-header {
+    position: relative;
+    text-align: left;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.modern-template-container .resume-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.modern-template-container .resume-title {
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* =================================
+   RESUME SECTIONS
+   ================================= */
+.modern-template-container .resume-section {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.modern-template-container .resume-section-title {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--primary);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    position: relative;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.modern-template-container .resume-section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+/* =================================
+   RESUME ITEMS
+   ================================= */
+.modern-template-container .resume-item {
+    margin-bottom: 14px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.modern-template-container .resume-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.modern-template-container .resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.modern-template-container .resume-item-content {
+    margin-top: 3px;
+    color: #444;
+    line-height: 1.4;
+}
+
+/* =================================
+   PROJECT LINKS
+   ================================= */
+.modern-template-container .resume-item-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    transition: opacity 0.2s;
+}
+
+.modern-template-container .resume-item-link a:hover {
+    opacity: 0.8;
+}
+
+/* =================================
+   BULLET POINTS
+   ================================= */
+.modern-template-container .bullet-points {
+    padding-left: 5px;
+}
+
+.modern-template-container .bullet-points > * {
+    position: relative;
+    padding-left: 10px;
+}
+
+.modern-template-container .bullet-points > *::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* =================================
+   SKILLS SECTION
+   ================================= */
+.modern-template-container .resume-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modern-template-container .skill-tag {
+    background-color: rgba(87, 55, 44, 0.1);
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    border: 1px solid rgba(87, 55, 44, 0.3);
+    font-weight: 500;
+}
+
+.modern-template-container .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modern-template-container .skills-list {
+    list-style: disc;
+    padding-left: 16px;
+    margin-top: 5px;
+}
+
+.modern-template-container .skills-list.two-column {
+    column-count: 2;
+    column-gap: 10px;
+}
+
+.modern-template-container .skills-list li {
+    margin-bottom: 4px;
+    font-size: 11px;
+}
+
+.modern-template-container .skill-category {
+    margin-bottom: 6px;
+}
+
+.modern-template-container .skill-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.modern-template-container .skill-bar {
+    height: 100%;
+    background-color: var(--secondary);
+    border-radius: 4px;
+}
+
+.modern-template-container .skill-name {
+    font-size: 11px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modern-template-container .skill-level {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+/* =================================
+   RESPONSIVE STYLES
+   ================================= */
+@media (max-width: 900px) {
+    .modern-template-container {
+        /* Keep original dimensions - don't let it squish */
+        width: 816px; /* Fixed width - don't change this */
+        min-height: 1056px; /* Changed from height to min-height */
+        min-width: 816px; /* Ensure it doesn't get smaller */
+        transform: none; /* Remove any transformations */
+        margin: 0 auto; /* Center it if container is wider */
+    }
+}
+
+/* =================================
+   PRINT STYLES
+   ================================= */
+@media print {
+    .modern-template-container {
+        width: 100% !important;
+        min-height: 1056px !important; /* Minimum height matches letter paper */
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        display: flex !important;
+        scale: 1 !important;
+        transform: none !important;
+        overflow: visible !important;
+        page-break-inside: auto !important; /* Allow page breaks for multi-page resumes */
+    }
+    
+    .modern-template-container .resume-sidebar {
+        display: block !important;
+        width: 220px !important;
+        min-height: 1056px !important; /* Minimum height matches letter paper */
+        background-color: var(--primary) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        position: relative !important;
+    }
+    
+    .modern-template-container .resume-main {
+        display: block !important;
+        flex: 1 !important;
+        padding: 30px !important;
+        min-height: 1056px !important; /* Minimum height matches letter paper */
+    }
+    
+    /* Handle long content sections properly */
+    .modern-template-container .resume-section {
+        page-break-inside: auto !important; /* Allow page breaks within sections if needed */
+    }
+    
+    .modern-template-container .resume-item {
+        page-break-inside: auto !important; /* Allow items to break across pages */
+        orphans: 2;
+        widows: 2;
+    }
+    
+    /* Ensure text is selectable */
+    .modern-template-container * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        text-rendering: geometricPrecision !important;
+    }
+    
+    /* Ensure text doesn't get clipped */
+    .modern-template-container .resume-item-content, 
+    .modern-template-container .sidebar-section-content, 
+    .modern-template-container .contact-text {
+        overflow: visible !important;
+    }
+    
+    /* Hide page cutoff indicators in print */
+    .modern-template-container::after,
+    .modern-template-container .page-cutoff-warning {
+        display: none !important;
+    }
+    
+    /* Set paper size */
+    @page {
+        size: letter portrait;
+        margin: 0;
+    }
+}

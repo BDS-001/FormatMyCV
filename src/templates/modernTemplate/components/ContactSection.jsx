@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import useResume from '../../context/resumeContext';
+import useResume from '../../../context/resumeContext';
 
 export default function ContactSection() {
     const { resumeData } = useResume();

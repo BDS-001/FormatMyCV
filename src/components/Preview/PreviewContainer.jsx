@@ -1,7 +1,7 @@
 import '../../styles/PreviewContainer.css'
-import ModernTemplate from '../Templates/ModernTemplate'
-import ATSTemplate from '../Templates/ATSTemplate'
-import { useRef, useEffect, useState, useContext } from 'react'
+import ModernTemplate from '../../templates/modernTemplate/ModernTemplate'
+import ATSTemplate from '../../templates/atsTemplate/ATSTemplate'
+import { useRef, useContext } from 'react'
 import { resumeContext } from '../../context/resumeContext'
 
 export default function PreviewContainer({isDesktopView, showPreview, onClose}) {
@@ -16,24 +16,10 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
     };
 
     const previewRef = useRef(null)
-    const [contentHeight, setContentHeight] = useState(0)
     
     const handleTemplateChange = (e) => {
         setCurrentTemplate(e.target.value)
     }
-
-    useEffect(() => {
-        if (!previewRef.current) return
-
-        const resizeObserver = new ResizeObserver(() => {
-            setContentHeight(previewRef.current.scrollHeight)
-        })
-
-        resizeObserver.observe(previewRef.current)
-        setContentHeight(previewRef.current.scrollHeight)
-
-        return () => resizeObserver.disconnect()
-    }, [showPreview])
 
     return (
         <div className={getContainerClass()}>
@@ -68,13 +54,12 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
                 </button>
             )}
             
-            <div className={`resume ${currentTemplate} ${contentHeight > 1056 ? 'show-cutoff-line' : ''}`} id="resumePreview" ref={previewRef}>
-                {currentTemplate === 'modern' && <ModernTemplate />}
-                {currentTemplate === 'ats' && <ATSTemplate />}
-                {contentHeight > 1056 && 
+            <div className="template-wrapper" id="resumePreview" ref={previewRef}>
+                {currentTemplate === 'modern' && <ModernTemplate className="show-cutoff-line" />}
+                {currentTemplate === 'ats' && <ATSTemplate className="show-cutoff-line" />}
                 <div className="page-cutoff-warning">
                     ⚠️ Content below this line may be cut off on the second page when printing
-                </div>}
+                </div>
             </div>
         </div>
     );

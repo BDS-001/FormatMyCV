@@ -1,11 +1,11 @@
 import './ATSTemplate.css'
 import { useMemo } from 'react'
 import useResume from '../../context/resumeContext'
-import ExperienceSection from '../Preview/ExperienceSection'
-import EducationSection from '../Preview/EducationSection'
-import ProjectsSection from '../Preview/ProjectsSection'
-import AboutMeSection from '../Preview/AboutMeSection'
-import ATSSkillsSection from '../Preview/ATSSkillsSection'
+import ExperienceSection from './components/ExperienceSection'
+import EducationSection from './components/EducationSection'
+import ProjectsSection from './components/ProjectsSection'
+import AboutMeSection from './components/AboutMeSection'
+import ATSSkillsSection from './components/ATSSkillsSection'
 
 function ATSHeader() {
     const { resumeData } = useResume()
@@ -41,20 +41,22 @@ function ATSHeader() {
     )
 }
 
-export default function ATSTemplate() {
+export default function ATSTemplate({ className = '' }) {
     return (
-        <div className="ats-main">
-            <ATSHeader />
-            <div className="ats-section">
-                <div className="ats-section-title">Summary</div>
-                <AboutMeSection />
-            </div>
-            <ExperienceSection />
-            <EducationSection />
-            <ProjectsSection />
-            <div className="ats-section">
-                <div className="ats-section-title">Skills</div>  
-                <ATSSkillsSection />
+        <div className={`ats-template-container ${className}`}>
+            <div className="ats-main">
+                <ATSHeader />
+                <div className="ats-section">
+                    <div className="ats-section-title">Summary</div>
+                    <AboutMeSection />
+                </div>
+                <ExperienceSection />
+                <EducationSection />
+                <ProjectsSection />
+                <div className="ats-section">
+                    <div className="ats-section-title">Skills</div>  
+                    <ATSSkillsSection />
+                </div>
             </div>
         </div>
     )
