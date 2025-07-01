@@ -5,6 +5,7 @@ import { resumeDefault, example } from "../data/defaultJson";
 export default function ResumeProvider({children}) {
     const [resumeData, setResumeData] = useState(resumeDefault)
     const [toast, setToast] = useState({ isVisible: false, message: '', type: 'success' })
+    const [currentTemplate, setCurrentTemplate] = useState('modern')
 
     const clearData = useCallback(() => {
         setResumeData(resumeDefault)
@@ -66,7 +67,7 @@ export default function ResumeProvider({children}) {
     }, [showToast]);
     
     return (
-        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson, importResumeJson, toast, showToast, hideToast}}>
+        <resumeContext.Provider value={{resumeData, setResumeData, clearData, loadExample, exportResumeJson, importResumeJson, toast, showToast, hideToast, currentTemplate, setCurrentTemplate}}>
             {children}
         </resumeContext.Provider>
     )

@@ -1,0 +1,16 @@
+/* =================================
+   MODERN TEMPLATE STYLES
+   ================================= */
+.resume.modern {
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    width: 816px; /* Letter size paper width */
+    min-height: 1056px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    position: relative;
+    display: flex;
+    overflow: visible;
+}

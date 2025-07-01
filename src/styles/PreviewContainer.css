@@ -79,6 +79,29 @@
     margin-bottom: 20px;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.template-selector {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.template-selector:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(87, 55, 44, 0.1);
+}
+
 .preview-header h1 {
     margin-bottom: 0;
 }
@@ -478,6 +501,7 @@
     font-size: 10px;
     opacity: 0.8;
 }
+
 
 /* =================================
    PRINT STYLES
