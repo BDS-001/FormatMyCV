@@ -8,6 +8,11 @@ export default function SkillsSection() {
         return resumeData.skills || [];
     }, [resumeData.skills]);
     
+    // Hide the section if there are no skills
+    if (skills.length === 0) {
+        return null;
+    }
+    
     return (
         <div className="sidebar-section">
             <div className="sidebar-section-title">Skills</div>

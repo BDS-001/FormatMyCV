@@ -32,9 +32,9 @@ function ATSHeader() {
                     headerData.email,
                     headerData.phone,
                     headerData.location,
-                    headerData.linkedin,
-                    headerData.github,
-                    headerData.website
+                    headerData.linkedin && `LinkedIn: ${headerData.linkedin}`,
+                    headerData.github && `GitHub: ${headerData.github}`,
+                    headerData.website && `Portfolio: ${headerData.website}`
                 ].filter(Boolean).join('   |   ')}
             </div>
         </div>
@@ -53,10 +53,7 @@ export default function ATSTemplate({ className = '' }) {
                 <ExperienceSection />
                 <EducationSection />
                 <ProjectsSection />
-                <div className="ats-section">
-                    <div className="ats-section-title">Skills</div>  
-                    <ATSSkillsSection />
-                </div>
+                <ATSSkillsSection />
             </div>
         </div>
     )

@@ -8,6 +8,11 @@ export default function EducationSection() {
         return resumeData.education || [];
     }, [resumeData.education]);
     
+    // Hide the section if there is no education
+    if (education.length === 0) {
+        return null;
+    }
+    
     return (
         <div className="resume-section">
             <div className="resume-section-title">EDUCATION</div>

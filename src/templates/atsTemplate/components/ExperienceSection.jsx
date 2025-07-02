@@ -8,6 +8,11 @@ export default function ExperienceSection() {
         return resumeData.experience || [];
     }, [resumeData.experience]);
     
+    // Hide the section if there is no experience
+    if (experience.length === 0) {
+        return null;
+    }
+    
     return (
         <div className="resume-section">
             <div className="resume-section-title">EXPERIENCE</div>

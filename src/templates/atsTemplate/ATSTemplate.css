@@ -54,9 +54,9 @@
 .ats-template-container .ats-section-title {
     font-size: 14px;
     font-weight: bold;
-    color: #000;
+    color: #1a365d;
     text-transform: uppercase;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #1a365d;
     padding-bottom: 2px;
     margin-bottom: 10px;
     letter-spacing: normal;
@@ -70,9 +70,9 @@
 .ats-template-container .resume-section-title {
     font-size: 14px;
     font-weight: bold;
-    color: #000;
+    color: #1a365d;
     text-transform: uppercase;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #1a365d;
     padding-bottom: 2px;
     margin-bottom: 10px;
     letter-spacing: normal;
@@ -241,10 +241,10 @@
 .ats-template-container .sidebar-section-title {
     font-size: 14px !important;
     font-weight: bold !important;
-    color: #000 !important;
+    color: #1a365d !important;
     text-transform: uppercase !important;
     margin-bottom: 8px !important;
-    border-bottom: 1px solid #000 !important;
+    border-bottom: 1px solid #1a365d !important;
     padding-bottom: 2px !important;
 }
 

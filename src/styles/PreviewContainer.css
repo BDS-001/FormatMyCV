@@ -42,31 +42,33 @@
    ================================= */
 .preview-close-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--primary);
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 12px 20px;
+    border-radius: 16px;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(87, 55, 44, 0.3);
     z-index: 1001;
+    cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .preview-close-button:hover {
-    background-color: var(--primary-light);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(87, 55, 44, 0.4);
 }
 
 .preview-close-button:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
 }
 
 /* =================================
@@ -110,14 +112,16 @@
     background-color: var(--primary-dark);
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     transition: background-color 0.3s;
     margin-right: 0;
+    white-space: nowrap;
+    font-weight: 500;
 }
 
 .print-button:hover {
@@ -126,41 +130,10 @@
 
 .print-button::before {
     content: "🖨️";
-    margin-right: 8px;
-    font-size: 16px;
+    margin-right: 6px;
+    font-size: 12px;
 }
 
-/* =================================
-   MOBILE PREVIEW BUTTON
-   ================================= */
-.mobile-preview-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.mobile-preview-button:hover {
-    background-color: var(--primary-light);
-    transform: scale(1.05);
-}
-
-.mobile-preview-button:active {
-    transform: scale(0.95);
-}
 
 /* =================================
    TEMPLATE WRAPPER
