@@ -7,54 +7,62 @@ import ProjectsSection from './components/ProjectsSection'
 import AboutMeSection from './components/AboutMeSection'
 import ATSSkillsSection from './components/ATSSkillsSection'
 
-function ATSHeader() {
+const ATSHeader = () => {
     const { resumeData } = useResume()
     
     const headerData = useMemo(() => {
+        const { personalInfo } = resumeData
         return {
-            fullName: resumeData.personalInfo.fullName,
-            jobTitle: resumeData.personalInfo.jobTitle,
-            email: resumeData.personalInfo.email,
-            phone: resumeData.personalInfo.phone,
-            location: resumeData.personalInfo.location,
-            linkedin: resumeData.personalInfo.linkedin,
-            website: resumeData.personalInfo.website,
-            github: resumeData.personalInfo.github
+            fullName: personalInfo.fullName,
+            jobTitle: personalInfo.jobTitle,
+            email: personalInfo.email,
+            phone: personalInfo.phone,
+            location: personalInfo.location,
+            linkedin: personalInfo.linkedin,
+            website: personalInfo.website,
+            github: personalInfo.github
         }
-    }, [resumeData.personalInfo])
+    }, [resumeData])
+    
+    const contactItems = useMemo(() => {
+        const items = [
+            headerData.email,
+            headerData.phone,
+            headerData.location,
+            headerData.linkedin && `LinkedIn: ${headerData.linkedin}`,
+            headerData.github && `GitHub: ${headerData.github}`,
+            headerData.website && `Portfolio: ${headerData.website}`
+        ]
+        return items.filter(Boolean).join(' | ')
+    }, [headerData])
     
     return (
-        <div className="ats-header">
-            <div className="ats-name">{headerData.fullName}</div>
-            <div className="ats-title">{headerData.jobTitle}</div>
-            <div className="ats-contact-info">
-                {[
-                    headerData.email,
-                    headerData.phone,
-                    headerData.location,
-                    headerData.linkedin && `LinkedIn: ${headerData.linkedin}`,
-                    headerData.github && `GitHub: ${headerData.github}`,
-                    headerData.website && `Portfolio: ${headerData.website}`
-                ].filter(Boolean).join('   |   ')}
+        <header className="ats-header">
+            <div className="ats-name-title">
+                <h1 className="ats-name">{headerData.fullName}</h1>
+                <h2 className="ats-title">{headerData.jobTitle}</h2>
             </div>
-        </div>
+            <div className="ats-contact-info">{contactItems}</div>
+        </header>
     )
 }
 
-export default function ATSTemplate({ className = '' }) {
+const ATSTemplate = ({ className = '' }) => {
     return (
         <div className={`ats-template-container ${className}`}>
-            <div className="ats-main">
+            <main className="ats-main">
                 <ATSHeader />
-                <div className="ats-section">
-                    <div className="ats-section-title">Summary</div>
+                <section className="ats-section">
+                    <h3 className="ats-section-title">Summary</h3>
                     <AboutMeSection />
-                </div>
+                </section>
                 <ExperienceSection />
                 <EducationSection />
                 <ProjectsSection />
                 <ATSSkillsSection />
-            </div>
+            </main>
         </div>
     )
 }
+
+export default ATSTemplate

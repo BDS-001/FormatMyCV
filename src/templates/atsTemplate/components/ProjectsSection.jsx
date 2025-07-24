@@ -1,42 +1,49 @@
-import { useMemo } from 'react';
-import useResume from '../../../context/resumeContext';
+import { useMemo } from 'react'
+import useResume from '../../../context/resumeContext'
 
-export default function ProjectsSection() {
-    const { resumeData } = useResume();
+const ProjectsSection = () => {
+    const { resumeData } = useResume()
     
-    const projects = useMemo(() => {
-        return resumeData.projects || [];
-    }, [resumeData.projects]);
+    const projects = useMemo(() => resumeData.projects || [], [resumeData.projects])
     
-    // Hide the section if there are no projects
-    if (projects.length === 0) {
-        return null;
-    }
+    if (projects.length === 0) return null
+    
+    const formatDescription = (description) => ({
+        __html: description.replace(/\n/g, '<br/>')
+    })
+    
+    const formatProjectLink = (link) => 
+        link.startsWith('http') ? link : `https://${link}`
     
     return (
-        <div className="resume-section" id="projectsSection">
-            <div className="resume-section-title">PROJECTS</div>
-            <div id="previewProjects">
+        <section className="resume-section">
+            <h3 className="resume-section-title">PROJECTS</h3>
+            <div>
                 {projects.map((project, index) => (
-                    <div key={index} className="resume-item">
-                        <div className="resume-item-header">
-                            <div className="resume-item-title">{project.title}</div>
+                    <article key={index} className="resume-item">
+                        <header className="resume-item-header">
+                            <h4 className="resume-item-title">{project.title}</h4>
                             {project.link && (
                                 <div className="resume-item-link">
-                                    <a href={project.link.startsWith('http') ? project.link : `https://${project.link}`} 
-                                       target="_blank" 
-                                       rel="noopener noreferrer">
+                                    <a 
+                                        href={formatProjectLink(project.link)} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                    >
                                         {project.link}
                                     </a>
                                 </div>
                             )}
-                        </div>
-                        <div className="resume-item-description" 
-                             dangerouslySetInnerHTML={{ __html: project.description.replace(/\n/g, '<br/>') }}>
-                        </div>
-                    </div>
+                        </header>
+                        <div 
+                            className="resume-item-description"
+                            dangerouslySetInnerHTML={formatDescription(project.description)}
+                        />
+                    </article>
                 ))}
             </div>
-        </div>
-    );
+        </section>
+    )
 }
+
+export default ProjectsSection

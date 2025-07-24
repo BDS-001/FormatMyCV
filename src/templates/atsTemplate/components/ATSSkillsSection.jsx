@@ -1,28 +1,25 @@
-import { useMemo } from 'react';
-import useResume from '../../../context/resumeContext';
+import { useMemo } from 'react'
+import useResume from '../../../context/resumeContext'
 
-export default function ATSSkillsSection() {
-    const { resumeData } = useResume();
+const ATSSkillsSection = () => {
+    const { resumeData } = useResume()
     
-    const skills = useMemo(() => {
-        return resumeData.skills || [];
-    }, [resumeData.skills]);
+    const skills = useMemo(() => resumeData.skills || [], [resumeData.skills])
     
-    // Hide the section if there are no skills
-    if (skills.length === 0) {
-        return null;
-    }
+    if (skills.length === 0) return null
     
     return (
-        <div className="ats-section">
-            <div className="ats-section-title">Skills</div>
+        <section className="ats-section">
+            <h3 className="ats-section-title">Skills</h3>
             <div className="ats-skills-section">
-                <ul className="skills-list ats-skills-list" id="atsSkills">
+                <ul className="skills-list">
                     {skills.map((skill, index) => (
                         <li key={index}>{skill}</li>
                     ))}
                 </ul>
             </div>
-        </div>
-    );
+        </section>
+    )
 }
+
+export default ATSSkillsSection
