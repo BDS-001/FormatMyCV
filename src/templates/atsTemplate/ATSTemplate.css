@@ -151,17 +151,18 @@
     font-size: 11px;
     color: #000;
     display: inline;
+    position: relative;
+    padding-left: 12px;
+    margin-right: 8px;
 }
 
-.skills-list li::after {
-    content: " • ";
+.skills-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
     color: #666;
-    margin: 0 4px;
 }
 
-.skills-list li:last-child::after {
-    content: "";
-}
 
 /* About Me Section */
 .sidebar-section {

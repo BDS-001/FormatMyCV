@@ -17,7 +17,7 @@ export default function SkillsSection() {
         <div className="sidebar-section">
             <div className="sidebar-section-title">Skills</div>
             <div className="sidebar-section-content">
-                <ul className={`skills-list ${skills.length > 5 ? 'two-column' : ''}`} id="sidebarSkills">
+                <ul className="skills-list">
                     {skills.map((skill, index) => (
                         <li key={index}>{skill}</li>
                     ))}

@@ -205,6 +205,14 @@
 }
 
 /* =================================
+   RESUME SECTION CONTENT
+   ================================= */
+.modern-template-container .resume-section-content {
+    color: var(--dark);
+    line-height: 1.4;
+}
+
+/* =================================
    RESUME ITEMS
    ================================= */
 .modern-template-container .resume-item {
@@ -233,7 +241,7 @@
 
 .modern-template-container .resume-item-content {
     margin-top: 3px;
-    color: #444;
+    color: var(--dark);
     line-height: 1.4;
 }
 
@@ -297,20 +305,28 @@
     gap: 10px;
 }
 
-.modern-template-container .skills-list {
-    list-style: disc;
-    padding-left: 16px;
-    margin-top: 5px;
+.modern-template-container .sidebar-section .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: inherit;
 }
 
-.modern-template-container .skills-list.two-column {
-    column-count: 2;
-    column-gap: 10px;
-}
-
-.modern-template-container .skills-list li {
-    margin-bottom: 4px;
+.modern-template-container .sidebar-section .skills-list li {
     font-size: 11px;
+    position: relative;
+    padding-left: 12px;
+    color: inherit;
+}
+
+.modern-template-container .sidebar-section .skills-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: inherit;
 }
 
 .modern-template-container .skill-category {
