@@ -1,0 +1,61 @@
+.simple-print-page {
+  margin: 0;
+  padding: 20px;
+  background: white;
+}
+
+.print-controls {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.control-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.control-button:hover {
+  background: #0056b3;
+}
+
+.resume-content {
+  margin: 0 auto;
+  max-width: 8.5in;
+}
+
+@media print {
+  .print-controls {
+    display: none !important;
+  }
+  
+  @page {
+    margin: 0;
+  }
+  
+  .page-cutoff-warning {
+    display: none !important;
+  }
+  
+  .simple-print-page {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .resume-content {
+    margin: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

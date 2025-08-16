@@ -1,9 +1,7 @@
 import useResume from "../../context/resumeContext"
 import { useMemo } from "react"
-import { useState } from "react"
 
 export default function PersonalInfo() {
-  const [display, setDisplay] = useState(false)
   const { resumeData, setResumeData } = useResume()
   const personalInfo = useMemo(() => {
     return resumeData.personalInfo
@@ -19,19 +17,9 @@ export default function PersonalInfo() {
     })
   }
 
-  const toggleDisplay = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDisplay(prev => !prev)
-  }
 
   return (
-    <>
-    <div className="section-header">
-      <h2>Personal Information</h2>
-      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
-    </div>
-    {display && <div className="form-section">
+    <div className="form-section">
       <div className="form-group">
         <label htmlFor="fullName">Full Name</label>
         <input 
@@ -112,7 +100,6 @@ export default function PersonalInfo() {
           onChange={(e) => handleUpdate("website", e.target.value)}
         />
       </div>
-    </div>}
-    </>
+    </div>
   )
 }

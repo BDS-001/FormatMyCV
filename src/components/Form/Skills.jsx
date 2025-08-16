@@ -3,7 +3,6 @@ import { useState } from "react"
 
 export default function Skills() {
   const { resumeData, setResumeData } = useResume()
-  const [display, setDisplay] = useState(false)
   const [skillInput, setSkillInput] = useState(resumeData.skills.join(', '))
 
   const updateSkills = () => {
@@ -20,21 +19,9 @@ export default function Skills() {
     })
   }
 
-  const toggleDisplay = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDisplay(prev => !prev)
-  }
 
   return (
-    <>
-    <div className="section-header">
-      <h2>Skills</h2>
-      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
-    </div>
-      
-      {display && (
-        <div className="form-section">
+    <div className="form-section">
           <div className="form-group">
             <label htmlFor="skills">List your skills (separated by commas)</label>
             <input 
@@ -52,8 +39,6 @@ export default function Skills() {
           >
             Update Skills
           </button>
-        </div>
-      )}
-    </>
+    </div>
   )
 }

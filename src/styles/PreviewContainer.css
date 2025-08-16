@@ -1,6 +1,3 @@
-/* =================================
-   PREVIEW CONTAINER LAYOUT
-   ================================= */
 .preview-container {
     flex: 2;
     padding: 32px;
@@ -28,18 +25,6 @@
     overflow-y: auto;
 }
 
-.overflow-warning {
-    color: var(--danger);
-    padding: 10px;
-    background-color: #ffeeee;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    display: none;
-}
-
-/* =================================
-   PREVIEW CLOSE BUTTON
-   ================================= */
 .preview-close-button {
     position: fixed;
     bottom: 24px;
@@ -71,9 +56,6 @@
     transform: translateY(-1px);
 }
 
-/* =================================
-   PREVIEW HEADER AND PRINT BUTTON
-   ================================= */
 .preview-header {
     display: flex;
     justify-content: space-between;
@@ -134,19 +116,14 @@
     font-size: 12px;
 }
 
-
-/* =================================
-   TEMPLATE WRAPPER
-   ================================= */
 .template-wrapper {
     position: relative;
 }
 
-/* Page cutoff indicator - shows only in preview, not in print */
 .template-wrapper.show-cutoff-line::after {
     content: "";
     position: absolute;
-    top: 1056px; /* Letter size height */
+    top: 1056px;
     left: 0;
     right: 0;
     height: 2px;
@@ -171,84 +148,26 @@
     font-weight: 500;
 }
 
-/* =================================
-   RESPONSIVE STYLES
-   ================================= */
 @media (max-width: 900px) {
-    /* Create a container with horizontal scrolling for the resume */
     .preview-container {
-        overflow-x: auto; /* Enable horizontal scrolling */
-        overflow-y: auto; /* Enable vertical scrolling */
-        padding-bottom: 20px; /* Add some space at the bottom for scrolling */
+        overflow-x: auto;
+        overflow-y: auto;
+        padding-bottom: 20px;
     }
     
     .template-wrapper {
-        /* Keep original dimensions - don't let it squish */
-        width: 816px; /* Fixed width - don't change this */
-        min-height: 1056px; /* Changed from height to min-height */
-        min-width: 816px; /* Ensure it doesn't get smaller */
-        transform: none; /* Remove any transformations */
-        margin: 0 auto; /* Center it if container is wider */
+        width: 816px;
+        min-height: 1056px;
+        min-width: 816px;
+        transform: none;
+        margin: 0 auto;
     }
     
-    /* Fix for responsive UI on very small screens */
     @media (max-width: 500px) {
         .preview-header {
             flex-direction: column;
             align-items: flex-start;
             gap: 10px;
         }
-    }
-}
-
-/* =================================
-   PRINT STYLES
-   ================================= */
-@media print {
-    body, html {
-        margin: 0;
-        padding: 0;
-        background-color: white;
-    }
-    
-    .form-container, .preview-container > h1, .overflow-warning, .preview-header, .mobile-preview-button, .preview-close-button {
-        display: none !important;
-    }
-    
-    .container, .preview-container, .preview-fullscreen, .preview-hidden {
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        display: block !important;
-        overflow: visible !important;
-        height: auto !important;
-        max-height: none !important;
-        position: static !important;
-    }
-    
-    .template-wrapper {
-        width: 100% !important;
-        min-height: 1056px !important; /* Minimum height matches letter paper */
-        margin: 0 !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-        border: none !important;
-        scale: 1 !important;
-        transform: none !important;
-        overflow: visible !important;
-        page-break-inside: auto !important; /* Allow page breaks for multi-page resumes */
-    }
-    
-    /* Hide page cutoff indicators in print */
-    .template-wrapper::after,
-    .page-cutoff-warning {
-        display: none !important;
-    }
-    
-    /* Set paper size */
-    @page {
-        size: letter portrait;
-        margin: 0;
     }
 }

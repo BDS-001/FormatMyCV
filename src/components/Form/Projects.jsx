@@ -3,7 +3,6 @@ import { useMemo, useState } from "react"
 
 export default function Projects() {
   const { resumeData, setResumeData } = useResume()
-  const [display, setDisplay] = useState(false)
   const [currentProject, setCurrentProject] = useState({
     title: "",
     description: "",
@@ -61,21 +60,9 @@ export default function Projects() {
     })
   }
 
-  const toggleDisplay = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDisplay(prev => !prev)
-  }
 
   return (
-    <>
-    <div className="section-header">
-      <h2>Projects (Optional)</h2>
-      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
-    </div>
-      
-      {display && (
-        <div className="form-section">
+    <div className="form-section">
           {/* Display existing projects */}
           {projects.length > 0 && (
             <div id="projectsList" className="dynamic-list">
@@ -160,8 +147,6 @@ export default function Projects() {
               Add Project
             </button>
           </div>
-        </div>
-      )}
-    </>
+    </div>
   )
 }

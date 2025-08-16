@@ -3,7 +3,6 @@ import { useMemo, useState } from "react"
 
 export default function Education() {
   const { resumeData, setResumeData } = useResume()
-  const [display, setDisplay] = useState(false)
   const [currentEducation, setCurrentEducation] = useState({
     school: "",
     degree: "",
@@ -70,21 +69,9 @@ export default function Education() {
     })
   }
 
-  const toggleDisplay = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDisplay(prev => !prev)
-  }
 
   return (
-    <>
-      <div className="section-header">
-        <h2>Education</h2>
-        <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
-      </div>
-      
-      {display && (
-        <div className="form-section">
+    <div className="form-section">
           {/* Display existing education entries */}
           {educations.length > 0 && (
             <div id="educationList" className="dynamic-list">
@@ -247,8 +234,6 @@ export default function Education() {
               Add Education
             </button>
           </div>
-        </div>
-      )}
-    </>
+    </div>
   )
 }

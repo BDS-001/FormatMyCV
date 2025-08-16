@@ -19,7 +19,7 @@
 .modern-template-container.show-cutoff-line::after {
     content: "";
     position: absolute;
-    top: 1056px; /* Letter size height */
+    top: 11in;
     left: 0;
     right: 0;
     height: 2px;
@@ -30,7 +30,7 @@
 
 .page-cutoff-warning {
     position: absolute;
-    top: 1058px;
+    top: calc(11in + 2px);
     left: 10px;
     right: 10px;
     background: rgba(255, 107, 107, 0.1);
@@ -373,75 +373,21 @@
     }
 }
 
-/* =================================
-   PRINT STYLES
-   ================================= */
 @media print {
-    .modern-template-container {
-        width: 100% !important;
-        min-height: 1056px !important; /* Minimum height matches letter paper */
-        margin: 0 !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-        border: none !important;
-        display: flex !important;
-        scale: 1 !important;
-        transform: none !important;
-        overflow: visible !important;
-        page-break-inside: auto !important; /* Allow page breaks for multi-page resumes */
+    .modern-template-container.show-cutoff-line::after {
+        display: none;
     }
     
-    .modern-template-container .resume-sidebar {
-        display: block !important;
-        width: 220px !important;
-        min-height: 1056px !important; /* Minimum height matches letter paper */
-        background-color: var(--primary) !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        position: relative !important;
+    .page-cutoff-warning {
+        display: none;
     }
     
-    .modern-template-container .resume-main {
-        display: block !important;
-        flex: 1 !important;
-        padding: 30px !important;
-        min-height: 1056px !important; /* Minimum height matches letter paper */
+    html, body {
+        background: white;
     }
     
-    /* Handle long content sections properly */
-    .modern-template-container .resume-section {
-        page-break-inside: auto !important; /* Allow page breaks within sections if needed */
-    }
-    
-    .modern-template-container .resume-item {
-        page-break-inside: auto !important; /* Allow items to break across pages */
-        orphans: 2;
-        widows: 2;
-    }
-    
-    /* Ensure text is selectable */
-    .modern-template-container * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        text-rendering: geometricPrecision !important;
-    }
-    
-    /* Ensure text doesn't get clipped */
-    .modern-template-container .resume-item-content, 
-    .modern-template-container .sidebar-section-content, 
-    .modern-template-container .contact-text {
-        overflow: visible !important;
-    }
-    
-    /* Hide page cutoff indicators in print */
-    .modern-template-container::after,
-    .modern-template-container .page-cutoff-warning {
-        display: none !important;
-    }
-    
-    /* Set paper size */
-    @page {
-        size: letter portrait;
-        margin: 0;
+    * {
+        background: white;
     }
 }
+

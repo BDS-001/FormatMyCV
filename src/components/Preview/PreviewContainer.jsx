@@ -2,10 +2,13 @@ import '../../styles/PreviewContainer.css'
 import ModernTemplate from '../../templates/modernTemplate/ModernTemplate'
 import ATSTemplate from '../../templates/atsTemplate/ATSTemplate'
 import { useRef, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { resumeContext } from '../../context/resumeContext'
 
 export default function PreviewContainer({isDesktopView, showPreview, onClose}) {
     const { currentTemplate, setCurrentTemplate } = useContext(resumeContext)
+    const navigate = useNavigate()
+    const previewRef = useRef(null)
     
     const getContainerClass = () => {
         if (isDesktopView) {
@@ -14,11 +17,13 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
             return showPreview ? "preview-fullscreen" : "preview-hidden";
         }
     };
-
-    const previewRef = useRef(null)
     
     const handleTemplateChange = (e) => {
         setCurrentTemplate(e.target.value)
+    }
+
+    const handlePrint = () => {
+        navigate(`print?template=${currentTemplate}`)
     }
 
     return (
@@ -38,9 +43,9 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
                         type="button" 
                         id="printResume" 
                         className="print-button"
-                        onClick={() => window.print()} 
+                        onClick={handlePrint} 
                     >
-                        Print / Save PDF
+                        Go to Print
                     </button>
                 </div>
             </div>

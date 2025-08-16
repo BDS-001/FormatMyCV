@@ -3,7 +3,6 @@ import { useMemo, useState } from "react"
 
 export default function WorkExperience() {
   const { resumeData, setResumeData } = useResume()
-  const [display, setDisplay] = useState(false)
   const [currentExperience, setCurrentExperience] = useState({
     company: "",
     position: "",
@@ -68,21 +67,9 @@ export default function WorkExperience() {
     })
   }
 
-  const toggleDisplay = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDisplay(prev => !prev)
-  }
 
   return (
-    <>
-    <div className="section-header">
-      <h2>Work Experience</h2>
-      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
-    </div>
-      
-      {display && (
-        <div className="form-section">
+    <div className="form-section">
           {/* Display existing experiences */}
           {experiences.length > 0 && (
             <div id="experienceList" className="dynamic-list">
@@ -224,8 +211,6 @@ export default function WorkExperience() {
               Add Experience
             </button>
           </div>
-        </div>
-      )}
-    </>
+    </div>
   )
 }

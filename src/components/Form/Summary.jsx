@@ -1,9 +1,8 @@
 import useResume from "../../context/resumeContext"
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
 
 export default function Summary() {
   const { resumeData, setResumeData } = useResume()
-  const [display, setDisplay] = useState(false)
   const personalInfo = useMemo(() => {
     return resumeData.personalInfo
   }, [resumeData.personalInfo])
@@ -18,21 +17,9 @@ export default function Summary() {
     })
   }
 
-  const toggleDisplay = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setDisplay(prev => !prev)
-  }
 
   return (
-    <>
-    <div className="section-header">
-      <h2>Professional Summary</h2>
-      <button className="toggle-button" onClick={toggleDisplay}>{display ? "−" : "+"}</button>
-    </div>
-      
-      {display && (
-        <div className="form-section">
+    <div className="form-section">
           <div className="form-group">
             <label htmlFor="summary">Brief summary of your professional background</label>
             <textarea 
@@ -42,8 +29,6 @@ export default function Summary() {
               onChange={(e) => handleUpdate(e.target.value)}
             />
           </div>
-        </div>
-      )}
-    </>
+    </div>
   )
 }
