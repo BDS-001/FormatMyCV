@@ -1,7 +1,3 @@
-.previewContainer {
-  color:inherit
-}
-
 .previewHeader {
   display: flex;
   justify-content: space-between;
@@ -11,75 +7,18 @@
 
 .headerControls {
   display: flex;
-  align-items: center;
   gap: 12px;
 }
 
 .templateSelector {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid;
   border-radius: 4px;
-  background-color: white;
-  font-size: 14px;
-  cursor: pointer;
-  color: var(--primary-dark);
-  font-weight: 500;
-}
-
-.templateSelector:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(87, 55, 44, 0.1);
-}
-
-.previewHeader h1 {
-  margin-bottom: 0;
 }
 
 .printButton {
-  background-color: var(--primary-dark);
-  color: white;
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
-  font-size: 12px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-right: 0;
-  white-space: nowrap;
-  font-weight: 500;
-}
-
-.printButton::before {
-  content: "🖨️";
-  margin-right: 6px;
-  font-size: 12px;
-}
-
-.templateWrapper {
-  position: relative;
-}
-
-@media (max-width: 900px) {
-  .previewContainer {
-    overflow-x: auto;
-    overflow-y: auto;
-    padding-bottom: 20px;
-  }
-  
-  .templateWrapper {
-    width: 816px;
-    min-height: 1056px;
-    min-width: 816px;
-    margin: 0 auto;
-  }
-  
-  @media (max-width: 500px) {
-    .previewHeader {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-  }
 }

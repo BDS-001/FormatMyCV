@@ -83,66 +83,25 @@ function AppContent() {
       <div className={styles.documentEditor}>
         <div className={styles.controlsHeader}>
           <div className={styles.controlsGroup}>
-            <button type="button" onClick={loadExample} className={styles.controlBtn}>
-              Load Example
-            </button>
-            <button type="button" onClick={handleClearClick} className={styles.controlBtn}>
-              Clear Resume
-            </button>
-            <button type="button" onClick={exportResumeJson} className={styles.controlBtn}>
-              Save JSON
-            </button>
-            <button type="button" onClick={handleImportJson} className={styles.controlBtn}>
-              Load JSON
-            </button>
-            <input 
-              type="file" 
-              accept=".json" 
-              className={styles.hiddenInput} 
-              ref={fileInputRef} 
-              onChange={importResumeJson}
-            />
+            <button onClick={loadExample} className={styles.controlBtn}>Load Example</button>
+            <button onClick={handleClearClick} className={styles.controlBtn}>Clear Resume</button>
+            <button onClick={exportResumeJson} className={styles.controlBtn}>Save JSON</button>
+            <button onClick={handleImportJson} className={styles.controlBtn}>Load JSON</button>
+            <input type="file" accept=".json" className={styles.hiddenInput} ref={fileInputRef} onChange={importResumeJson} />
           </div>
         </div>
 
         <div className={styles.navigationHeader}>
           <div className={styles.navSections}>
-            <button 
-              className={`${styles.navBtn} ${activeSection === 'personal' ? styles.active : ''}`}
-              onClick={() => handleSectionClick('personal')}
-            >
-              Personal Info
-            </button>
-            <button 
-              className={`${styles.navBtn} ${activeSection === 'summary' ? styles.active : ''}`}
-              onClick={() => handleSectionClick('summary')}
-            >
-              Summary
-            </button>
-            <button 
-              className={`${styles.navBtn} ${activeSection === 'education' ? styles.active : ''}`}
-              onClick={() => handleSectionClick('education')}
-            >
-              Education
-            </button>
-            <button 
-              className={`${styles.navBtn} ${activeSection === 'experience' ? styles.active : ''}`}
-              onClick={() => handleSectionClick('experience')}
-            >
-              Experience
-            </button>
-            <button 
-              className={`${styles.navBtn} ${activeSection === 'skills' ? styles.active : ''}`}
-              onClick={() => handleSectionClick('skills')}
-            >
-              Skills
-            </button>
-            <button 
-              className={`${styles.navBtn} ${activeSection === 'projects' ? styles.active : ''}`}
-              onClick={() => handleSectionClick('projects')}
-            >
-              Projects
-            </button>
+            {['personal', 'summary', 'education', 'experience', 'skills', 'projects'].map(section => (
+              <button
+                key={section}
+                className={`${styles.navBtn} ${activeSection === section ? styles.active : ''}`}
+                onClick={() => handleSectionClick(section)}
+              >
+                {section === 'personal' ? 'Personal Info' : section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -152,13 +111,8 @@ function AppContent() {
               {isEditPanelOpen && (
                 <>
                   <div className={styles.editPanelHeader}>
-                    <h2>{activeSection ? activeSection.charAt(0).toUpperCase() + activeSection.slice(1) : ''}</h2>
-                    <button 
-                      className={styles.closePanelBtn}
-                      onClick={() => setIsEditPanelOpen(false)}
-                    >
-                      ×
-                    </button>
+                    <h2>{activeSection?.charAt(0).toUpperCase() + activeSection?.slice(1)}</h2>
+                    <button className={styles.closePanelBtn} onClick={() => setIsEditPanelOpen(false)}>×</button>
                   </div>
                   <div className={styles.editPanelForm}>
                     {renderActiveSection()}

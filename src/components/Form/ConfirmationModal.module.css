@@ -7,7 +7,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,10 +17,9 @@
    MODAL CONTENT
    ================================= */
 .modalContent {
-  background-color: white;
   padding: 25px;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px;
   max-width: 400px;
   width: 90%;
   text-align: center;
@@ -30,7 +28,6 @@
 .modalContent p {
   margin-bottom: 20px;
   font-size: 16px;
-  color: var(--dark);
 }
 
 /* =================================
@@ -43,5 +40,4 @@
 }
 
 .cancelButton {
-  background-color: var(--dark);
 }

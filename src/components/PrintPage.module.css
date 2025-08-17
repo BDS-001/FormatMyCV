@@ -1,6 +1,5 @@
 /* Print Page Wrapper */
 .printPageWrapper {
-  background: white;
   min-height: 100vh;
   padding: 20px;
 }
