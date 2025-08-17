@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import useResume from '../../../context/resumeContext';
+import styles from '../ModernTemplate.module.css';
 
 export default function ExperienceSection() {
     const { resumeData } = useResume();
@@ -14,17 +15,17 @@ export default function ExperienceSection() {
     }
     
     return (
-        <div className="resume-section">
-            <div className="resume-section-title">EXPERIENCE</div>
+        <div className={styles.resumeSection}>
+            <div className={styles.resumeSectionTitle}>EXPERIENCE</div>
             <div id="previewExperience">
                 {experience.map((exp, index) => (
-                    <div key={index} className="resume-item">
-                        <div className="resume-item-header">
-                            <div className="resume-item-title">{exp.position}</div>
-                            <div className="resume-item-date">{exp.startDate} - {exp.endDate}</div>
+                    <div key={index} className={styles.resumeItem}>
+                        <div className={styles.resumeItemHeader}>
+                            <div className={styles.resumeItemTitle}>{exp.position}</div>
+                            <div className={styles.resumeItemDate}>{exp.startDate} - {exp.endDate}</div>
                         </div>
-                        <div className="resume-item-subtitle">{exp.company} | {exp.location}</div>
-                        <div className="resume-item-description" 
+                        <div className={styles.resumeItemSubtitle}>{exp.company} | {exp.location}</div>
+                        <div className={styles.resumeItemDescription} 
                              dangerouslySetInnerHTML={{ __html: exp.responsibilities.replace(/\n/g, '<br/>') }}>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import '../../styles/Toast.css';
+import styles from './Toast.module.css';
 
 const Toast = ({ message, type = 'success', isVisible, onClose }) => {
   useEffect(() => {
@@ -15,9 +15,9 @@ const Toast = ({ message, type = 'success', isVisible, onClose }) => {
   if (!isVisible) return null;
 
   return (
-    <div className={`toast toast-${type}`}>
-      <span className="toast-message">{message}</span>
-      <button className="toast-close" onClick={onClose}>
+    <div className={`${styles.toast} ${type === 'error' ? styles.toastError : ''}`}>
+      <span className={styles.toastMessage}>{message}</span>
+      <button className={styles.toastClose} onClick={onClose}>
         ×
       </button>
     </div>

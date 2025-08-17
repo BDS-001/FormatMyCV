@@ -1,18 +1,18 @@
 /* Print Page Wrapper */
-.print-page-wrapper {
+.printPageWrapper {
   background: white;
   min-height: 100vh;
   padding: 20px;
 }
 
 /* Print Controls */
-.print-controls {
+.printControls {
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
 }
 
-.control-button {
+.controlButton {
   background: #333;
   color: white;
   border: none;
@@ -22,7 +22,7 @@
 }
 
 /* Template Container */
-.template-container {
+.templateContainer {
   display: flex;
   justify-content: center;
 }
@@ -35,17 +35,17 @@
   }
   
   /* Hide everything except the template */
-  .no-print {
+  .noPrint {
     display: none !important;
   }
   
-  .print-page-wrapper {
+  .printPageWrapper {
     padding: 0 !important;
     margin: 0 !important;
     min-height: auto !important;
   }
   
-  .template-container {
+  .templateContainer {
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -57,8 +57,8 @@
   }
   
   /* Hide cutoff indicators in print */
-  .show-cutoff-line::after,
-  .page-cutoff-warning {
+  .showCutoffLine::after,
+  .pageCutoffWarning {
     display: none !important;
   }
 }

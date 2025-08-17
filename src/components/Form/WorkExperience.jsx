@@ -1,5 +1,6 @@
 import useResume from "../../context/resumeContext"
 import { useMemo, useState } from "react"
+import styles from './WorkExperience.module.css'
 
 export default function WorkExperience() {
   const { resumeData, setResumeData } = useResume()
@@ -69,15 +70,15 @@ export default function WorkExperience() {
 
 
   return (
-    <div className="form-section">
+    <div className={styles.formSection}>
           {/* Display existing experiences */}
           {experiences.length > 0 && (
-            <div id="experienceList" className="dynamic-list">
+            <div id="experienceList" className={styles.dynamicList}>
               {experiences.map((exp, index) => (
-                <div key={index} className="list-item">
+                <div key={index} className={styles.listItem}>
                   <h3>{exp.position} at {exp.company}</h3>
                   <p>{exp.startDate} - {exp.endDate} | {exp.location}</p>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`company-${index}`}>Company</label>
                     <input 
                       type="text" 
@@ -86,7 +87,7 @@ export default function WorkExperience() {
                       onChange={(e) => updateExperience(index, "company", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`position-${index}`}>Position</label>
                     <input 
                       type="text" 
@@ -95,7 +96,7 @@ export default function WorkExperience() {
                       onChange={(e) => updateExperience(index, "position", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`workLocation-${index}`}>Location (Optional)</label>
                     <input 
                       type="text" 
@@ -104,7 +105,7 @@ export default function WorkExperience() {
                       onChange={(e) => updateExperience(index, "location", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`workStart-${index}`}>Start Date</label>
                     <input 
                       type="text" 
@@ -113,7 +114,7 @@ export default function WorkExperience() {
                       onChange={(e) => updateExperience(index, "startDate", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`workEnd-${index}`}>End Date</label>
                     <input 
                       type="text" 
@@ -122,7 +123,7 @@ export default function WorkExperience() {
                       onChange={(e) => updateExperience(index, "endDate", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`responsibilities-${index}`}>Responsibilities & Achievements</label>
                     <textarea 
                       id={`responsibilities-${index}`} 
@@ -132,7 +133,7 @@ export default function WorkExperience() {
                   </div>
                   <button 
                     type="button" 
-                    className="remove-button" 
+                    className={styles.removeButton} 
                     onClick={() => removeExperience(index)}
                   >
                     Remove
@@ -143,7 +144,7 @@ export default function WorkExperience() {
           )}
           
           {/* Form to add new experience */}
-          <div className="experience-form">
+          <div className={styles.experienceForm}>
             <div className="form-group">
               <label htmlFor="company">Company</label>
               <input 

@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import useResume from '../../../context/resumeContext'
+import styles from '../ATSTemplate.module.css'
 
 const ExperienceSection = () => {
     const { resumeData } = useResume()
@@ -13,18 +14,18 @@ const ExperienceSection = () => {
     })
     
     return (
-        <section className="resume-section">
-            <h3 className="resume-section-title">EXPERIENCE</h3>
+        <section className={styles.resumeSection}>
+            <h3 className={styles.resumeSectionTitle}>EXPERIENCE</h3>
             <div>
                 {experience.map((exp, index) => (
-                    <article key={index} className="resume-item">
-                        <header className="resume-item-header">
-                            <h4 className="resume-item-title">{exp.position}</h4>
-                            <time className="resume-item-date">{exp.startDate} - {exp.endDate}</time>
+                    <article key={index} className={styles.resumeItem}>
+                        <header className={styles.resumeItemHeader}>
+                            <h4 className={styles.resumeItemTitle}>{exp.position}</h4>
+                            <time className={styles.resumeItemDate}>{exp.startDate} - {exp.endDate}</time>
                         </header>
-                        <div className="resume-item-subtitle">{exp.company} | {exp.location}</div>
+                        <div className={styles.resumeItemSubtitle}>{exp.company} | {exp.location}</div>
                         <div 
-                            className="resume-item-description"
+                            className={styles.resumeItemDescription}
                             dangerouslySetInnerHTML={formatResponsibilities(exp.responsibilities)}
                         />
                     </article>

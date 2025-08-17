@@ -1,0 +1,54 @@
+/* Form section styles */
+.formSection {
+  padding: 20px;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.dynamicList {
+  margin-bottom: 20px;
+}
+
+.listItem {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f8f9fa;
+}
+
+.listItem h3 {
+  margin: 0 0 8px 0;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.listItem p {
+  margin: 0 0 16px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.removeButton {
+  background-color: var(--danger);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.removeButton:hover {
+  background-color: #b71c1c;
+}
+
+.experienceForm {
+  border: 1px solid var(--secondary-dark);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+}

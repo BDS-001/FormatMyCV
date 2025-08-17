@@ -1,4 +1,4 @@
-import '../styles/App.css'
+import styles from './App.module.css'
 import ResumeProvider from '../provider/resumeProvider'
 import PreviewContainer from './Preview/PreviewContainer'
 import Toast from './Toast/Toast'
@@ -96,72 +96,72 @@ function AppContent() {
       {!isDesktopView && (
         <button 
           onClick={togglePreview} 
-          className="mobile-preview-button"
+          className={styles.mobilePreviewButton}
           aria-label="Toggle Resume Preview"
         >
           View Resume
         </button>
       )}
       
-      <div className="document-editor">
-        <div className="controls-header">
-          <div className="controls-group">
-            <button type="button" onClick={loadExample} className="control-btn">
+      <div className={styles.documentEditor}>
+        <div className={styles.controlsHeader}>
+          <div className={styles.controlsGroup}>
+            <button type="button" onClick={loadExample} className={styles.controlBtn}>
               Load Example
             </button>
-            <button type="button" onClick={handleClearClick} className="control-btn">
+            <button type="button" onClick={handleClearClick} className={styles.controlBtn}>
               Clear Resume
             </button>
-            <button type="button" onClick={exportResumeJson} className="control-btn">
+            <button type="button" onClick={exportResumeJson} className={styles.controlBtn}>
               Save JSON
             </button>
-            <button type="button" onClick={handleImportJson} className="control-btn">
+            <button type="button" onClick={handleImportJson} className={styles.controlBtn}>
               Load JSON
             </button>
             <input 
               type="file" 
               accept=".json" 
-              style={{display: 'none'}} 
+              className={styles.hiddenInput} 
               ref={fileInputRef} 
               onChange={importResumeJson}
             />
           </div>
         </div>
 
-        <div className="navigation-header">
-          <div className="nav-sections">
+        <div className={styles.navigationHeader}>
+          <div className={styles.navSections}>
             <button 
-              className={`nav-btn ${activeSection === 'personal' ? 'active' : ''}`}
+              className={`${styles.navBtn} ${activeSection === 'personal' ? styles.active : ''}`}
               onClick={() => handleSectionClick('personal')}
             >
               Personal Info
             </button>
             <button 
-              className={`nav-btn ${activeSection === 'summary' ? 'active' : ''}`}
+              className={`${styles.navBtn} ${activeSection === 'summary' ? styles.active : ''}`}
               onClick={() => handleSectionClick('summary')}
             >
               Summary
             </button>
             <button 
-              className={`nav-btn ${activeSection === 'education' ? 'active' : ''}`}
+              className={`${styles.navBtn} ${activeSection === 'education' ? styles.active : ''}`}
               onClick={() => handleSectionClick('education')}
             >
               Education
             </button>
             <button 
-              className={`nav-btn ${activeSection === 'experience' ? 'active' : ''}`}
+              className={`${styles.navBtn} ${activeSection === 'experience' ? styles.active : ''}`}
               onClick={() => handleSectionClick('experience')}
             >
               Experience
             </button>
             <button 
-              className={`nav-btn ${activeSection === 'skills' ? 'active' : ''}`}
+              className={`${styles.navBtn} ${activeSection === 'skills' ? styles.active : ''}`}
               onClick={() => handleSectionClick('skills')}
             >
               Skills
             </button>
             <button 
-              className={`nav-btn ${activeSection === 'projects' ? 'active' : ''}`}
+              className={`${styles.navBtn} ${activeSection === 'projects' ? styles.active : ''}`}
               onClick={() => handleSectionClick('projects')}
             >
               Projects
@@ -169,21 +169,21 @@ function AppContent() {
           </div>
         </div>
 
-        <div className="main-content">
-          <div className={`edit-panel ${isEditPanelOpen ? 'open' : ''}`}>
-            <div className="edit-panel-content">
+        <div className={styles.mainContent}>
+          <div className={`${styles.editPanel} ${isEditPanelOpen ? styles.open : ''}`}>
+            <div className={styles.editPanelContent}>
               {isEditPanelOpen && (
                 <>
-                  <div className="edit-panel-header">
+                  <div className={styles.editPanelHeader}>
                     <h2>{activeSection ? activeSection.charAt(0).toUpperCase() + activeSection.slice(1) : ''}</h2>
                     <button 
-                      className="close-panel-btn"
+                      className={styles.closePanelBtn}
                       onClick={() => setIsEditPanelOpen(false)}
                     >
                       ×
                     </button>
                   </div>
-                  <div className="edit-panel-form">
+                  <div className={styles.editPanelForm}>
                     {renderActiveSection()}
                   </div>
                 </>
@@ -191,7 +191,7 @@ function AppContent() {
             </div>
           </div>
 
-          <div className="preview-area">
+          <div className={styles.previewArea}>
             <PreviewContainer 
               isDesktopView={isDesktopView} 
               showPreview={showPreview} 

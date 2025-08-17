@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import useResume from '../../../context/resumeContext'
+import styles from '../ATSTemplate.module.css'
 
 const AboutMeSection = () => {
     const { resumeData } = useResume()
@@ -12,8 +13,8 @@ const AboutMeSection = () => {
     if (!summary) return null
     
     return (
-        <div className="sidebar-section">
-            <div className="sidebar-section-content">
+        <div className={styles.sidebarSection}>
+            <div className={styles.sidebarSectionContent}>
                 {summary}
             </div>
         </div>

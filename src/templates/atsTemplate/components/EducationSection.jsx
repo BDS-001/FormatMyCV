@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import useResume from '../../../context/resumeContext'
+import styles from '../ATSTemplate.module.css'
 
 const EducationSection = () => {
     const { resumeData } = useResume()
@@ -9,19 +10,19 @@ const EducationSection = () => {
     if (education.length === 0) return null
     
     return (
-        <section className="resume-section">
-            <h3 className="resume-section-title">EDUCATION</h3>
+        <section className={styles.resumeSection}>
+            <h3 className={styles.resumeSectionTitle}>EDUCATION</h3>
             <div>
                 {education.map((edu, index) => (
-                    <article key={index} className="resume-item">
-                        <header className="resume-item-header">
-                            <h4 className="resume-item-title">{edu.school}</h4>
-                            <time className="resume-item-date">{edu.startDate} - {edu.endDate}</time>
+                    <article key={index} className={styles.resumeItem}>
+                        <header className={styles.resumeItemHeader}>
+                            <h4 className={styles.resumeItemTitle}>{edu.school}</h4>
+                            <time className={styles.resumeItemDate}>{edu.startDate} - {edu.endDate}</time>
                         </header>
-                        <div className="resume-item-subtitle">{edu.degree}</div>
-                        <div className="resume-item-location">{edu.location}</div>
-                        {edu.gpa && <div className="resume-item-detail">GPA: {edu.gpa}</div>}
-                        {edu.courses && <div className="resume-item-detail">Courses: {edu.courses}</div>}
+                        <div className={styles.resumeItemSubtitle}>{edu.degree}</div>
+                        <div className={styles.resumeItemLocation}>{edu.location}</div>
+                        {edu.gpa && <div className={styles.resumeItemDetail}>GPA: {edu.gpa}</div>}
+                        {edu.courses && <div className={styles.resumeItemDetail}>Courses: {edu.courses}</div>}
                     </article>
                 ))}
             </div>

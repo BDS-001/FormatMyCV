@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import useResume from '../../../context/resumeContext';
+import styles from '../ModernTemplate.module.css';
 
 export default function SkillsSection() {
     const { resumeData } = useResume();
@@ -14,10 +15,10 @@ export default function SkillsSection() {
     }
     
     return (
-        <div className="sidebar-section">
-            <div className="sidebar-section-title">Skills</div>
-            <div className="sidebar-section-content">
-                <ul className="skills-list">
+        <div className={styles.sidebarSection}>
+            <div className={styles.sidebarSectionTitle}>Skills</div>
+            <div className={styles.sidebarSectionContent}>
+                <ul className={styles.skillsList}>
                     {skills.map((skill, index) => (
                         <li key={index}>{skill}</li>
                     ))}

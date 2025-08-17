@@ -1,0 +1,294 @@
+/* =================================
+   DOCUMENT EDITOR LAYOUT
+   ================================= */
+.documentEditor {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+/* =================================
+   CONTROLS HEADER
+   ================================= */
+.controlsHeader {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.controlsGroup {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.controlBtn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =================================
+   NAVIGATION HEADER
+   ================================= */
+.navigationHeader {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.navSections {
+  display: flex;
+  gap: 4px;
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #6c757d;
+  cursor: pointer;
+  position: relative;
+}
+
+.navBtn.active {
+  background: var(--primary);
+  color: white;
+  font-weight: 500;
+}
+
+.navBtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* =================================
+   MAIN CONTENT AREA
+   ================================= */
+.mainContent {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  background-color: #f5f5f5;
+}
+
+/* =================================
+   COLLAPSIBLE EDIT PANEL
+   ================================= */
+.editPanel {
+  width: 0;
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  overflow: hidden;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.editPanel.open {
+  width: 400px;
+}
+
+.editPanelContent {
+  width: 400px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.editPanelHeader {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.closePanelBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editPanelHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  text-transform: capitalize;
+}
+
+.editPanelForm {
+  padding: 20px;
+}
+
+/* =================================
+   PREVIEW AREA
+   ================================= */
+.previewArea {
+  flex: 1;
+  padding: 20px;
+  min-width: 0;
+}
+
+.previewArea .previewContainer {
+  height: 100%;
+  max-height: calc(100vh - 140px);
+  margin: 0;
+}
+
+/* =================================
+   LEGACY CONTAINER (HIDDEN)
+   ================================= */
+.container {
+  display: none;
+}
+
+@media print {
+  .container {
+    display: none !important;
+  }
+}
+
+/* =================================
+   TOGGLE PREVIEW BUTTON FOR MOBILE
+   ================================= */
+.mobilePreviewButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(87, 55, 44, 0.3);
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+/* =================================
+   RESPONSIVE LAYOUT
+   ================================= */
+@media (max-width: 1365px) {
+  .controlsHeader {
+    padding: 8px 16px;
+  }
+  
+  .controlsGroup {
+    gap: 8px;
+  }
+  
+  .controlBtn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .navigationHeader {
+    padding: 0 16px;
+    min-height: 44px;
+  }
+  
+  .navBtn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .editPanel.open {
+    width: 100%;
+    position: absolute;
+    height: calc(100vh - 140px);
+    z-index: 20;
+  }
+  
+  .editPanelContent {
+    width: 100%;
+  }
+  
+  .previewArea {
+    padding: 16px;
+  }
+  
+  .previewArea .previewContainer {
+    max-height: calc(100vh - 160px);
+  }
+  
+  .mainContent {
+    position: relative;
+  }
+}
+
+@media (max-width: 768px) {
+  .controlsGroup {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .controlBtn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .navSections {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  
+  .navBtn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .editPanelHeader h2 {
+    font-size: 16px;
+  }
+  
+  .editPanelForm {
+    padding: 16px;
+  }
+}
+
+.hiddenInput {
+  display: none;
+}

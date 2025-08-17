@@ -1,4 +1,4 @@
-import '../../styles/PreviewContainer.css'
+import styles from './PreviewContainer.module.css'
 import ModernTemplate from '../../templates/modernTemplate/ModernTemplate'
 import ATSTemplate from '../../templates/atsTemplate/ATSTemplate'
 import { useRef, useContext } from 'react'
@@ -12,9 +12,9 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
     
     const getContainerClass = () => {
         if (isDesktopView) {
-            return "preview-container";
+            return styles.previewContainer;
         } else {
-            return showPreview ? "preview-fullscreen" : "preview-hidden";
+            return showPreview ? styles.previewFullscreen : styles.previewHidden;
         }
     };
     
@@ -28,13 +28,13 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
 
     return (
         <div className={getContainerClass()}>
-            <div className="preview-header">
+            <div className={styles.previewHeader}>
                 <h1>Resume Preview</h1>
-                <div className="header-controls">
+                <div className={styles.headerControls}>
                     <select 
                         value={currentTemplate} 
                         onChange={handleTemplateChange}
-                        className="template-selector"
+                        className={styles.templateSelector}
                     >
                         <option value="modern">Modern</option>
                         <option value="ats">ATS Optimized</option>
@@ -42,7 +42,7 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
                     <button 
                         type="button" 
                         id="printResume" 
-                        className="print-button"
+                        className={styles.printButton}
                         onClick={handlePrint} 
                     >
                         Go to Print
@@ -52,19 +52,16 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
             
             {!isDesktopView && showPreview && (
                 <button 
-                    className="preview-close-button"
+                    className={styles.previewCloseButton}
                     onClick={onClose}
                 >
                     Back to Editor
                 </button>
             )}
             
-            <div className="template-wrapper" id="resumePreview" ref={previewRef}>
-                {currentTemplate === 'modern' && <ModernTemplate className="show-cutoff-line" />}
-                {currentTemplate === 'ats' && <ATSTemplate className="show-cutoff-line" />}
-                <div className="page-cutoff-warning">
-                    ⚠️ Content below this line may be cut off on the second page when printing
-                </div>
+            <div className={styles.templateWrapper} id="resumePreview" ref={previewRef}>
+                {currentTemplate === 'modern' && <ModernTemplate />}
+                {currentTemplate === 'ats' && <ATSTemplate />}
             </div>
         </div>
     );

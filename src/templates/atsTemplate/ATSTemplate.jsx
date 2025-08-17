@@ -1,4 +1,4 @@
-import './ATSTemplate.css'
+import styles from './ATSTemplate.module.css'
 import { useMemo } from 'react'
 import useResume from '../../context/resumeContext'
 import ExperienceSection from './components/ExperienceSection'
@@ -37,23 +37,23 @@ const ATSHeader = () => {
     }, [headerData])
     
     return (
-        <header className="ats-header">
-            <div className="ats-name-title">
-                <h1 className="ats-name">{headerData.fullName}</h1>
-                <h2 className="ats-title">{headerData.jobTitle}</h2>
+        <header className={styles.atsHeader}>
+            <div className={styles.atsNameTitle}>
+                <h1 className={styles.atsName}>{headerData.fullName}</h1>
+                <h2 className={styles.atsTitle}>{headerData.jobTitle}</h2>
             </div>
-            <div className="ats-contact-info">{contactItems}</div>
+            <div className={styles.atsContactInfo}>{contactItems}</div>
         </header>
     )
 }
 
-const ATSTemplate = ({ className = '' }) => {
+const ATSTemplate = () => {
     return (
-        <div className={`ats-template-container ${className}`}>
-            <main className="ats-main">
+        <div className={styles.atsTemplateContainer}>
+            <main className={styles.atsMain}>
                 <ATSHeader />
-                <section className="ats-section">
-                    <h3 className="ats-section-title">Summary</h3>
+                <section className={styles.atsSection}>
+                    <h3 className={styles.atsSectionTitle}>Summary</h3>
                     <AboutMeSection />
                 </section>
                 <ExperienceSection />

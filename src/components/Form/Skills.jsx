@@ -1,5 +1,6 @@
 import useResume from "../../context/resumeContext"
 import { useState } from "react"
+import styles from './Skills.module.css'
 
 export default function Skills() {
   const { resumeData, setResumeData } = useResume()
@@ -21,8 +22,8 @@ export default function Skills() {
 
 
   return (
-    <div className="form-section">
-          <div className="form-group">
+    <div className={styles.formSection}>
+          <div className={styles.formGroup}>
             <label htmlFor="skills">List your skills (separated by commas)</label>
             <input 
               type="text" 

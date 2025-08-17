@@ -1,5 +1,6 @@
 import useResume from "../../context/resumeContext"
 import { useMemo, useState } from "react"
+import styles from './Education.module.css'
 
 export default function Education() {
   const { resumeData, setResumeData } = useResume()
@@ -71,15 +72,15 @@ export default function Education() {
 
 
   return (
-    <div className="form-section">
+    <div className={styles.formSection}>
           {/* Display existing education entries */}
           {educations.length > 0 && (
-            <div id="educationList" className="dynamic-list">
+            <div id="educationList" className={styles.dynamicList}>
               {educations.map((edu, index) => (
-                <div key={index} className="list-item">
+                <div key={index} className={styles.listItem}>
                   <h3>{edu.degree} at {edu.school}</h3>
                   <p>{edu.startDate} - {edu.endDate} | {edu.location}</p>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`school-${index}`}>School / University</label>
                     <input 
                       type="text" 
@@ -88,7 +89,7 @@ export default function Education() {
                       onChange={(e) => updateEducation(index, "school", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`degree-${index}`}>Degree</label>
                     <input 
                       type="text" 
@@ -97,7 +98,7 @@ export default function Education() {
                       onChange={(e) => updateEducation(index, "degree", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`eduLocation-${index}`}>Location (Optional)</label>
                     <input 
                       type="text" 
@@ -106,7 +107,7 @@ export default function Education() {
                       onChange={(e) => updateEducation(index, "location", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`eduStart-${index}`}>Start Date</label>
                     <input 
                       type="text" 
@@ -115,7 +116,7 @@ export default function Education() {
                       onChange={(e) => updateEducation(index, "startDate", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`eduEnd-${index}`}>End Date</label>
                     <input 
                       type="text" 
@@ -124,7 +125,7 @@ export default function Education() {
                       onChange={(e) => updateEducation(index, "endDate", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`gpa-${index}`}>GPA (Optional)</label>
                     <input 
                       type="text" 
@@ -133,7 +134,7 @@ export default function Education() {
                       onChange={(e) => updateEducation(index, "gpa", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`courses-${index}`}>Relevant Courses (Optional)</label>
                     <input 
                       type="text" 
@@ -144,7 +145,7 @@ export default function Education() {
                   </div>
                   <button 
                     type="button" 
-                    className="remove-button" 
+                    className={styles.removeButton} 
                     onClick={() => removeEducation(index)}
                   >
                     Remove
@@ -155,7 +156,7 @@ export default function Education() {
           )}
           
           {/* Form to add new education entry */}
-          <div className="education-form">
+          <div className={styles.educationForm}>
             <div className="form-group">
               <label htmlFor="school">School / University</label>
               <input 

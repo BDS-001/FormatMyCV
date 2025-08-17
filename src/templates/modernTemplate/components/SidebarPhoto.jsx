@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import useResume from '../../../context/resumeContext';
+import styles from '../ModernTemplate.module.css';
 
 export default function SidebarPhoto() {
     const { resumeData } = useResume();
@@ -14,8 +15,8 @@ export default function SidebarPhoto() {
     }, [resumeData.personalInfo.fullName]);
     
     return (
-        <div className="sidebar-photo">
-            <div className="sidebar-photo-placeholder">{initials}</div>
+        <div className={styles.sidebarPhoto}>
+            <div className={styles.sidebarPhotoPlaceholder}>{initials}</div>
         </div>
     );
 }

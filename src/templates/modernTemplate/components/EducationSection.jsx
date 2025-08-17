@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import useResume from '../../../context/resumeContext';
+import styles from '../ModernTemplate.module.css';
 
 export default function EducationSection() {
     const { resumeData } = useResume();
@@ -14,19 +15,19 @@ export default function EducationSection() {
     }
     
     return (
-        <div className="resume-section">
-            <div className="resume-section-title">EDUCATION</div>
+        <div className={styles.resumeSection}>
+            <div className={styles.resumeSectionTitle}>EDUCATION</div>
             <div id="previewEducation">
                 {education.map((edu, index) => (
-                    <div key={index} className="resume-item">
-                        <div className="resume-item-header">
-                            <div className="resume-item-title">{edu.school}</div>
-                            <div className="resume-item-date">{edu.startDate} - {edu.endDate}</div>
+                    <div key={index} className={styles.resumeItem}>
+                        <div className={styles.resumeItemHeader}>
+                            <div className={styles.resumeItemTitle}>{edu.school}</div>
+                            <div className={styles.resumeItemDate}>{edu.startDate} - {edu.endDate}</div>
                         </div>
-                        <div className="resume-item-subtitle">{edu.degree}</div>
-                        <div className="resume-item-location">{edu.location}</div>
-                        {edu.gpa && <div className="resume-item-detail">GPA: {edu.gpa}</div>}
-                        {edu.courses && <div className="resume-item-detail">Courses: {edu.courses}</div>}
+                        <div className={styles.resumeItemSubtitle}>{edu.degree}</div>
+                        <div className={styles.resumeItemLocation}>{edu.location}</div>
+                        {edu.gpa && <div className={styles.resumeItemDetail}>GPA: {edu.gpa}</div>}
+                        {edu.courses && <div className={styles.resumeItemDetail}>Courses: {edu.courses}</div>}
                     </div>
                 ))}
             </div>

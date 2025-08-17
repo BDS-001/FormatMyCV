@@ -1,5 +1,6 @@
 import useResume from "../../context/resumeContext"
 import { useMemo, useState } from "react"
+import styles from './Projects.module.css'
 
 export default function Projects() {
   const { resumeData, setResumeData } = useResume()
@@ -62,15 +63,15 @@ export default function Projects() {
 
 
   return (
-    <div className="form-section">
+    <div className={styles.formSection}>
           {/* Display existing projects */}
           {projects.length > 0 && (
-            <div id="projectsList" className="dynamic-list">
+            <div id="projectsList" className={styles.dynamicList}>
               {projects.map((project, index) => (
-                <div key={index} className="list-item">
+                <div key={index} className={styles.listItem}>
                   <h3>{project.title}</h3>
                   <p>{project.link && <a href={project.link} target="_blank" rel="noopener noreferrer">{project.link}</a>}</p>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`projectTitle-${index}`}>Project Title</label>
                     <input 
                       type="text" 
@@ -79,7 +80,7 @@ export default function Projects() {
                       onChange={(e) => updateProject(index, "title", e.target.value)}
                     />
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`projectDescription-${index}`}>Description</label>
                     <textarea 
                       id={`projectDescription-${index}`} 
@@ -87,7 +88,7 @@ export default function Projects() {
                       onChange={(e) => updateProject(index, "description", e.target.value)}
                     ></textarea>
                   </div>
-                  <div className="form-group">
+                  <div className={styles.formGroup}>
                     <label htmlFor={`projectLink-${index}`}>Link (Optional)</label>
                     <input 
                       type="text" 
@@ -98,7 +99,7 @@ export default function Projects() {
                   </div>
                   <button 
                     type="button" 
-                    className="remove-button" 
+                    className={styles.removeButton} 
                     onClick={() => removeProject(index)}
                   >
                     Remove
@@ -109,7 +110,7 @@ export default function Projects() {
           )}
           
           {/* Form to add new project */}
-          <div className="projects-form">
+          <div className={styles.projectsForm}>
             <div className="form-group">
               <label htmlFor="projectTitle">Project Title</label>
               <input 

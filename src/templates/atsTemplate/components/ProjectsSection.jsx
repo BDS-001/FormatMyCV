@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import useResume from '../../../context/resumeContext'
+import styles from '../ATSTemplate.module.css'
 
 const ProjectsSection = () => {
     const { resumeData } = useResume()
@@ -16,15 +17,15 @@ const ProjectsSection = () => {
         link.startsWith('http') ? link : `https://${link}`
     
     return (
-        <section className="resume-section">
-            <h3 className="resume-section-title">PROJECTS</h3>
+        <section className={styles.resumeSection}>
+            <h3 className={styles.resumeSectionTitle}>PROJECTS</h3>
             <div>
                 {projects.map((project, index) => (
-                    <article key={index} className="resume-item">
-                        <header className="resume-item-header">
-                            <h4 className="resume-item-title">{project.title}</h4>
+                    <article key={index} className={styles.resumeItem}>
+                        <header className={styles.resumeItemHeader}>
+                            <h4 className={styles.resumeItemTitle}>{project.title}</h4>
                             {project.link && (
-                                <div className="resume-item-link">
+                                <div className={styles.resumeItemLink}>
                                     <a 
                                         href={formatProjectLink(project.link)} 
                                         target="_blank" 
@@ -36,7 +37,7 @@ const ProjectsSection = () => {
                             )}
                         </header>
                         <div 
-                            className="resume-item-description"
+                            className={styles.resumeItemDescription}
                             dangerouslySetInnerHTML={formatDescription(project.description)}
                         />
                     </article>

@@ -1,0 +1,128 @@
+.previewContainer {
+  flex: 2;
+  padding: 32px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  max-height: calc(100vh - 40px);
+  border: 1px solid rgba(87, 55, 44, 0.1);
+}
+
+.previewHidden {
+  display: none;
+}
+
+.previewFullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.previewCloseButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(87, 55, 44, 0.3);
+  z-index: 1001;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.previewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.templateSelector {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+.templateSelector:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(87, 55, 44, 0.1);
+}
+
+.previewHeader h1 {
+  margin-bottom: 0;
+}
+
+.printButton {
+  background-color: var(--primary-dark);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.printButton::before {
+  content: "🖨️";
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.templateWrapper {
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .previewContainer {
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+  
+  .templateWrapper {
+    width: 816px;
+    min-height: 1056px;
+    min-width: 816px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 500px) {
+    .previewHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+}

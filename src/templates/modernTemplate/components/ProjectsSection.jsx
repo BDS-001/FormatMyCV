@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import useResume from '../../../context/resumeContext';
+import styles from '../ModernTemplate.module.css';
 
 export default function ProjectsSection() {
     const { resumeData } = useResume();
@@ -14,15 +15,15 @@ export default function ProjectsSection() {
     }
     
     return (
-        <div className="resume-section" id="projectsSection">
-            <div className="resume-section-title">PROJECTS</div>
+        <div className={styles.resumeSection} id="projectsSection">
+            <div className={styles.resumeSectionTitle}>PROJECTS</div>
             <div id="previewProjects">
                 {projects.map((project, index) => (
-                    <div key={index} className="resume-item">
-                        <div className="resume-item-header">
-                            <div className="resume-item-title">{project.title}</div>
+                    <div key={index} className={styles.resumeItem}>
+                        <div className={styles.resumeItemHeader}>
+                            <div className={styles.resumeItemTitle}>{project.title}</div>
                             {project.link && (
-                                <div className="resume-item-link">
+                                <div className={styles.resumeItemLink}>
                                     <a href={project.link.startsWith('http') ? project.link : `https://${project.link}`} 
                                        target="_blank" 
                                        rel="noopener noreferrer">
@@ -31,7 +32,7 @@ export default function ProjectsSection() {
                                 </div>
                             )}
                         </div>
-                        <div className="resume-item-description" 
+                        <div className={styles.resumeItemDescription} 
                              dangerouslySetInnerHTML={{ __html: project.description.replace(/\n/g, '<br/>') }}>
                         </div>
                     </div>

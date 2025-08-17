@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import useResume from '../../../context/resumeContext';
+import styles from '../ModernTemplate.module.css';
 
 export default function ResumeHeader() {
     const { resumeData } = useResume();
@@ -12,9 +13,9 @@ export default function ResumeHeader() {
     }, [resumeData.personalInfo.fullName, resumeData.personalInfo.jobTitle]);
     
     return (
-        <div className="resume-header">
-            <div className="resume-name" id="previewName">{headerData.fullName}</div>
-            <div className="resume-title" id="previewTitle">{headerData.jobTitle}</div>
+        <div className={styles.resumeHeader}>
+            <div className={styles.resumeName} id="previewName">{headerData.fullName}</div>
+            <div className={styles.resumeTitle} id="previewTitle">{headerData.jobTitle}</div>
         </div>
     );
 }
