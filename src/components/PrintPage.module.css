@@ -5,22 +5,6 @@
   padding: 20px;
 }
 
-/* Print Controls */
-.printControls {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
-.controlButton {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
 /* Template Container */
 .templateContainer {
   display: flex;
@@ -34,26 +18,25 @@
     margin: 0;
   }
   
-  /* Hide everything except the template */
   .noPrint {
-    display: none !important;
+    display: none;
   }
   
   .printPageWrapper {
-    padding: 0 !important;
-    margin: 0 !important;
-    min-height: auto !important;
+    padding: 0;
+    margin: 0;
+    min-height: auto;
   }
   
   .templateContainer {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
   
   /* Force all elements to use exact colors */
   * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact
   }
   
 }

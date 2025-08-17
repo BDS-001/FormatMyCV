@@ -181,7 +181,7 @@
 
 @media print {
   .container {
-    display: none !important;
+    display: none;
   }
 }
 

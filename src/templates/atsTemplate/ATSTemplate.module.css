@@ -194,7 +194,7 @@
 @media print {
   /* Ensure all colors print correctly */
   .atsTemplateContainer * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
