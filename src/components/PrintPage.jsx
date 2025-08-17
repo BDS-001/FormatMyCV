@@ -9,13 +9,13 @@ export default function PrintPage() {
   const template = searchParams.get('template') || 'modern';
   
   return (
-    <div className="simple-print-page">
-      <div className="print-controls">
+    <div className="print-page-wrapper">
+      <div className="print-controls no-print">
         <button onClick={() => navigate('/')} className="control-button">Home</button>
         <button onClick={() => window.print()} className="control-button">Print</button>
       </div>
       
-      <div className="resume-content">
+      <div className="template-container">
         {template === 'modern' && <ModernTemplate />}
         {template === 'ats' && <ATSTemplate />}
       </div>

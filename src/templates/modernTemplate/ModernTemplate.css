@@ -343,7 +343,7 @@
 
 .modern-template-container .skill-bar {
     height: 100%;
-    background-color: var(--secondary);
+    background-color: #e8ddcb;
     border-radius: 4px;
 }
 
@@ -382,12 +382,38 @@
         display: none;
     }
     
-    html, body {
-        background: white;
+    .modern-template-container {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        width: 100%;
+        min-height: auto;
+        page-break-inside: avoid;
     }
     
-    * {
-        background: white;
+    .modern-template-container .resume-sidebar {
+        background-color: #57372c;
+        color: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .modern-template-container .resume-sidebar * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: transparent;
+    }
+    
+    .modern-template-container .sidebar-section {
+        background: transparent;
+    }
+    
+    .modern-template-container .sidebar-section-content {
+        background: transparent;
+    }
+    
+    .modern-template-container .contact-item {
+        background: transparent;
     }
 }
 

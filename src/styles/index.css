@@ -73,7 +73,6 @@ input, textarea, select {
     border: 2px solid var(--secondary-dark);
     border-radius: 8px;
     font-size: 14px;
-    transition: all 0.2s ease;
     background-color: white;
     font-family: inherit;
 }
@@ -81,8 +80,6 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(87, 55, 44, 0.1);
-    transform: translateY(-1px);
 }
 
 textarea {
@@ -103,20 +100,11 @@ button {
     font-size: 14px;
     font-weight: 500;
     margin-right: 10px;
-    transition: all 0.2s ease;
     font-family: inherit;
     letter-spacing: 0.025em;
 }
 
-button:hover {
-    background-color: var(--primary-light);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(87, 55, 44, 0.3);
-}
 
-button:active {
-    transform: translateY(0);
-}
 
 /* =================================
    SECTION HEADER
@@ -149,16 +137,7 @@ button:active {
     font-size: 18px;
     font-weight: bold;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
     margin-right: 0;
 }
 
-.toggle-button:hover {
-    background-color: var(--primary-light);
-    color: white;
-    transform: scale(1.05);
-}
 
-.toggle-button:active {
-    transform: scale(0.95);
-}

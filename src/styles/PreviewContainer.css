@@ -42,19 +42,10 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
-.preview-close-button:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(87, 55, 44, 0.4);
-}
 
-.preview-close-button:active {
-    transform: translateY(-1px);
-}
 
 .preview-header {
     display: flex;
@@ -100,15 +91,11 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    transition: background-color 0.3s;
     margin-right: 0;
     white-space: nowrap;
     font-weight: 500;
 }
 
-.print-button:hover {
-    background-color: var(--primary);
-}
 
 .print-button::before {
     content: "🖨️";
@@ -159,7 +146,6 @@
         width: 816px;
         min-height: 1056px;
         min-width: 816px;
-        transform: none;
         margin: 0 auto;
     }
     

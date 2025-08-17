@@ -36,22 +36,12 @@
     font-size: 14px;
     color: #495057;
     cursor: pointer;
-    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.control-btn:hover {
-    background: #e9ecef;
-    border-color: #ced4da;
-    color: #495057;
-}
 
-.control-btn:active {
-    background: #dee2e6;
-    transform: translateY(1px);
-}
 
 /* =================================
    NAVIGATION HEADER
@@ -79,14 +69,9 @@
     font-size: 14px;
     color: #6c757d;
     cursor: pointer;
-    transition: all 0.2s ease;
     position: relative;
 }
 
-.nav-btn:hover {
-    background: #f8f9fa;
-    color: #495057;
-}
 
 .nav-btn.active {
     background: var(--primary);
@@ -121,7 +106,6 @@
     width: 0;
     background: white;
     border-right: 1px solid #e0e0e0;
-    transition: width 0.3s ease;
     overflow: hidden;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     z-index: 5;
@@ -157,7 +141,6 @@
     cursor: pointer;
     padding: 4px;
     border-radius: 4px;
-    transition: all 0.2s ease;
     width: 32px;
     height: 32px;
     display: flex;
@@ -165,10 +148,6 @@
     justify-content: center;
 }
 
-.close-panel-btn:hover {
-    background: #e9ecef;
-    color: #495057;
-}
 
 .edit-panel-header h2 {
     margin: 0;
@@ -232,19 +211,10 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
-.mobile-preview-button:hover {
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(87, 55, 44, 0.4);
-}
 
-.mobile-preview-button:active {
-    transform: translateY(-1px);
-}
 
 /* =================================
    RESPONSIVE LAYOUT

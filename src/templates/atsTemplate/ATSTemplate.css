@@ -1,4 +1,4 @@
-/* ATS OPTIMIZED TEMPLATE */
+/* ATS Template - Minimal Functional */
 .ats-template-container {
     display: block;
     padding: 40px;
@@ -10,7 +10,7 @@
     width: 816px;
     min-height: 1056px;
     margin: 0 auto;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
 }
 
 .ats-main {
@@ -195,9 +195,8 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #ff6b6b 0%, #ff8e8e 50%, #ff6b6b 100%);
+    background: #ff6b6b;
     z-index: 10;
-    box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
 }
 
 .page-cutoff-warning {
@@ -207,15 +206,16 @@
     right: 10px;
     background: rgba(255, 107, 107, 0.1);
     border: 1px dashed #ff6b6b;
-    border-radius: 4px;
     padding: 8px 12px;
     font-size: 11px;
     color: #d63031;
     text-align: center;
     z-index: 10;
-    font-weight: 500;
 }
 
+/* =================================
+   PRINT STYLES
+   ================================= */
 @media print {
     .ats-template-container.show-cutoff-line::after {
         display: none;
@@ -225,12 +225,11 @@
         display: none;
     }
     
-    html, body {
-        background: white;
-    }
-    
-    * {
-        background: white;
+    /* Ensure all colors print correctly */
+    .ats-template-container * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 }
+
 

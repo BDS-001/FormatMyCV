@@ -1,9 +1,11 @@
-.simple-print-page {
-  margin: 0;
-  padding: 20px;
+/* Print Page Wrapper */
+.print-page-wrapper {
   background: white;
+  min-height: 100vh;
+  padding: 20px;
 }
 
+/* Print Controls */
 .print-controls {
   text-align: center;
   margin-bottom: 20px;
@@ -11,51 +13,53 @@
 }
 
 .control-button {
-  background: #007bff;
+  background: #333;
   color: white;
   border: none;
   padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 5px;
+  margin: 0 5px;
   cursor: pointer;
-  font-size: 16px;
 }
 
-.control-button:hover {
-  background: #0056b3;
+/* Template Container */
+.template-container {
+  display: flex;
+  justify-content: center;
 }
 
-.resume-content {
-  margin: 0 auto;
-  max-width: 8.5in;
-}
-
+/* Print Styles */
 @media print {
-  .print-controls {
-    display: none !important;
-  }
-  
   @page {
+    size: letter;
     margin: 0;
   }
   
-  .page-cutoff-warning {
+  /* Hide everything except the template */
+  .no-print {
     display: none !important;
   }
   
-  .simple-print-page {
+  .print-page-wrapper {
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
+  
+  .template-container {
     margin: 0 !important;
     padding: 0 !important;
   }
   
-  .resume-content {
-    margin: 0 !important;
-    max-width: none !important;
-    width: 100% !important;
-  }
-  
+  /* Force all elements to use exact colors */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+  
+  /* Hide cutoff indicators in print */
+  .show-cutoff-line::after,
+  .page-cutoff-warning {
+    display: none !important;
   }
 }
