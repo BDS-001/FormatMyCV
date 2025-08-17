@@ -85,10 +85,6 @@
   overflow-wrap: break-word;
 }
 
-.modernTemplateContainer .sidebarSummary {
-  max-height: none; /* Changed from 200px to none to avoid cutting off content */
-  overflow-y: visible; /* Changed from auto to visible */
-}
 
 /* =================================
    CONTACT INFORMATION

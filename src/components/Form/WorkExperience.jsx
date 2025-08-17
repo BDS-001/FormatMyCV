@@ -145,7 +145,7 @@ export default function WorkExperience() {
           
           {/* Form to add new experience */}
           <div className={styles.experienceForm}>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="company">Company</label>
               <input 
                 type="text" 
@@ -155,7 +155,7 @@ export default function WorkExperience() {
                 onChange={(e) => handleInputChange("company", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="position">Position</label>
               <input 
                 type="text" 
@@ -165,7 +165,7 @@ export default function WorkExperience() {
                 onChange={(e) => handleInputChange("position", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="workLocation">Location (Optional)</label>
               <input 
                 type="text" 
@@ -175,7 +175,7 @@ export default function WorkExperience() {
                 onChange={(e) => handleInputChange("location", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="workStart">Start Date</label>
               <input 
                 type="text" 
@@ -185,7 +185,7 @@ export default function WorkExperience() {
                 onChange={(e) => handleInputChange("startDate", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="workEnd">End Date</label>
               <input 
                 type="text" 
@@ -195,7 +195,7 @@ export default function WorkExperience() {
                 onChange={(e) => handleInputChange("endDate", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="responsibilities">Responsibilities & Achievements</label>
               <textarea 
                 id="responsibilities" 

@@ -111,7 +111,7 @@ export default function Projects() {
           
           {/* Form to add new project */}
           <div className={styles.projectsForm}>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="projectTitle">Project Title</label>
               <input 
                 type="text" 
@@ -121,7 +121,7 @@ export default function Projects() {
                 onChange={(e) => handleInputChange("title", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="projectDescription">Description</label>
               <textarea 
                 id="projectDescription" 
@@ -130,7 +130,7 @@ export default function Projects() {
                 onChange={(e) => handleInputChange("description", e.target.value)}
               ></textarea>
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="projectLink">Link (Optional)</label>
               <input 
                 type="text" 

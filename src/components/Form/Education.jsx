@@ -157,7 +157,7 @@ export default function Education() {
           
           {/* Form to add new education entry */}
           <div className={styles.educationForm}>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="school">School / University</label>
               <input 
                 type="text" 
@@ -167,7 +167,7 @@ export default function Education() {
                 onChange={(e) => handleInputChange("school", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="degree">Degree</label>
               <input 
                 type="text" 
@@ -177,7 +177,7 @@ export default function Education() {
                 onChange={(e) => handleInputChange("degree", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="eduLocation">Location (Optional)</label>
               <input 
                 type="text" 
@@ -187,7 +187,7 @@ export default function Education() {
                 onChange={(e) => handleInputChange("location", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="eduStart">Start Date</label>
               <input 
                 type="text" 
@@ -197,7 +197,7 @@ export default function Education() {
                 onChange={(e) => handleInputChange("startDate", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="eduEnd">End Date</label>
               <input 
                 type="text" 
@@ -207,7 +207,7 @@ export default function Education() {
                 onChange={(e) => handleInputChange("endDate", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="gpa">GPA (Optional)</label>
               <input 
                 type="text" 
@@ -217,7 +217,7 @@ export default function Education() {
                 onChange={(e) => handleInputChange("gpa", e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className={styles.formGroup}>
               <label htmlFor="courses">Relevant Courses (Optional)</label>
               <input 
                 type="text" 

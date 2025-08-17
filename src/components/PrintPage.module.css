@@ -56,9 +56,4 @@
     print-color-adjust: exact !important;
   }
   
-  /* Hide cutoff indicators in print */
-  .showCutoffLine::after,
-  .pageCutoffWarning {
-    display: none !important;
-  }
 }
