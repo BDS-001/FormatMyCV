@@ -5,18 +5,11 @@ import { useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { resumeContext } from '../../context/resumeContext'
 
-export default function PreviewContainer({isDesktopView, showPreview, onClose}) {
+export default function PreviewContainer() {
     const { currentTemplate, setCurrentTemplate } = useContext(resumeContext)
     const navigate = useNavigate()
     const previewRef = useRef(null)
-    
-    const getContainerClass = () => {
-        if (isDesktopView) {
-            return styles.previewContainer;
-        } else {
-            return showPreview ? styles.previewFullscreen : styles.previewHidden;
-        }
-    };
+
     
     const handleTemplateChange = (e) => {
         setCurrentTemplate(e.target.value)
@@ -27,7 +20,7 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
     }
 
     return (
-        <div className={getContainerClass()}>
+        <div className={styles.previewContainer}>
             <div className={styles.previewHeader}>
                 <h1>Resume Preview</h1>
                 <div className={styles.headerControls}>
@@ -49,15 +42,6 @@ export default function PreviewContainer({isDesktopView, showPreview, onClose}) 
                     </button>
                 </div>
             </div>
-            
-            {!isDesktopView && showPreview && (
-                <button 
-                    className={styles.previewCloseButton}
-                    onClick={onClose}
-                >
-                    Back to Editor
-                </button>
-            )}
             
             <div className={styles.templateWrapper} id="resumePreview" ref={previewRef}>
                 {currentTemplate === 'modern' && <ModernTemplate />}

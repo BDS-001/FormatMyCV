@@ -10,26 +10,18 @@ import Skills from './Form/Skills'
 import Projects from './Form/Projects'
 import ConfirmationModal from './Form/ConfirmationModal'
 import PrintPage from './PrintPage'
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useState, useContext, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { resumeContext } from '../context/resumeContext'
 
 function AppContent() {
-  const [isDesktopView, setIsDesktopView] = useState(window.innerWidth >= 1366)
-  const [showPreview, setShowPreview] = useState(false)
   const [activeSection, setActiveSection] = useState(null)
   const [isEditPanelOpen, setIsEditPanelOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const { toast, hideToast, clearData, loadExample, exportResumeJson, importResumeJson } = useContext(resumeContext)
   const fileInputRef = useRef(null)
 
-  const handleResize = () => {
-    setIsDesktopView(window.innerWidth >= 1366)
-  }
 
-  const togglePreview = () => {
-    setShowPreview(prev => !prev)
-  }
 
   const handleSectionClick = (section) => {
     if (activeSection === section && isEditPanelOpen) {
@@ -77,12 +69,6 @@ function AppContent() {
     }
   }
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   return (
     <>
@@ -93,15 +79,6 @@ function AppContent() {
         onClose={hideToast}
       />
       
-      {!isDesktopView && (
-        <button 
-          onClick={togglePreview} 
-          className={styles.mobilePreviewButton}
-          aria-label="Toggle Resume Preview"
-        >
-          View Resume
-        </button>
-      )}
       
       <div className={styles.documentEditor}>
         <div className={styles.controlsHeader}>
@@ -192,11 +169,7 @@ function AppContent() {
           </div>
 
           <div className={styles.previewArea}>
-            <PreviewContainer 
-              isDesktopView={isDesktopView} 
-              showPreview={showPreview} 
-              onClose={togglePreview} 
-            />
+            <PreviewContainer />
           </div>
         </div>
       </div>
