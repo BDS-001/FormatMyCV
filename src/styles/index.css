@@ -32,7 +32,7 @@
    BODY STYLES
    ================================= */
 body {
-    background: linear-gradient(135deg, var(--secondary-light) 0%, #f8f5f0 100%);
+    background: white;
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
