@@ -1,13 +1,17 @@
+/* Overlay */
 .modalOverlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  backdrop-filter: blur(var(--blur)) saturate(140%);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+  opacity: 0;
+  animation: overlayFade 0.22s ease forwards;
 }
 
+/* Panel */
 .modalContent {
   background:
     linear-gradient(
@@ -19,29 +23,48 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 1.5rem;
-  max-width: 400px;
-  width: 90%;
-}
-
-.modalContent p {
-  margin: 0 0 1.5rem 0;
+  width: min(480px, 92vw);
+  padding: 1.2rem 1.2rem 1rem;
   color: var(--text);
-  line-height: 1.5;
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  animation: panelIn 0.24s ease forwards;
 }
 
+/* Header row (optional icon + title slot) */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.modalBody {
+  color: var(--text);
+  line-height: 1.55;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Buttons row */
 .modalButtons {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.6rem;
   justify-content: flex-end;
 }
 
-.modalButtons button {
+/* Buttons (match app buttons) */
+.modalBtn {
   appearance: none;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
-  white-space: nowrap;
-  padding: 0.55rem 0.8rem;
+  padding: 0.55rem 0.9rem;
   border-radius: 10px;
   color: var(--text);
   background: linear-gradient(
@@ -49,26 +72,51 @@
     rgba(255, 255, 255, 0.06),
     rgba(255, 255, 255, 0.02)
   );
-  border: 1px solid rgba(255, 255, 255, 0.08);
   transition:
     0.18s ease transform,
-    0.18s ease background,
-    0.18s ease box-shadow;
+    0.18s ease box-shadow,
+    0.18s ease background;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.05) inset,
     0 10px 16px rgba(0, 0, 0, 0.15);
 }
 
-.modalButtons button:hover {
+.modalBtn:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
 }
 
-.modalButtons button:active {
+.modalBtn:active {
   transform: translateY(0);
 }
 
+/* Primary confirm */
+.confirmButton {
+  background: linear-gradient(
+    135deg,
+    rgba(109, 140, 255, 0.35),
+    rgba(123, 210, 255, 0.25)
+  );
+  border-color: rgba(123, 210, 255, 0.55);
+}
+
+/* Subtle cancel */
 .cancelButton {
-  background: transparent !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--muted);
+}
+
+/* Animations */
+@keyframes overlayFade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes panelIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

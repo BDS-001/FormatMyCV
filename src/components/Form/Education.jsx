@@ -1,6 +1,5 @@
 import useResume from '../../context/resumeContext'
 import { useMemo, useState } from 'react'
-import styles from './Education.module.css'
 
 export default function Education() {
   const { resumeData, setResumeData } = useResume()
@@ -71,19 +70,19 @@ export default function Education() {
   }
 
   return (
-    <div className={styles.formSection}>
+    <div className="formSection">
       {/* Display existing education entries */}
       {educations.length > 0 && (
-        <div id="educationList" className={styles.dynamicList}>
+        <div id="educationList" className="dynamicList">
           {educations.map((edu, index) => (
-            <div key={index} className={styles.listItem}>
+            <div key={index} className="listItem">
               <h3>
                 {edu.degree} at {edu.school}
               </h3>
               <p>
                 {edu.startDate} - {edu.endDate} | {edu.location}
               </p>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`school-${index}`}>School / University</label>
                 <input
                   type="text"
@@ -94,7 +93,7 @@ export default function Education() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`degree-${index}`}>Degree</label>
                 <input
                   type="text"
@@ -105,7 +104,7 @@ export default function Education() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`eduLocation-${index}`}>
                   Location (Optional)
                 </label>
@@ -118,7 +117,7 @@ export default function Education() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`eduStart-${index}`}>Start Date</label>
                 <input
                   type="text"
@@ -129,7 +128,7 @@ export default function Education() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`eduEnd-${index}`}>End Date</label>
                 <input
                   type="text"
@@ -140,7 +139,7 @@ export default function Education() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`gpa-${index}`}>GPA (Optional)</label>
                 <input
                   type="text"
@@ -149,7 +148,7 @@ export default function Education() {
                   onChange={e => updateEducation(index, 'gpa', e.target.value)}
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`courses-${index}`}>
                   Relevant Courses (Optional)
                 </label>
@@ -164,7 +163,7 @@ export default function Education() {
               </div>
               <button
                 type="button"
-                className={styles.removeButton}
+                className="btn danger"
                 onClick={() => removeEducation(index)}
               >
                 Remove
@@ -175,8 +174,8 @@ export default function Education() {
       )}
 
       {/* Form to add new education entry */}
-      <div className={styles.educationForm}>
-        <div className={styles.formGroup}>
+      <div className="formContainer">
+        <div className="formGroup">
           <label htmlFor="school">School / University</label>
           <input
             type="text"
@@ -186,7 +185,7 @@ export default function Education() {
             onChange={e => handleInputChange('school', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="degree">Degree</label>
           <input
             type="text"
@@ -196,7 +195,7 @@ export default function Education() {
             onChange={e => handleInputChange('degree', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="eduLocation">Location (Optional)</label>
           <input
             type="text"
@@ -206,7 +205,7 @@ export default function Education() {
             onChange={e => handleInputChange('location', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="eduStart">Start Date</label>
           <input
             type="text"
@@ -216,7 +215,7 @@ export default function Education() {
             onChange={e => handleInputChange('startDate', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="eduEnd">End Date</label>
           <input
             type="text"
@@ -226,7 +225,7 @@ export default function Education() {
             onChange={e => handleInputChange('endDate', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="gpa">GPA (Optional)</label>
           <input
             type="text"
@@ -236,7 +235,7 @@ export default function Education() {
             onChange={e => handleInputChange('gpa', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="courses">Relevant Courses (Optional)</label>
           <input
             type="text"
@@ -246,7 +245,7 @@ export default function Education() {
             onChange={e => handleInputChange('courses', e.target.value)}
           />
         </div>
-        <button type="button" id="addEducation" onClick={addEducation}>
+        <button type="button" className="btn brand" onClick={addEducation}>
           Add Education
         </button>
       </div>

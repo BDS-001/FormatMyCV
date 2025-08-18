@@ -1,6 +1,5 @@
 import useResume from '../../context/resumeContext'
 import { useMemo, useState } from 'react'
-import styles from './WorkExperience.module.css'
 
 export default function WorkExperience() {
   const { resumeData, setResumeData } = useResume()
@@ -69,19 +68,19 @@ export default function WorkExperience() {
   }
 
   return (
-    <div className={styles.formSection}>
+    <div className="formSection">
       {/* Display existing experiences */}
       {experiences.length > 0 && (
-        <div id="experienceList" className={styles.dynamicList}>
+        <div id="experienceList" className="dynamicList">
           {experiences.map((exp, index) => (
-            <div key={index} className={styles.listItem}>
+            <div key={index} className="listItem">
               <h3>
                 {exp.position} at {exp.company}
               </h3>
               <p>
                 {exp.startDate} - {exp.endDate} | {exp.location}
               </p>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`company-${index}`}>Company</label>
                 <input
                   type="text"
@@ -92,7 +91,7 @@ export default function WorkExperience() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`position-${index}`}>Position</label>
                 <input
                   type="text"
@@ -103,7 +102,7 @@ export default function WorkExperience() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`workLocation-${index}`}>
                   Location (Optional)
                 </label>
@@ -116,7 +115,7 @@ export default function WorkExperience() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`workStart-${index}`}>Start Date</label>
                 <input
                   type="text"
@@ -127,7 +126,7 @@ export default function WorkExperience() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`workEnd-${index}`}>End Date</label>
                 <input
                   type="text"
@@ -138,7 +137,7 @@ export default function WorkExperience() {
                   }
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`responsibilities-${index}`}>
                   Responsibilities & Achievements
                 </label>
@@ -152,7 +151,7 @@ export default function WorkExperience() {
               </div>
               <button
                 type="button"
-                className={styles.removeButton}
+                className="btn danger"
                 onClick={() => removeExperience(index)}
               >
                 Remove
@@ -163,8 +162,8 @@ export default function WorkExperience() {
       )}
 
       {/* Form to add new experience */}
-      <div className={styles.experienceForm}>
-        <div className={styles.formGroup}>
+      <div className="formContainer">
+        <div className="formGroup">
           <label htmlFor="company">Company</label>
           <input
             type="text"
@@ -174,7 +173,7 @@ export default function WorkExperience() {
             onChange={e => handleInputChange('company', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="position">Position</label>
           <input
             type="text"
@@ -184,7 +183,7 @@ export default function WorkExperience() {
             onChange={e => handleInputChange('position', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="workLocation">Location (Optional)</label>
           <input
             type="text"
@@ -194,7 +193,7 @@ export default function WorkExperience() {
             onChange={e => handleInputChange('location', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="workStart">Start Date</label>
           <input
             type="text"
@@ -204,7 +203,7 @@ export default function WorkExperience() {
             onChange={e => handleInputChange('startDate', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="workEnd">End Date</label>
           <input
             type="text"
@@ -214,7 +213,7 @@ export default function WorkExperience() {
             onChange={e => handleInputChange('endDate', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="responsibilities">
             Responsibilities & Achievements
           </label>
@@ -227,7 +226,7 @@ export default function WorkExperience() {
             }
           ></textarea>
         </div>
-        <button type="button" id="addExperience" onClick={addExperience}>
+        <button type="button" className="btn brand" onClick={addExperience}>
           Add Experience
         </button>
       </div>

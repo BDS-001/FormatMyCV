@@ -1,6 +1,5 @@
 import useResume from '../../context/resumeContext'
 import { useMemo } from 'react'
-import styles from './Summary.module.css'
 
 export default function Summary() {
   const { resumeData, setResumeData } = useResume()
@@ -19,8 +18,8 @@ export default function Summary() {
   }
 
   return (
-    <div className={styles.formSection}>
-      <div className={styles.formGroup}>
+    <div className="formSection">
+      <div className="formGroup">
         <label htmlFor="summary">
           Brief summary of your professional background
         </label>

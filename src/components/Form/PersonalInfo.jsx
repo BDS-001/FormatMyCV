@@ -1,6 +1,5 @@
 import useResume from '../../context/resumeContext'
 import { useMemo } from 'react'
-import styles from './PersonalInfo.module.css'
 
 export default function PersonalInfo() {
   const { resumeData, setResumeData } = useResume()
@@ -19,8 +18,8 @@ export default function PersonalInfo() {
   }
 
   return (
-    <div className={styles.formSection}>
-      <div className={styles.formGroup}>
+    <div className="formSection">
+      <div className="formGroup">
         <label htmlFor="fullName">Full Name</label>
         <input
           type="text"
@@ -30,7 +29,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('fullName', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="jobTitle">Job Title</label>
         <input
           type="text"
@@ -40,7 +39,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('jobTitle', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -50,7 +49,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('email', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="phone">Phone</label>
         <input
           type="tel"
@@ -60,7 +59,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('phone', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="location">Location</label>
         <input
           type="text"
@@ -70,7 +69,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('location', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="linkedin">LinkedIn (Optional)</label>
         <input
           type="text"
@@ -80,7 +79,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('linkedin', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="github">github (Optional)</label>
         <input
           type="text"
@@ -90,7 +89,7 @@ export default function PersonalInfo() {
           onChange={e => handleUpdate('github', e.target.value)}
         />
       </div>
-      <div className={styles.formGroup}>
+      <div className="formGroup">
         <label htmlFor="website">Website (Optional)</label>
         <input
           type="text"

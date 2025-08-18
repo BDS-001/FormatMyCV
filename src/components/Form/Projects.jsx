@@ -1,6 +1,5 @@
 import useResume from '../../context/resumeContext'
 import { useMemo, useState } from 'react'
-import styles from './Projects.module.css'
 
 export default function Projects() {
   const { resumeData, setResumeData } = useResume()
@@ -62,12 +61,12 @@ export default function Projects() {
   }
 
   return (
-    <div className={styles.formSection}>
+    <div className="formSection">
       {/* Display existing projects */}
       {projects.length > 0 && (
-        <div id="projectsList" className={styles.dynamicList}>
+        <div id="projectsList" className="dynamicList">
           {projects.map((project, index) => (
-            <div key={index} className={styles.listItem}>
+            <div key={index} className="listItem">
               <h3>{project.title}</h3>
               <p>
                 {project.link && (
@@ -80,7 +79,7 @@ export default function Projects() {
                   </a>
                 )}
               </p>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`projectTitle-${index}`}>Project Title</label>
                 <input
                   type="text"
@@ -89,7 +88,7 @@ export default function Projects() {
                   onChange={e => updateProject(index, 'title', e.target.value)}
                 />
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`projectDescription-${index}`}>
                   Description
                 </label>
@@ -101,7 +100,7 @@ export default function Projects() {
                   }
                 ></textarea>
               </div>
-              <div className={styles.formGroup}>
+              <div className="formGroup">
                 <label htmlFor={`projectLink-${index}`}>Link (Optional)</label>
                 <input
                   type="text"
@@ -112,7 +111,7 @@ export default function Projects() {
               </div>
               <button
                 type="button"
-                className={styles.removeButton}
+                className="btn danger"
                 onClick={() => removeProject(index)}
               >
                 Remove
@@ -123,8 +122,8 @@ export default function Projects() {
       )}
 
       {/* Form to add new project */}
-      <div className={styles.projectsForm}>
-        <div className={styles.formGroup}>
+      <div className="formContainer">
+        <div className="formGroup">
           <label htmlFor="projectTitle">Project Title</label>
           <input
             type="text"
@@ -134,7 +133,7 @@ export default function Projects() {
             onChange={e => handleInputChange('title', e.target.value)}
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="projectDescription">Description</label>
           <textarea
             id="projectDescription"
@@ -143,7 +142,7 @@ export default function Projects() {
             onChange={e => handleInputChange('description', e.target.value)}
           ></textarea>
         </div>
-        <div className={styles.formGroup}>
+        <div className="formGroup">
           <label htmlFor="projectLink">Link (Optional)</label>
           <input
             type="text"
@@ -153,7 +152,7 @@ export default function Projects() {
             onChange={e => handleInputChange('link', e.target.value)}
           />
         </div>
-        <button type="button" id="addProject" onClick={addProject}>
+        <button type="button" className="btn brand" onClick={addProject}>
           Add Project
         </button>
       </div>
