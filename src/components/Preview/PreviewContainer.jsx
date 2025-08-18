@@ -14,7 +14,7 @@ export default function PreviewContainer() {
   }
 
   const handlePrint = () => {
-    navigate(`print?template=${currentTemplate}`)
+    navigate(`/print?template=${currentTemplate}`)
   }
 
   return (

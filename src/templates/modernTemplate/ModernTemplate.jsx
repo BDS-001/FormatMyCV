@@ -4,7 +4,7 @@ import ResumeMain from './components/ResumeMain'
 
 export default function ModernTemplate() {
   return (
-    <div className={styles.modernTemplateContainer}>
+    <div className={styles.templateContainer}>
       <ResumeSidebar />
       <ResumeMain />
     </div>

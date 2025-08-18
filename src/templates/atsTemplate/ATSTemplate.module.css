@@ -1,5 +1,5 @@
 /* ATS Template - Minimal Functional */
-.atsTemplateContainer {
+.templateContainer {
   display: block;
   padding: 40px;
   font-family: Arial, sans-serif;
@@ -180,7 +180,7 @@
 
 /* Responsive Design */
 @media (max-width: 900px) {
-  .atsTemplateContainer {
+  .templateContainer {
     width: 100%;
     min-width: auto;
     padding: 20px;
@@ -191,8 +191,7 @@
    PRINT STYLES
    ================================= */
 @media print {
-  /* Ensure all colors print correctly */
-  .atsTemplateContainer * {
+  .templateContainer * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }

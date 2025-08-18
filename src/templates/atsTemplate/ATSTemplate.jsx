@@ -49,7 +49,7 @@ const ATSHeader = () => {
 
 const ATSTemplate = () => {
   return (
-    <div className={styles.atsTemplateContainer}>
+    <div className={styles.templateContainer}>
       <main className={styles.atsMain}>
         <ATSHeader />
         <section className={styles.atsSection}>

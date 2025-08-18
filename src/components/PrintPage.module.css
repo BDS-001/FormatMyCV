@@ -20,24 +20,18 @@
     margin: 0;
   }
 
-  .noPrint {
-    display: none;
+  body * {
+    visibility: hidden;
   }
 
-  .printPageWrapper {
-    padding: 0;
-    margin: 0;
-    min-height: auto;
+  .templateContainer,
+  .templateContainer * {
+    visibility: visible;
   }
 
   .templateContainer {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Force all elements to use exact colors */
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
