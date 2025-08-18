@@ -25,16 +25,13 @@ export default function Education() {
   }
 
   const addEducation = () => {
-    // Create a new array with all existing education entries plus the new one
     const updatedEducations = [...educations, currentEducation]
 
-    // Update resume data with the new educations array
     setResumeData({
       ...resumeData,
       education: updatedEducations,
     })
 
-    // Reset the form
     setCurrentEducation({
       school: '',
       degree: '',

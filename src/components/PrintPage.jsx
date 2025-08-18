@@ -12,7 +12,7 @@ export default function PrintPage() {
     <div className={styles.printPageWrapper}>
       <div className={`${styles.printControls} ${styles.noPrint}`}>
         <button onClick={() => navigate('/')} className="btn icon">
-          Home
+          Return Home
         </button>
         <button onClick={() => window.print()} className="btn icon">
           Print

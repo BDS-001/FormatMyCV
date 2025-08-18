@@ -1,38 +1,62 @@
 import useResume from '../../context/resumeContext'
-import { useState } from 'react'
+import { useMemo } from 'react'
+import styles from './Skills.module.css'
 
 export default function Skills() {
   const { resumeData, setResumeData } = useResume()
-  const [skillInput, setSkillInput] = useState(resumeData.skills.join(', '))
 
-  const updateSkills = () => {
-    // Split the comma-separated input into an array of skills
-    const skillsArray = skillInput
-      .split(',')
-      .map(skill => skill.trim())
-      .filter(skill => skill !== '') // Remove any empty strings
+  const updateResume = newSkills => {
+    setResumeData(prev => ({
+      ...prev,
+      skills: [...newSkills],
+    }))
+  }
+  const skills = useMemo(() => {
+    return resumeData.skills || []
+  }, [resumeData.skills])
 
-    // Update the resume data with the new skills array
-    setResumeData({
-      ...resumeData,
-      skills: skillsArray,
-    })
+  const addSkill = () => {
+    setResumeData(prev => ({ ...prev, skills: [...skills, ''] }))
+  }
+
+  const deleteSkill = index => {
+    const newSkills = [...skills]
+    newSkills.splice(index, 1)
+    updateResume(newSkills)
+  }
+
+  const handleInputChange = (e, index) => {
+    const newSkills = [...skills]
+    newSkills[index] = e.target.value
+    updateResume(newSkills)
   }
 
   return (
     <div className="formSection">
       <div className="formGroup">
-        <label htmlFor="skills">List your skills (separated by commas)</label>
-        <input
-          type="text"
-          id="skills"
-          placeholder="e.g. JavaScript, React, Node.js, Python, AWS"
-          value={skillInput}
-          onChange={e => setSkillInput(e.target.value)}
-        />
+        <label>List your skills</label>
+        {skills.map((skill, index) => (
+          <div key={index} className={styles.skillItem}>
+            <input
+              type="text"
+              id={`skill-${index}`}
+              className={styles.skillInput}
+              placeholder="e.g. JavaScript, React, Node.js, Python, AWS"
+              value={skill}
+              onChange={e => handleInputChange(e, index)}
+            />
+            <button
+              type="button"
+              className={`btn danger ${styles.deleteButton}`}
+              onClick={() => deleteSkill(index)}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
       </div>
-      <button type="button" className="btn brand" onClick={updateSkills}>
-        Update Skills
+      <button type="button" className="btn brand" onClick={addSkill}>
+        Add Skill
       </button>
     </div>
   )

@@ -1,0 +1,14 @@
+.skillItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.skillInput {
+  flex: 1;
+}
+
+.deleteButton {
+  flex-shrink: 0;
+}
