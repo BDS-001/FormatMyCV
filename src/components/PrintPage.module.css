@@ -1,16 +1,19 @@
-/* Print Page Wrapper */
 .printPageWrapper {
   min-height: 100vh;
   padding: 20px;
 }
 
-/* Template Container */
 .templateContainer {
   display: flex;
   justify-content: center;
 }
 
-/* Print Styles */
+.printControls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
 @media print {
   @page {
     size: letter;
