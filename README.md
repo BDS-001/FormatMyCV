@@ -123,7 +123,7 @@ A sleek, responsive resume builder application with multiple professional templa
 - [React](https://reactjs.org/) - Frontend library
 - [Vite](https://vitejs.dev/) - Build tool and development server
 - Context API - State management
-- Modular CSS - Template-specific styling
+- CSS Modules - Component-scoped styling
 
 ## 🏗️ Architecture
 
@@ -133,28 +133,43 @@ FormatMyCV uses a modular template architecture where each template is completel
 ```
 src/templates/
 ├── modernTemplate/
-│   ├── ModernTemplate.jsx      # Main template component
-│   ├── ModernTemplate.css      # Template-specific styles
-│   └── components/             # Template-specific components
+│   ├── ModernTemplate.jsx           # Main template component
+│   ├── ModernTemplate.module.css    # Template-specific styles
+│   └── components/                  # Template-specific components
 │       ├── ResumeSidebar.jsx
+│       ├── ResumeSidebar.module.css
 │       ├── ResumeMain.jsx
+│       ├── ResumeMain.module.css
 │       ├── ResumeHeader.jsx
+│       ├── ResumeHeader.module.css
 │       ├── ContactSection.jsx
+│       ├── ContactSection.module.css
 │       ├── AboutMeSection.jsx
+│       ├── AboutMeSection.module.css
 │       ├── EducationSection.jsx
+│       ├── EducationSection.module.css
 │       ├── ExperienceSection.jsx
+│       ├── ExperienceSection.module.css
 │       ├── ProjectsSection.jsx
+│       ├── ProjectsSection.module.css
 │       ├── SkillsSection.jsx
-│       └── SidebarPhoto.jsx
+│       ├── SkillsSection.module.css
+│       ├── SidebarPhoto.jsx
+│       └── SidebarPhoto.module.css
 └── atsTemplate/
-    ├── ATSTemplate.jsx         # Main template component
-    ├── ATSTemplate.css         # Template-specific styles
-    └── components/             # Template-specific components
+    ├── ATSTemplate.jsx              # Main template component
+    ├── ATSTemplate.module.css       # Template-specific styles
+    └── components/                  # Template-specific components
         ├── ExperienceSection.jsx
+        ├── ExperienceSection.module.css
         ├── EducationSection.jsx
+        ├── EducationSection.module.css
         ├── ProjectsSection.jsx
+        ├── ProjectsSection.module.css
         ├── AboutMeSection.jsx
-        └── ATSSkillsSection.jsx
+        ├── AboutMeSection.module.css
+        ├── ATSSkillsSection.jsx
+        └── ATSSkillsSection.module.css
 ```
 
 ## 📱 Project Structure
@@ -163,18 +178,39 @@ src/templates/
 formatmycv/
 ├── src/
 │   ├── components/
-│   │   ├── App.jsx                # Main application component
+│   │   ├── ConfirmationModal/
+│   │   │   ├── ConfirmationModal.jsx
+│   │   │   └── ConfirmationModal.module.css
+│   │   ├── CutoffIndicator/
+│   │   │   ├── CutoffIndicator.jsx
+│   │   │   └── CutoffIndicator.module.css
+│   │   ├── EditPanel/
+│   │   │   ├── EditPanel.jsx
+│   │   │   └── EditPanel.module.css
 │   │   ├── Form/                  # Form components
-│   │   │   ├── FormContainer.jsx  # Container for all form sections
 │   │   │   ├── PersonalInfo.jsx   # Personal information section
+│   │   │   ├── PersonalInfo.module.css
 │   │   │   ├── Summary.jsx        # Professional summary section
+│   │   │   ├── Summary.module.css
 │   │   │   ├── Education.jsx      # Education section
+│   │   │   ├── Education.module.css
 │   │   │   ├── WorkExperience.jsx # Work experience section
+│   │   │   ├── WorkExperience.module.css
 │   │   │   ├── Skills.jsx         # Skills section
+│   │   │   ├── Skills.module.css
 │   │   │   ├── Projects.jsx       # Projects section
-│   │   │   └── ConfirmationModal.jsx # Confirmation dialog
-│   │   └── Preview/               # Preview system
-│   │       └── PreviewContainer.jsx # Main preview container
+│   │   │   └── Projects.module.css
+│   │   ├── Header/
+│   │   │   ├── Header.jsx
+│   │   │   └── Header.module.css
+│   │   ├── PrintPage.jsx
+│   │   ├── PrintPage.module.css
+│   │   ├── TemplateSelector/
+│   │   │   ├── TemplateSelector.jsx
+│   │   │   └── TemplateSelector.module.css
+│   │   └── Toast/
+│   │       ├── Toast.jsx
+│   │       └── Toast.module.css
 │   ├── templates/                 # Modular template system
 │   │   ├── modernTemplate/        # Modern template module
 │   │   └── atsTemplate/           # ATS template module
@@ -183,13 +219,10 @@ formatmycv/
 │   ├── data/                      # Data files
 │   │   └── defaultJson.js         # Default and example resume data
 │   ├── provider/                  # Context providers
-│   │   └── resumeProvider.jsx     # Resume provider component
+│   │   ├── resumeProvider.jsx     # Resume provider component
+│   │   └── editorProvider.jsx     # Editor provider component
 │   ├── styles/                    # Global CSS stylesheets
-│   │   ├── index.css              # Global styles
-│   │   ├── App.css                # App component styles
-│   │   ├── FormContainer.css      # Form styles
-│   │   ├── PreviewContainer.css   # Preview container styles
-│   │   └── ConfirmationModal.css  # Modal styles
+│   │   └── globals.css            # Global styles
 │   └── main.jsx                   # Entry point
 └── ...
 ```
@@ -200,14 +233,15 @@ To add a new template:
 
 1. Create a new directory in `src/templates/` (e.g., `src/templates/yourTemplate/`)
 2. Create the main template component (`YourTemplate.jsx`)
-3. Create template-specific CSS (`YourTemplate.css`)
+3. Create template-specific CSS Modules (`YourTemplate.module.css`)
 4. Add any template-specific components in a `components/` subdirectory
-5. Update the template selector in `PreviewContainer.jsx`
+5. Create corresponding CSS Modules for each component (`Component.module.css`)
+6. Update the template selector in `TemplateSelector.jsx`
 
 Each template should be completely self-contained with its own:
 - Main component
-- CSS styles with scoped class names
-- Any template-specific components
+- CSS Modules for scoped styling
+- Any template-specific components with their own CSS Modules
 - Print media queries
 
 ## 🖨️ Printing Your Resume
