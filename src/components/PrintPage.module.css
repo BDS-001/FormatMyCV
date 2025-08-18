@@ -3,9 +3,17 @@
   padding: 20px;
 }
 
+.mainContent {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
 .templateContainer {
+  flex: 1;
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .printControls {
@@ -14,10 +22,49 @@
   gap: 20px;
 }
 
+.templateSelector {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  color: var(--text);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    0.18s ease transform,
+    0.18s ease background,
+    0.18s ease box-shadow;
+  font-size: 14px;
+  width: auto;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.templateSelector:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+
+.templateSelector:active {
+  transform: translateY(0);
+}
+
 @media print {
   @page {
     size: letter;
     margin: 0;
+  }
+
+  .noPrint {
+    display: none !important;
   }
 
   body * {
@@ -33,5 +80,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .printPageWrapper {
+    padding: 0;
+    margin: 0;
   }
 }

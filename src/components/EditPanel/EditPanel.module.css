@@ -1,15 +1,3 @@
-.documentEditor {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.mainContent {
-  flex: 1;
-  display: flex;
-  position: relative;
-}
-
 .editPanel {
   position: absolute;
   top: 0;
@@ -95,9 +83,4 @@
   color: #a9afc3;
   line-height: 1.7;
   flex: 1;
-}
-
-.previewArea {
-  flex: 1;
-  padding: 20px;
 }

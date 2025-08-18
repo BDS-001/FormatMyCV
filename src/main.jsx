@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './components/App.jsx'
+import PrintPage from './components/PrintPage.jsx'
+import ResumeProvider from './provider/resumeProvider.jsx'
+import EditorProvider from './provider/editorProvider.jsx'
 import './styles/globals.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/FormatMyCV">
-      <App />
-    </BrowserRouter>
+    <ResumeProvider>
+      <EditorProvider>
+        <PrintPage />
+      </EditorProvider>
+    </ResumeProvider>
   </React.StrictMode>
 )

@@ -1,15 +1,3 @@
-.previewHeader {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.headerControls {
-  display: flex;
-  gap: 12px;
-}
-
 .templateSelector {
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
@@ -19,6 +7,8 @@
   cursor: pointer;
   font: inherit;
   outline: none;
+  width: auto;
+  margin: 0;
 }
 
 .templateSelector:hover {
@@ -28,11 +18,4 @@
 .templateSelector option {
   background: var(--panel);
   color: var(--text);
-}
-
-.printButton {
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
 }
