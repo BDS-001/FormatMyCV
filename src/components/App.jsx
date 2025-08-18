@@ -1,6 +1,7 @@
 import styles from './App.module.css'
 import ResumeProvider from '../provider/resumeProvider'
 import PreviewContainer from './Preview/PreviewContainer'
+import Header from './Header/Header'
 import Toast from './Toast/Toast'
 import PersonalInfo from './Form/PersonalInfo'
 import Summary from './Form/Summary'
@@ -10,7 +11,7 @@ import Skills from './Form/Skills'
 import Projects from './Form/Projects'
 import ConfirmationModal from './Form/ConfirmationModal'
 import PrintPage from './PrintPage'
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { resumeContext } from '../context/resumeContext'
 
@@ -18,12 +19,9 @@ function AppContent() {
   const [activeSection, setActiveSection] = useState(null)
   const [isEditPanelOpen, setIsEditPanelOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const { toast, hideToast, clearData, loadExample, exportResumeJson, importResumeJson } = useContext(resumeContext)
-  const fileInputRef = useRef(null)
+  const { toast, hideToast, clearData } = useContext(resumeContext)
 
-
-
-  const handleSectionClick = (section) => {
+  const handleSectionClick = section => {
     if (activeSection === section && isEditPanelOpen) {
       setIsEditPanelOpen(false)
       setActiveSection(null)
@@ -46,10 +44,6 @@ function AppContent() {
     setShowModal(false)
   }
 
-  const handleImportJson = () => {
-    fileInputRef.current.click()
-  }
-
   const renderActiveSection = () => {
     switch (activeSection) {
       case 'personal':
@@ -69,50 +63,40 @@ function AppContent() {
     }
   }
 
-
   return (
     <>
-      <Toast 
+      <Toast
         message={toast.message}
         type={toast.type}
         isVisible={toast.isVisible}
         onClose={hideToast}
       />
-      
-      
-      <div className={styles.documentEditor}>
-        <div className={styles.controlsHeader}>
-          <div className={styles.controlsGroup}>
-            <button onClick={loadExample} className={styles.controlBtn}>Load Example</button>
-            <button onClick={handleClearClick} className={styles.controlBtn}>Clear Resume</button>
-            <button onClick={exportResumeJson} className={styles.controlBtn}>Save JSON</button>
-            <button onClick={handleImportJson} className={styles.controlBtn}>Load JSON</button>
-            <input type="file" accept=".json" className={styles.hiddenInput} ref={fileInputRef} onChange={importResumeJson} />
-          </div>
-        </div>
 
-        <div className={styles.navigationHeader}>
-          <div className={styles.navSections}>
-            {['personal', 'summary', 'education', 'experience', 'skills', 'projects'].map(section => (
-              <button
-                key={section}
-                className={`${styles.navBtn} ${activeSection === section ? styles.active : ''}`}
-                onClick={() => handleSectionClick(section)}
-              >
-                {section === 'personal' ? 'Personal Info' : section.charAt(0).toUpperCase() + section.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className={styles.documentEditor}>
+        <Header
+          activeSection={activeSection}
+          onSectionClick={handleSectionClick}
+          onClearClick={handleClearClick}
+        />
 
         <div className={styles.mainContent}>
-          <div className={`${styles.editPanel} ${isEditPanelOpen ? styles.open : ''}`}>
+          <div
+            className={`${styles.editPanel} ${isEditPanelOpen ? styles.open : ''}`}
+          >
             <div className={styles.editPanelContent}>
               {isEditPanelOpen && (
                 <>
                   <div className={styles.editPanelHeader}>
-                    <h2>{activeSection?.charAt(0).toUpperCase() + activeSection?.slice(1)}</h2>
-                    <button className={styles.closePanelBtn} onClick={() => setIsEditPanelOpen(false)}>×</button>
+                    <h2>
+                      {activeSection?.charAt(0).toUpperCase() +
+                        activeSection?.slice(1)}
+                    </h2>
+                    <button
+                      className={styles.closePanelBtn}
+                      onClick={() => setIsEditPanelOpen(false)}
+                    >
+                      ×
+                    </button>
                   </div>
                   <div className={styles.editPanelForm}>
                     {renderActiveSection()}
@@ -128,7 +112,7 @@ function AppContent() {
         </div>
       </div>
 
-      <ConfirmationModal 
+      <ConfirmationModal
         isOpen={showModal}
         onConfirm={handleConfirmClear}
         onCancel={handleCancelClear}

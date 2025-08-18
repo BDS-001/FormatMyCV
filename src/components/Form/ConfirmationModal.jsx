@@ -1,7 +1,7 @@
-import styles from './ConfirmationModal.module.css';
+import styles from './ConfirmationModal.module.css'
 
 const ConfirmationModal = ({ isOpen, onConfirm, onCancel, message }) => {
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div className={styles.modalOverlay}>
@@ -9,11 +9,13 @@ const ConfirmationModal = ({ isOpen, onConfirm, onCancel, message }) => {
         <p>{message}</p>
         <div className={styles.modalButtons}>
           <button onClick={onConfirm}>Yes</button>
-          <button onClick={onCancel} className={styles.cancelButton}>No</button>
+          <button onClick={onCancel} className={styles.cancelButton}>
+            No
+          </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ConfirmationModal;
+export default ConfirmationModal

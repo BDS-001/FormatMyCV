@@ -4,45 +4,6 @@
   flex-direction: column;
 }
 
-.controlsHeader {
-  border-bottom: 1px solid;
-  padding: 12px 20px;
-}
-
-.controlsGroup {
-  display: flex;
-  gap: 12px;
-}
-
-.controlBtn {
-  border: 1px solid;
-  border-radius: 6px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-.navigationHeader {
-  border-bottom: 1px solid;
-  padding: 0 20px;
-  min-height: 48px;
-}
-
-.navSections {
-  display: flex;
-  gap: 4px;
-}
-
-.navBtn {
-  border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-.navBtn.active {
-  font-weight: bold;
-}
-
 .mainContent {
   flex: 1;
   display: flex;
@@ -50,7 +11,6 @@
 
 .editPanel {
   width: 0;
-  border-right: 1px solid;
   overflow: hidden;
 }
 
@@ -84,8 +44,4 @@
 .previewArea {
   flex: 1;
   padding: 20px;
-}
-
-.hiddenInput {
-  display: none;
 }

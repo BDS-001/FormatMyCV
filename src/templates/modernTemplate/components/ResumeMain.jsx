@@ -5,12 +5,12 @@ import ProjectsSection from './ProjectsSection'
 import styles from '../ModernTemplate.module.css'
 
 export default function ResumeMain() {
-    return (
-        <div className={styles.resumeMain}>
-            <ResumeHeader />
-            <ExperienceSection />
-            <EducationSection />
-            <ProjectsSection />
-        </div>
-    );
+  return (
+    <div className={styles.resumeMain}>
+      <ResumeHeader />
+      <ExperienceSection />
+      <EducationSection />
+      <ProjectsSection />
+    </div>
+  )
 }

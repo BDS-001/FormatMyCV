@@ -5,12 +5,12 @@ import SkillsSection from './SkillsSection'
 import styles from '../ModernTemplate.module.css'
 
 export default function ResumeSidebar() {
-    return (
-        <div className={styles.resumeSidebar}>
-            <SidebarPhoto />
-            <ContactSection />
-            <AboutMeSection />
-            <SkillsSection />
-        </div>
-    );
+  return (
+    <div className={styles.resumeSidebar}>
+      <SidebarPhoto />
+      <ContactSection />
+      <AboutMeSection />
+      <SkillsSection />
+    </div>
+  )
 }

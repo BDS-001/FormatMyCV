@@ -1,5 +1,5 @@
-import useResume from "../../context/resumeContext"
-import { useMemo } from "react"
+import useResume from '../../context/resumeContext'
+import { useMemo } from 'react'
 import styles from './PersonalInfo.module.css'
 
 export default function PersonalInfo() {
@@ -13,92 +13,91 @@ export default function PersonalInfo() {
       ...resumeData,
       personalInfo: {
         ...resumeData.personalInfo,
-        [field]: value
-      }
+        [field]: value,
+      },
     })
   }
-
 
   return (
     <div className={styles.formSection}>
       <div className={styles.formGroup}>
         <label htmlFor="fullName">Full Name</label>
-        <input 
-          type="text" 
-          id="fullName" 
-          placeholder="e.g. John Smith" 
-          value={personalInfo.fullName || ""} 
-          onChange={(e) => handleUpdate("fullName", e.target.value)}
+        <input
+          type="text"
+          id="fullName"
+          placeholder="e.g. John Smith"
+          value={personalInfo.fullName || ''}
+          onChange={e => handleUpdate('fullName', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="jobTitle">Job Title</label>
-        <input 
-          type="text" 
-          id="jobTitle" 
-          placeholder="e.g. Software Engineer" 
-          value={personalInfo.jobTitle || ""} 
-          onChange={(e) => handleUpdate("jobTitle", e.target.value)}
+        <input
+          type="text"
+          id="jobTitle"
+          placeholder="e.g. Software Engineer"
+          value={personalInfo.jobTitle || ''}
+          onChange={e => handleUpdate('jobTitle', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="email">Email</label>
-        <input 
-          type="email" 
-          id="email" 
-          placeholder="e.g. john@example.com" 
-          value={personalInfo.email || ""} 
-          onChange={(e) => handleUpdate("email", e.target.value)}
+        <input
+          type="email"
+          id="email"
+          placeholder="e.g. john@example.com"
+          value={personalInfo.email || ''}
+          onChange={e => handleUpdate('email', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="phone">Phone</label>
-        <input 
-          type="tel" 
-          id="phone" 
-          placeholder="e.g. (123) 456-7890" 
-          value={personalInfo.phone || ""} 
-          onChange={(e) => handleUpdate("phone", e.target.value)}
+        <input
+          type="tel"
+          id="phone"
+          placeholder="e.g. (123) 456-7890"
+          value={personalInfo.phone || ''}
+          onChange={e => handleUpdate('phone', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="location">Location</label>
-        <input 
-          type="text" 
-          id="location" 
-          placeholder="e.g. New York, NY" 
-          value={personalInfo.location || ""} 
-          onChange={(e) => handleUpdate("location", e.target.value)}
+        <input
+          type="text"
+          id="location"
+          placeholder="e.g. New York, NY"
+          value={personalInfo.location || ''}
+          onChange={e => handleUpdate('location', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="linkedin">LinkedIn (Optional)</label>
-        <input 
-          type="text" 
-          id="linkedin" 
-          placeholder="e.g. linkedin.com/in/johnsmith" 
-          value={personalInfo.linkedin || ""} 
-          onChange={(e) => handleUpdate("linkedin", e.target.value)}
+        <input
+          type="text"
+          id="linkedin"
+          placeholder="e.g. linkedin.com/in/johnsmith"
+          value={personalInfo.linkedin || ''}
+          onChange={e => handleUpdate('linkedin', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="github">github (Optional)</label>
-        <input 
-          type="text" 
-          id="github" 
-          placeholder="e.g. github.com/johnsmith" 
-          value={personalInfo.github || ""} 
-          onChange={(e) => handleUpdate("github", e.target.value)}
+        <input
+          type="text"
+          id="github"
+          placeholder="e.g. github.com/johnsmith"
+          value={personalInfo.github || ''}
+          onChange={e => handleUpdate('github', e.target.value)}
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="website">Website (Optional)</label>
-        <input 
-          type="text" 
-          id="website" 
-          placeholder="e.g. johnsmith.com" 
-          value={personalInfo.website || ""} 
-          onChange={(e) => handleUpdate("website", e.target.value)}
+        <input
+          type="text"
+          id="website"
+          placeholder="e.g. johnsmith.com"
+          value={personalInfo.website || ''}
+          onChange={e => handleUpdate('website', e.target.value)}
         />
       </div>
     </div>

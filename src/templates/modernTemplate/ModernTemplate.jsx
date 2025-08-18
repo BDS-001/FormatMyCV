@@ -3,10 +3,10 @@ import ResumeSidebar from './components/ResumeSidebar'
 import ResumeMain from './components/ResumeMain'
 
 export default function ModernTemplate() {
-    return (
-        <div className={styles.modernTemplateContainer}>
-            <ResumeSidebar />
-            <ResumeMain />
-        </div>
-    )
+  return (
+    <div className={styles.modernTemplateContainer}>
+      <ResumeSidebar />
+      <ResumeMain />
+    </div>
+  )
 }
