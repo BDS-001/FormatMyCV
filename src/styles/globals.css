@@ -46,7 +46,8 @@ body {
     Noto Sans,
     Apple Color Emoji,
     Segoe UI Emoji;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .btn {
@@ -222,4 +223,44 @@ label {
   padding: 1.25rem;
   background: rgba(255, 255, 255, 0.02);
   margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+    font-size: 16px;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .formContainer {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btn {
+    padding: 0.8rem 1rem;
+  }
+
+  .formContainer {
+    padding: 0.75rem;
+  }
+
+  .listItem {
+    padding: 0.75rem;
+  }
 }

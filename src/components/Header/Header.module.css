@@ -54,3 +54,49 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: var(--shadow);
 }
+
+.sectionLabel {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  padding: 0 0.55rem;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .pill {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pill .btn {
+    min-height: 44px;
+    font-size: 0.8rem;
+  }
+
+  .sectionLabel {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pill {
+    padding: 0.3rem;
+    gap: 0.3rem;
+  }
+
+  .pill .btn {
+    flex: 1;
+    min-width: auto;
+    padding: 0.4rem 0.2rem;
+    font-size: 0.7rem;
+  }
+}

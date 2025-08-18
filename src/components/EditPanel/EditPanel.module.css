@@ -84,3 +84,34 @@
   line-height: 1.7;
   flex: 1;
 }
+
+@media screen and (max-width: 768px) {
+  .editPanel {
+    width: 100vw;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .editPanelHeader {
+    padding: 0.75rem;
+  }
+
+  .editPanelForm {
+    padding: 0.75rem;
+  }
+
+  .closePanelBtn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .editPanelHeader {
+    padding: 0.5rem;
+  }
+
+  .editPanelForm {
+    padding: 0.5rem;
+  }
+}

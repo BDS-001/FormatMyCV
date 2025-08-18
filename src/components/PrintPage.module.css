@@ -90,3 +90,39 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .printPageWrapper {
+    padding: 10px;
+  }
+
+  .templateContainer {
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+  }
+
+  .printControls {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .printControls .btn {
+    min-height: 44px;
+  }
+
+  .templateSelector {
+    min-height: 44px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .printPageWrapper {
+    padding: 5px;
+  }
+
+  .printControls {
+    gap: 8px;
+  }
+}
