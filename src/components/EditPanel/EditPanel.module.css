@@ -101,8 +101,8 @@
   }
 
   .closePanelBtn {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: var(--mobile-touch-target);
+    min-width: var(--mobile-touch-target);
   }
 }
 

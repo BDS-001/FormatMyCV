@@ -109,11 +109,11 @@
   }
 
   .printControls .btn {
-    min-height: 44px;
+    min-height: var(--mobile-touch-target);
   }
 
   .templateSelector {
-    min-height: 44px;
+    min-height: var(--mobile-touch-target);
   }
 }
 
