@@ -6,7 +6,7 @@ import Header from './Header/Header'
 import { editorContext } from '../provider/editorProvider'
 import EditPanel from './EditPanel/EditPanel'
 import TemplateSelector from './TemplateSelector/TemplateSelector'
-import ConfirmationModal from './ConfirmationModal'
+import ConfirmationModal from './ConfirmationModal/ConfirmationModal'
 import { useContext } from 'react'
 
 function PrintPageContent() {
