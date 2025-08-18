@@ -357,7 +357,6 @@
   .templateContainer .resumeSidebar * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    background: transparent;
   }
 
   .templateContainer .sidebarSection {
