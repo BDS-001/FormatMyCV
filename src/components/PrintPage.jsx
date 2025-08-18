@@ -30,6 +30,7 @@ function PrintPageContent() {
         />
       </div>
       <div className={styles.printPageWrapper}>
+        <EditPanel />
         <div className={`${styles.printControls} ${styles.noPrint}`}>
           <TemplateSelector
             value={template}
@@ -41,8 +42,6 @@ function PrintPageContent() {
         </div>
 
         <div className={styles.mainContent}>
-          <EditPanel />
-
           <div className={styles.templateContainer}>
             {template === 'modern' && <ModernTemplate />}
             {template === 'ats' && <ATSTemplate />}
