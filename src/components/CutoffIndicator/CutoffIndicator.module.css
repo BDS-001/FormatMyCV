@@ -1,0 +1,78 @@
+.cutoffIndicator {
+  position: absolute;
+  top: 1120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 816px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cutoffLine {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ff6b6b 20%,
+    #ff6b6b 80%,
+    transparent 100%
+  );
+  position: relative;
+}
+
+.cutoffLine::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 107, 107, 0.3) 20%,
+    rgba(255, 107, 107, 0.3) 80%,
+    transparent 100%
+  );
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cutoffLabel {
+  position: absolute;
+  right: 20px;
+  top: -25px;
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.cutoffLabel::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 12px;
+  border: 4px solid transparent;
+  border-top-color: #ff6b6b;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media print {
+  .cutoffIndicator {
+    display: none !important;
+  }
+}

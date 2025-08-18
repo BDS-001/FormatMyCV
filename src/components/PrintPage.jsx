@@ -7,6 +7,7 @@ import { editorContext } from '../provider/editorProvider'
 import EditPanel from './EditPanel/EditPanel'
 import TemplateSelector from './TemplateSelector/TemplateSelector'
 import ConfirmationModal from './ConfirmationModal/ConfirmationModal'
+import CutoffIndicator from './CutoffIndicator/CutoffIndicator'
 import { useContext } from 'react'
 
 function PrintPageContent() {
@@ -45,6 +46,7 @@ function PrintPageContent() {
           <div className={styles.templateContainer}>
             {template === 'modern' && <ModernTemplate />}
             {template === 'ats' && <ATSTemplate />}
+            <CutoffIndicator />
           </div>
         </div>
       </div>
