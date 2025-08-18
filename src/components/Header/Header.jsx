@@ -17,9 +17,7 @@ export default function Header({
 
   return (
     <header className={styles.header}>
-      <div className={styles.brand} title="Resume Builder">
-        <strong>Resume Builder</strong>
-      </div>
+      <strong>Resume Builder</strong>
 
       <div className={styles.pill} role="group" aria-label="Editor sections">
         <span className={styles.sectionLabel}>Editor</span>

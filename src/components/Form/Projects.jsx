@@ -1,39 +1,22 @@
 import useResume from '../../context/resumeContext'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 
 export default function Projects() {
   const { resumeData, setResumeData } = useResume()
-  const [currentProject, setCurrentProject] = useState({
-    title: '',
-    description: '',
-    link: '',
-  })
 
   const projects = useMemo(() => {
     return resumeData.projects || []
   }, [resumeData.projects])
 
-  const handleInputChange = (field, value) => {
-    setCurrentProject({
-      ...currentProject,
-      [field]: value,
-    })
-  }
-
   const addProject = () => {
-    // Create a new array with all existing projects plus the new one
-    const updatedProjects = [...projects, currentProject]
-
-    // Update resume data with the new projects array
-    setResumeData({
-      ...resumeData,
-      projects: updatedProjects,
-    })
-
-    setCurrentProject({
+    const newProject = {
       title: '',
       description: '',
       link: '',
+    }
+    setResumeData({
+      ...resumeData,
+      projects: [...projects, newProject],
     })
   }
 
@@ -62,100 +45,55 @@ export default function Projects() {
 
   return (
     <div className="formSection">
-      {/* Display existing projects */}
-      {projects.length > 0 && (
-        <div id="projectsList" className="dynamicList">
-          {projects.map((project, index) => (
-            <div key={index} className="listItem">
-              <h3>{project.title}</h3>
-              <p>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.link}
-                  </a>
-                )}
-              </p>
-              <div className="formGroup">
-                <label htmlFor={`projectTitle-${index}`}>Project Title</label>
-                <input
-                  type="text"
-                  id={`projectTitle-${index}`}
-                  value={project.title}
-                  onChange={e => updateProject(index, 'title', e.target.value)}
-                />
-              </div>
-              <div className="formGroup">
-                <label htmlFor={`projectDescription-${index}`}>
-                  Description
-                </label>
-                <textarea
-                  id={`projectDescription-${index}`}
-                  value={project.description}
-                  onChange={e =>
-                    updateProject(index, 'description', e.target.value)
-                  }
-                ></textarea>
-              </div>
-              <div className="formGroup">
-                <label htmlFor={`projectLink-${index}`}>Link (Optional)</label>
-                <input
-                  type="text"
-                  id={`projectLink-${index}`}
-                  value={project.link}
-                  onChange={e => updateProject(index, 'link', e.target.value)}
-                />
-              </div>
-              <button
-                type="button"
-                className="btn danger"
-                onClick={() => removeProject(index)}
-              >
-                Remove
-              </button>
+      <div className="formGroup">
+        <label>Projects</label>
+        {projects.map((project, index) => (
+          <div key={index} className="listItem">
+            <div className="formGroup">
+              <label htmlFor={`projectTitle-${index}`}>Project Title</label>
+              <input
+                type="text"
+                id={`projectTitle-${index}`}
+                placeholder="e.g. E-commerce Website"
+                value={project.title}
+                onChange={e => updateProject(index, 'title', e.target.value)}
+              />
             </div>
-          ))}
-        </div>
-      )}
-
-      {/* Form to add new project */}
-      <div className="formContainer">
-        <div className="formGroup">
-          <label htmlFor="projectTitle">Project Title</label>
-          <input
-            type="text"
-            id="projectTitle"
-            placeholder="e.g. E-commerce Website"
-            value={currentProject.title}
-            onChange={e => handleInputChange('title', e.target.value)}
-          />
-        </div>
-        <div className="formGroup">
-          <label htmlFor="projectDescription">Description</label>
-          <textarea
-            id="projectDescription"
-            placeholder="• Built a full-stack e-commerce platform using React, Node.js, and MongoDB&#10;• Implemented payment processing with Stripe"
-            value={currentProject.description}
-            onChange={e => handleInputChange('description', e.target.value)}
-          ></textarea>
-        </div>
-        <div className="formGroup">
-          <label htmlFor="projectLink">Link (Optional)</label>
-          <input
-            type="text"
-            id="projectLink"
-            placeholder="e.g. github.com/username/project"
-            value={currentProject.link}
-            onChange={e => handleInputChange('link', e.target.value)}
-          />
-        </div>
-        <button type="button" className="btn brand" onClick={addProject}>
-          Add Project
-        </button>
+            <div className="formGroup">
+              <label htmlFor={`projectDescription-${index}`}>Description</label>
+              <textarea
+                id={`projectDescription-${index}`}
+                placeholder="• Built a full-stack e-commerce platform using React, Node.js, and MongoDB
+• Implemented payment processing with Stripe"
+                value={project.description}
+                onChange={e =>
+                  updateProject(index, 'description', e.target.value)
+                }
+              ></textarea>
+            </div>
+            <div className="formGroup">
+              <label htmlFor={`projectLink-${index}`}>Link (Optional)</label>
+              <input
+                type="text"
+                id={`projectLink-${index}`}
+                placeholder="e.g. github.com/username/project"
+                value={project.link}
+                onChange={e => updateProject(index, 'link', e.target.value)}
+              />
+            </div>
+            <button
+              type="button"
+              className="btn danger"
+              onClick={() => removeProject(index)}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
       </div>
+      <button type="button" className="btn brand" onClick={addProject}>
+        Add Project
+      </button>
     </div>
   )
 }
