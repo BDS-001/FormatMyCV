@@ -8,13 +8,17 @@
   flex: 1;
   display: flex;
   position: relative;
+  justify-content: center;
 }
 
-.templateContainer {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
+.preview {
+  width: 8.5in;
+  height: 11in;
+  background: white;
+  border: 1px solid #ccc;
+  position: relative;
+  box-sizing: content-box;
+  overflow: visible;
 }
 
 .printControls {
@@ -68,20 +72,17 @@
     display: none !important;
   }
 
-  body * {
-    visibility: hidden;
-  }
-
-  .templateContainer,
-  .templateContainer * {
-    visibility: visible;
-  }
-
-  .templateContainer {
-    position: absolute;
-    top: 0;
-    left: 0;
+  html,
+  body {
+    margin: 0;
     padding: 0;
+    background: #fff;
+  }
+
+  .preview {
+    border: none;
+    width: 8.5in;
+    height: auto;
     margin: 0;
   }
 
@@ -96,10 +97,9 @@
     padding: 10px;
   }
 
-  .templateContainer {
+  .preview {
     overflow-x: auto;
     overflow-y: hidden;
-    justify-content: flex-start;
   }
 
   .printControls {

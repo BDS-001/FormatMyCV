@@ -1,16 +1,13 @@
 /* ATS Template - Minimal Functional */
-.templateContainer {
+.atsContent {
   display: block;
-  padding: 40px;
+  padding: 20px 40px 0 40px;
   font-family: Arial, sans-serif;
   font-size: 11px;
   line-height: 1.5;
   color: #000;
-  background-color: white;
-  width: 816px;
-  min-height: 1056px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .atsMain {
@@ -178,20 +175,11 @@
   line-height: 1.5;
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
-  .templateContainer {
-    width: 100%;
-    min-width: auto;
-    padding: 20px;
-  }
-}
-
 /* =================================
    PRINT STYLES
    ================================= */
 @media print {
-  .templateContainer * {
+  .atsContent * {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
