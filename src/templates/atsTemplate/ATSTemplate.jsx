@@ -4,7 +4,7 @@ import useResume from '../../context/resumeContext'
 import ExperienceSection from './components/ExperienceSection'
 import EducationSection from './components/EducationSection'
 import ProjectsSection from './components/ProjectsSection'
-import AboutMeSection from './components/AboutMeSection'
+import SummarySection from './components/SummarySection'
 import ATSSkillsSection from './components/ATSSkillsSection'
 
 const ATSHeader = () => {
@@ -52,10 +52,7 @@ const ATSTemplate = () => {
     <div className={styles.atsContent}>
       <main className={styles.atsMain}>
         <ATSHeader />
-        <section className={styles.atsSection}>
-          <h3 className={styles.atsSectionTitle}>Summary</h3>
-          <AboutMeSection />
-        </section>
+        <SummarySection />
         <ExperienceSection />
         <EducationSection />
         <ProjectsSection />

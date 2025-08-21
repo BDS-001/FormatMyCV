@@ -10,8 +10,8 @@ const ATSSkillsSection = () => {
   if (skills.length === 0) return null
 
   return (
-    <section className={styles.atsSection}>
-      <h3 className={styles.atsSectionTitle}>Skills</h3>
+    <section className={styles.resumeSection}>
+      <h3 className={styles.resumeSectionTitle}>SKILLS</h3>
       <div className={styles.atsSkillsSection}>
         <ul className={styles.skillsList}>
           {skills.map((skill, index) => (

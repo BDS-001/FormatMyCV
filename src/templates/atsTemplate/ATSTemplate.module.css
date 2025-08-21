@@ -52,11 +52,6 @@
 }
 
 /* Section Styles */
-.atsSection {
-  margin-bottom: 20px;
-}
-
-.atsSectionTitle,
 .resumeSectionTitle {
   font-size: 13px;
   font-weight: bold;
@@ -158,21 +153,6 @@
   position: absolute;
   left: 0;
   color: #666;
-}
-
-/* About Me Section */
-.sidebarSection {
-  margin-bottom: 20px;
-}
-
-.sidebarSectionTitle {
-  display: none;
-}
-
-.sidebarSectionContent {
-  font-size: 11px;
-  color: #000;
-  line-height: 1.5;
 }
 
 /* =================================
