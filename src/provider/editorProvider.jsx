@@ -1,12 +1,12 @@
-import { createContext, useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { resumeContext } from '../context/resumeContext'
-
-export const editorContext = createContext()
+import { editorContext } from '../context/editContext'
 
 export default function EditorProvider({ children }) {
   const [activeSection, setActiveSection] = useState(null)
   const [isEditPanelOpen, setIsEditPanelOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [showJsonModal, setShowJsonModal] = useState(false)
   const { clearData } = useContext(resumeContext)
 
   const handleSectionClick = section => {
@@ -32,6 +32,14 @@ export default function EditorProvider({ children }) {
     setShowModal(false)
   }
 
+  const handleJsonSettingsClick = () => {
+    setShowJsonModal(true)
+  }
+
+  const handleCloseJsonModal = () => {
+    setShowJsonModal(false)
+  }
+
   const closeEditPanel = () => {
     setIsEditPanelOpen(false)
     setActiveSection(null)
@@ -43,10 +51,13 @@ export default function EditorProvider({ children }) {
         activeSection,
         isEditPanelOpen,
         showModal,
+        showJsonModal,
         handleSectionClick,
         handleClearClick,
         handleConfirmClear,
         handleCancelClear,
+        handleJsonSettingsClick,
+        handleCloseJsonModal,
         closeEditPanel,
       }}
     >

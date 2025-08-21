@@ -1,6 +1,6 @@
 import styles from './JsonModal.module.css'
 
-const ConfirmationModal = ({
+const JsonModal = ({
   isOpen,
   onConfirm,
   onCancel,
@@ -47,4 +47,4 @@ const ConfirmationModal = ({
   )
 }
 
-export default ConfirmationModal
+export default JsonModal

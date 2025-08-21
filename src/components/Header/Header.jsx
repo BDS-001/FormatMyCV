@@ -6,6 +6,7 @@ export default function Header({
   activeSection,
   onSectionClick,
   onClearClick,
+  onJsonSettingsClick,
 }) {
   const { loadExample, exportResumeJson, importResumeJson } =
     useContext(resumeContext)
@@ -63,6 +64,9 @@ export default function Header({
         </button>
         <button className="btn brand" onClick={handleImportJson}>
           Load JSON
+        </button>
+        <button className="btn ghost" onClick={onJsonSettingsClick}>
+          JSON Settings
         </button>
         <input
           type="file"

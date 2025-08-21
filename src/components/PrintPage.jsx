@@ -3,10 +3,11 @@ import ModernTemplate from '../templates/modernTemplate/ModernTemplate'
 import ATSTemplate from '../templates/atsTemplate/ATSTemplate'
 import styles from './PrintPage.module.css'
 import Header from './Header/Header'
-import { editorContext } from '../provider/editorProvider'
+import { editorContext } from '../context/editContext'
 import EditPanel from './EditPanel/EditPanel'
 import TemplateSelector from './TemplateSelector/TemplateSelector'
 import ConfirmationModal from './ConfirmationModal/ConfirmationModal'
+import JsonModal from './JsonModal/JsonModal'
 import CutoffIndicator from './CutoffIndicator/CutoffIndicator'
 import { useContext } from 'react'
 
@@ -15,10 +16,13 @@ function PrintPageContent() {
   const {
     activeSection,
     showModal,
+    showJsonModal,
     handleSectionClick,
     handleClearClick,
     handleConfirmClear,
     handleCancelClear,
+    handleJsonSettingsClick,
+    handleCloseJsonModal,
   } = useContext(editorContext)
 
   return (
@@ -28,6 +32,7 @@ function PrintPageContent() {
           activeSection={activeSection}
           onSectionClick={handleSectionClick}
           onClearClick={handleClearClick}
+          onJsonSettingsClick={handleJsonSettingsClick}
         />
       </div>
       <div className={styles.printPageWrapper}>
@@ -57,6 +62,8 @@ function PrintPageContent() {
         onCancel={handleCancelClear}
         message="Are you sure you want to clear all form data? This action cannot be undone."
       />
+
+      <JsonModal isOpen={showJsonModal} onCancel={handleCloseJsonModal} />
     </>
   )
 }

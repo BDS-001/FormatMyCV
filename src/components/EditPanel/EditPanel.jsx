@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { editorContext } from '../../provider/editorProvider'
+import { editorContext } from '../../context/editContext'
 import PersonalInfo from '../Form/PersonalInfo'
 import Summary from '../Form/Summary'
 import Education from '../Form/Education'
