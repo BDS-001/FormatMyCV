@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Form</title>
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // prevent page reload
+      const data = new FormData(event.target)
+
+      const str = data.get('mytextarea')
+      const json = JSON.parse(str)
+      console.log(json.personalInfo)
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="handleSubmit(event)">
+    <textarea name="mytextarea" rows="5" cols="40"></textarea><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

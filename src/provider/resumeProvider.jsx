@@ -1,9 +1,13 @@
 import { resumeContext } from '../context/resumeContext'
 import { useState, useCallback } from 'react'
-import { resumeDefault, example } from '../data/defaultJson'
+import {
+  getEmptyResume,
+  getExampleResume,
+  getValidatedResumeData,
+} from '../utils/resumeValidator'
 
 export default function ResumeProvider({ children }) {
-  const [resumeData, setResumeData] = useState(resumeDefault)
+  const [resumeData, setResumeData] = useState(getEmptyResume())
   const [toast, setToast] = useState({
     isVisible: false,
     message: '',
@@ -12,11 +16,11 @@ export default function ResumeProvider({ children }) {
   const [currentTemplate, setCurrentTemplate] = useState('modern')
 
   const clearData = useCallback(() => {
-    setResumeData(resumeDefault)
+    setResumeData(getEmptyResume())
   }, [])
 
   const loadExample = useCallback(() => {
-    setResumeData(example)
+    setResumeData(getExampleResume())
   }, [])
 
   const showToast = useCallback((message, type = 'success') => {
@@ -55,7 +59,8 @@ export default function ResumeProvider({ children }) {
       reader.onload = function (e) {
         try {
           const importedResumeData = JSON.parse(e.target.result)
-          setResumeData({ ...resumeDefault, ...importedResumeData })
+          const validatedData = getValidatedResumeData(importedResumeData)
+          setResumeData(validatedData)
 
           showToast('Resume data imported successfully!')
         } catch (error) {
@@ -75,6 +80,30 @@ export default function ResumeProvider({ children }) {
     [showToast]
   )
 
+  const copyResumeToClipbaord = async () => {
+    try {
+      const resumeString = JSON.stringify(resumeData, null, 2)
+      await navigator.clipboard.writeText(resumeString)
+      showToast('Resume copied to clipboard')
+    } catch (error) {
+      showToast('Resume failed to copy', 'error')
+    }
+  }
+
+  const uploadJsonString = resumeDataString => {
+    const newResumeData = JSON.parse(resumeDataString)
+    try {
+      const validatedData = getValidatedResumeData(newResumeData)
+      setResumeData(validatedData)
+      showToast('Resume data imported successfully!')
+    } catch (error) {
+      showToast(
+        'Error importing resume data. Please check if the file format is correct.',
+        'error'
+      )
+    }
+  }
+
   return (
     <resumeContext.Provider
       value={{
@@ -89,6 +118,8 @@ export default function ResumeProvider({ children }) {
         hideToast,
         currentTemplate,
         setCurrentTemplate,
+        copyResumeToClipbaord,
+        uploadJsonString,
       }}
     >
       {children}

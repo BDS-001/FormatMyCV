@@ -1,3 +1,46 @@
+const resumeSchema = {
+  personalInfo: {
+    fullName: '',
+    jobTitle: '',
+    email: '',
+    phone: '',
+    location: '',
+    linkedin: '',
+    github: '',
+    website: '',
+    summary: '',
+  },
+  education: [
+    {
+      school: '',
+      degree: '',
+      location: '',
+      startDate: '',
+      endDate: '',
+      gpa: '',
+      courses: '',
+    },
+  ],
+  experience: [
+    {
+      company: '',
+      position: '',
+      location: '',
+      startDate: '',
+      endDate: '',
+      responsibilities: '',
+    },
+  ],
+  skills: [''],
+  projects: [
+    {
+      title: '',
+      description: '',
+      link: '',
+    },
+  ],
+}
+
 const resumeDefault = {
   personalInfo: {
     fullName: '',
@@ -97,4 +140,4 @@ const example = {
   ],
 }
 
-export { resumeDefault, example }
+export { resumeDefault, example, resumeSchema }
