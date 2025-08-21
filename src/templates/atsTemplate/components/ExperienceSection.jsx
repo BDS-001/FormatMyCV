@@ -1,15 +1,7 @@
-import { useMemo } from 'react'
-import useResume from '../../../context/resumeContext'
+import { memo } from 'react'
 import styles from '../ATSTemplate.module.css'
 
-const ExperienceSection = () => {
-  const { resumeData } = useResume()
-
-  const experience = useMemo(
-    () => resumeData.experience || [],
-    [resumeData.experience]
-  )
-
+const ExperienceSection = memo(({ experience = [] }) => {
   if (experience.length === 0) return null
 
   const formatResponsibilities = responsibilities => ({
@@ -42,6 +34,8 @@ const ExperienceSection = () => {
       </div>
     </section>
   )
-}
+})
+
+ExperienceSection.displayName = 'ExperienceSection'
 
 export default ExperienceSection

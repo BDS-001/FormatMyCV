@@ -10,9 +10,11 @@ import ConfirmationModal from './ConfirmationModal/ConfirmationModal'
 import JsonModal from './JsonModal/JsonModal'
 import CutoffIndicator from './CutoffIndicator/CutoffIndicator'
 import { useContext } from 'react'
+import useResume from '../context/resumeContext'
 
 function PrintPageContent() {
   const [template, setTemplate] = useState('modern')
+  const { resumeData } = useResume()
   const {
     activeSection,
     showModal,
@@ -50,7 +52,7 @@ function PrintPageContent() {
         <div className={styles.mainContent}>
           <div className={styles.preview}>
             {template === 'modern' && <ModernTemplate />}
-            {template === 'ats' && <ATSTemplate />}
+            {template === 'ats' && <ATSTemplate resumeData={resumeData} />}
             <CutoffIndicator />
           </div>
         </div>
