@@ -13,7 +13,7 @@
 
 .preview {
   width: 8.5in;
-  height: 11in;
+  min-height: 11in;
   background: white;
   border: 1px solid #ccc;
   position: relative;
