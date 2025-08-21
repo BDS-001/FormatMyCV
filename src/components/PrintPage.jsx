@@ -51,7 +51,9 @@ function PrintPageContent() {
 
         <div className={styles.mainContent}>
           <div className={styles.preview}>
-            {template === 'modern' && <ModernTemplate />}
+            {template === 'modern' && (
+              <ModernTemplate resumeData={resumeData} />
+            )}
             {template === 'ats' && <ATSTemplate resumeData={resumeData} />}
             <CutoffIndicator />
           </div>

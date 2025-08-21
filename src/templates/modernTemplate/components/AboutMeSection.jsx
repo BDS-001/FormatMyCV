@@ -1,13 +1,8 @@
-import { useMemo } from 'react'
-import useResume from '../../../context/resumeContext'
+import { memo } from 'react'
 import styles from '../ModernTemplate.module.css'
 
-export default function AboutMeSection() {
-  const { resumeData } = useResume()
-
-  const summary = useMemo(() => {
-    return resumeData.personalInfo.summary || ''
-  }, [resumeData.personalInfo.summary])
+const AboutMeSection = memo(({ summary }) => {
+  if (!summary) return null
 
   return (
     <div className={styles.sidebarSection}>
@@ -17,4 +12,8 @@ export default function AboutMeSection() {
       </div>
     </div>
   )
-}
+})
+
+AboutMeSection.displayName = 'AboutMeSection'
+
+export default AboutMeSection

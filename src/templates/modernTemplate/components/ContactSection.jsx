@@ -1,27 +1,17 @@
-import { useMemo } from 'react'
-import useResume from '../../../context/resumeContext'
+import { useMemo, memo } from 'react'
 import styles from '../ModernTemplate.module.css'
 
-export default function ContactSection() {
-  const { resumeData } = useResume()
-
+const ContactSection = memo(({ personalInfo }) => {
   const contactData = useMemo(() => {
     return {
-      email: resumeData.personalInfo.email,
-      phone: resumeData.personalInfo.phone,
-      location: resumeData.personalInfo.location,
-      linkedin: resumeData.personalInfo.linkedin,
-      website: resumeData.personalInfo.website,
-      github: resumeData.personalInfo.github,
+      email: personalInfo?.email,
+      phone: personalInfo?.phone,
+      location: personalInfo?.location,
+      linkedin: personalInfo?.linkedin,
+      website: personalInfo?.website,
+      github: personalInfo?.github,
     }
-  }, [
-    resumeData.personalInfo.email,
-    resumeData.personalInfo.phone,
-    resumeData.personalInfo.location,
-    resumeData.personalInfo.linkedin,
-    resumeData.personalInfo.website,
-    resumeData.personalInfo.github,
-  ])
+  }, [personalInfo])
 
   return (
     <div className={styles.sidebarSection}>
@@ -96,4 +86,8 @@ export default function ContactSection() {
       </div>
     </div>
   )
-}
+})
+
+ContactSection.displayName = 'ContactSection'
+
+export default ContactSection

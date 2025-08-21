@@ -1,18 +1,8 @@
-import { useMemo } from 'react'
-import useResume from '../../../context/resumeContext'
+import { memo } from 'react'
 import styles from '../ModernTemplate.module.css'
 
-export default function ProjectsSection() {
-  const { resumeData } = useResume()
-
-  const projects = useMemo(() => {
-    return resumeData.projects || []
-  }, [resumeData.projects])
-
-  // Hide the section if there are no projects
-  if (projects.length === 0) {
-    return null
-  }
+const ProjectsSection = memo(({ projects = [] }) => {
+  if (projects.length === 0) return null
 
   return (
     <div className={styles.resumeSection} id="projectsSection">
@@ -49,4 +39,8 @@ export default function ProjectsSection() {
       </div>
     </div>
   )
-}
+})
+
+ProjectsSection.displayName = 'ProjectsSection'
+
+export default ProjectsSection

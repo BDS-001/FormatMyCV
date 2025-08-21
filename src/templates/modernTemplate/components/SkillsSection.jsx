@@ -1,18 +1,8 @@
-import { useMemo } from 'react'
-import useResume from '../../../context/resumeContext'
+import { memo } from 'react'
 import styles from '../ModernTemplate.module.css'
 
-export default function SkillsSection() {
-  const { resumeData } = useResume()
-
-  const skills = useMemo(() => {
-    return resumeData.skills || []
-  }, [resumeData.skills])
-
-  // Hide the section if there are no skills
-  if (skills.length === 0) {
-    return null
-  }
+const SkillsSection = memo(({ skills = [] }) => {
+  if (skills.length === 0) return null
 
   return (
     <div className={styles.sidebarSection}>
@@ -26,4 +16,8 @@ export default function SkillsSection() {
       </div>
     </div>
   )
-}
+})
+
+SkillsSection.displayName = 'SkillsSection'
+
+export default SkillsSection

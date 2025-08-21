@@ -1,18 +1,8 @@
-import { useMemo } from 'react'
-import useResume from '../../../context/resumeContext'
+import { memo } from 'react'
 import styles from '../ModernTemplate.module.css'
 
-export default function ExperienceSection() {
-  const { resumeData } = useResume()
-
-  const experience = useMemo(() => {
-    return resumeData.experience || []
-  }, [resumeData.experience])
-
-  // Hide the section if there is no experience
-  if (experience.length === 0) {
-    return null
-  }
+const ExperienceSection = memo(({ experience = [] }) => {
+  if (experience.length === 0) return null
 
   return (
     <div className={styles.resumeSection}>
@@ -40,4 +30,8 @@ export default function ExperienceSection() {
       </div>
     </div>
   )
-}
+})
+
+ExperienceSection.displayName = 'ExperienceSection'
+
+export default ExperienceSection
