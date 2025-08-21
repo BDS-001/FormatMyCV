@@ -29,7 +29,7 @@ function PrintPageContent() {
 
   return (
     <>
-      <div className={styles.noPrint}>
+      <div className="noPrint">
         <Header
           activeSection={activeSection}
           onSectionClick={handleSectionClick}
@@ -39,7 +39,7 @@ function PrintPageContent() {
       </div>
       <div className={styles.printPageWrapper}>
         <EditPanel />
-        <div className={`${styles.printControls} ${styles.noPrint}`}>
+        <div className={`${styles.printControls} noPrint`}>
           <TemplateSelector
             value={template}
             onChange={e => setTemplate(e.target.value)}

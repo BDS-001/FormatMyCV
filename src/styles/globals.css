@@ -270,3 +270,9 @@ label {
     padding: 0.75rem;
   }
 }
+
+@media print {
+  .noPrint {
+    display: none !important;
+  }
+}

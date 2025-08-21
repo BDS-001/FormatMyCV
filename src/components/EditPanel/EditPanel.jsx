@@ -33,7 +33,7 @@ export default function EditPanel() {
 
   return (
     <div
-      className={`${styles.editPanel} ${isEditPanelOpen ? styles.open : ''}`}
+      className={`${styles.editPanel} ${isEditPanelOpen ? styles.open : ''} noPrint`}
     >
       <div className={styles.editPanelContent}>
         {isEditPanelOpen && (
