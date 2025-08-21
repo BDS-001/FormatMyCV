@@ -5,15 +5,12 @@ import {
   getExampleResume,
   getValidatedResumeData,
 } from '../utils/resumeValidator'
+import { useToast } from './toastProvider'
 
 export default function ResumeProvider({ children }) {
   const [resumeData, setResumeData] = useState(getEmptyResume())
-  const [toast, setToast] = useState({
-    isVisible: false,
-    message: '',
-    type: 'success',
-  })
   const [currentTemplate, setCurrentTemplate] = useState('modern')
+  const { showToast } = useToast()
 
   const clearData = useCallback(() => {
     setResumeData(getEmptyResume())
@@ -21,14 +18,6 @@ export default function ResumeProvider({ children }) {
 
   const loadExample = useCallback(() => {
     setResumeData(getExampleResume())
-  }, [])
-
-  const showToast = useCallback((message, type = 'success') => {
-    setToast({ isVisible: true, message, type })
-  }, [])
-
-  const hideToast = useCallback(() => {
-    setToast(prev => ({ ...prev, isVisible: false }))
   }, [])
 
   const exportResumeJson = useCallback(() => {
@@ -48,7 +37,9 @@ export default function ResumeProvider({ children }) {
 
     // Clean up
     URL.revokeObjectURL(url)
-  }, [resumeData])
+
+    showToast('Resume JSON downloaded successfully!')
+  }, [resumeData, showToast])
 
   const importResumeJson = useCallback(
     event => {
@@ -113,9 +104,6 @@ export default function ResumeProvider({ children }) {
         loadExample,
         exportResumeJson,
         importResumeJson,
-        toast,
-        showToast,
-        hideToast,
         currentTemplate,
         setCurrentTemplate,
         copyResumeToClipbaord,

@@ -30,16 +30,16 @@ const ConfirmationModal = ({
 
         <div className={styles.modalButtons}>
           <button
-            className={`${styles.modalBtn} ${styles.confirmButton}`}
-            onClick={onConfirm}
-          >
-            Yes
-          </button>
-          <button
             className={`${styles.modalBtn} ${styles.cancelButton}`}
             onClick={onCancel}
           >
             No
+          </button>
+          <button
+            className={`${styles.modalBtn} ${styles.confirmButton}`}
+            onClick={onConfirm}
+          >
+            Yes
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import styles from './Header.module.css'
-import { useContext, useRef } from 'react'
+import { useContext } from 'react'
 import { resumeContext } from '../../context/resumeContext'
 
 export default function Header({
@@ -8,13 +8,7 @@ export default function Header({
   onClearClick,
   onJsonSettingsClick,
 }) {
-  const { loadExample, exportResumeJson, importResumeJson } =
-    useContext(resumeContext)
-  const fileInputRef = useRef(null)
-
-  const handleImportJson = () => {
-    fileInputRef.current.click()
-  }
+  const { loadExample } = useContext(resumeContext)
 
   return (
     <header className={styles.header}>
@@ -59,22 +53,9 @@ export default function Header({
         <button className="btn ghost" onClick={onClearClick}>
           Clear Resume
         </button>
-        <button className="btn brand" onClick={exportResumeJson}>
-          Save JSON
-        </button>
-        <button className="btn brand" onClick={handleImportJson}>
-          Load JSON
-        </button>
-        <button className="btn ghost" onClick={onJsonSettingsClick}>
+        <button className="btn brand" onClick={onJsonSettingsClick}>
           JSON Settings
         </button>
-        <input
-          type="file"
-          accept=".json"
-          className={styles.hiddenInput}
-          ref={fileInputRef}
-          onChange={importResumeJson}
-        />
       </div>
     </header>
   )
