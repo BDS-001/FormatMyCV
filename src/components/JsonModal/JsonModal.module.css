@@ -23,7 +23,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  width: min(480px, 92vw);
+  width: min(600px, 92vw);
   padding: 1.2rem 1.2rem 1rem;
   color: var(--text);
   transform: translateY(10px) scale(0.98);
@@ -60,6 +60,7 @@
 /* Buttons row */
 .modalButtons {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
 }
