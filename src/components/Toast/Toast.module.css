@@ -5,12 +5,8 @@
   transform: translateX(-50%) translateY(-20px);
   padding: 0.85rem 1.2rem;
   border-radius: var(--radius);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.02)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: var(--shadow);
   display: flex;
   align-items: center;
@@ -27,11 +23,7 @@
 
 .toastError {
   border-color: rgba(255, 109, 141, 0.5);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 109, 141, 0.25),
-    rgba(255, 109, 141, 0.1)
-  );
+  background: var(--elev);
   color: var(--danger);
 }
 
