@@ -271,6 +271,7 @@ label {
   }
 }
 
+/* global no print */
 @media print {
   .noPrint {
     display: none !important;
