@@ -154,13 +154,3 @@
   left: 0;
   color: #666;
 }
-
-/* =================================
-   PRINT STYLES
-   ================================= */
-@media print {
-  .atsContent * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}

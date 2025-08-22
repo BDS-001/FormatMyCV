@@ -1,0 +1,220 @@
+/* =================================
+   CLEAN TEMPLATE STYLES
+   ================================= */
+.cleanContent {
+  color: #000000;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background: #ffffff;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+/* =================================
+   HEADER STYLES
+   ================================= */
+.cleanHeader {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cleanName {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+}
+
+.cleanTitle {
+  font-size: 14px;
+  color: #555555;
+  margin: 0 0 12px 0;
+  font-weight: normal;
+}
+
+.cleanContact {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #333333;
+}
+
+.cleanContactItem {
+  display: flex;
+  align-items: center;
+}
+
+/* =================================
+   MAIN CONTENT STYLES
+   ================================= */
+.cleanMain {
+  display: block;
+  width: 100%;
+}
+
+/* =================================
+   SECTION STYLES
+   ================================= */
+.cleanSection {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.cleanSectionTitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* =================================
+   SUMMARY SECTION
+   ================================= */
+.cleanSummary {
+  line-height: 1.6;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+/* =================================
+   EXPERIENCE SECTION
+   ================================= */
+.cleanExperienceItem {
+  margin-bottom: 16px;
+}
+
+.friendlyExperienceItem:last-child {
+  margin-bottom: 0;
+}
+
+.cleanJobHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.cleanJobTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.cleanJobCompany {
+  font-size: 11px;
+  color: #000000;
+  margin: 2px 0;
+  font-weight: normal;
+}
+
+.cleanJobDates {
+  font-size: 10px;
+  color: #666666;
+  font-style: italic;
+}
+
+.cleanJobDescription {
+  margin: 4px 0 0 0;
+  line-height: 1.5;
+  color: #000000;
+}
+
+.friendlyJobDescription ul {
+  margin: 4px 0;
+  padding-left: 15px;
+}
+
+.friendlyJobDescription li {
+  margin-bottom: 2px;
+}
+
+/* =================================
+   EDUCATION SECTION
+   ================================= */
+.cleanEducationItem {
+  margin-bottom: 12px;
+}
+
+.friendlyEducationItem:last-child {
+  margin-bottom: 0;
+}
+
+.cleanEducationDegree {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 2px 0;
+}
+
+.cleanEducationSchool {
+  font-size: 11px;
+  color: #000000;
+  margin: 0 0 2px 0;
+}
+
+.cleanEducationDates {
+  font-size: 10px;
+  color: #666666;
+  font-style: italic;
+}
+
+/* =================================
+   PROJECTS SECTION
+   ================================= */
+.cleanProjectItem {
+  margin-bottom: 12px;
+}
+
+.friendlyProjectItem:last-child {
+  margin-bottom: 0;
+}
+
+.cleanProjectName {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 4px 0;
+}
+
+.cleanProjectDescription {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+}
+
+/* =================================
+   SKILLS SECTION
+   ================================= */
+.cleanSkillsGrid {
+  margin-bottom: 4px;
+}
+
+.cleanSkillCategory {
+  margin-bottom: 8px;
+}
+
+.cleanSkillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cleanSkillTag {
+  font-size: 11px;
+  color: #000000;
+  margin-right: 8px;
+}

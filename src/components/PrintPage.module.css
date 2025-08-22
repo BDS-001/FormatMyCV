@@ -21,7 +21,6 @@
   width: 8.5in;
   min-height: 11in;
   background: white;
-  border: 1px solid #ccc;
   position: relative;
   box-sizing: content-box;
   overflow: visible;
@@ -82,10 +81,14 @@
   }
 
   .preview {
-    border: none;
     width: 8.5in;
     height: auto;
     margin: 0;
+  }
+
+  .preview * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .printPageWrapper {
