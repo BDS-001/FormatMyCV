@@ -29,7 +29,7 @@ function PrintPageContent() {
 
   return (
     <>
-      <div className="noPrint">
+      <div className={`${styles.headerWrapper} noPrint`}>
         <Header
           activeSection={activeSection}
           onSectionClick={handleSectionClick}

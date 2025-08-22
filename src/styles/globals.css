@@ -30,6 +30,7 @@ html {
       transparent 60%
     ),
     var(--bg);
+  background-attachment: fixed;
 }
 body {
   margin: 0;
