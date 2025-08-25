@@ -46,7 +46,7 @@ function PrintPageContent() {
             onChange={e => setTemplate(e.target.value)}
           />
           <button onClick={() => window.print()} className="btn icon">
-            Print
+            Print / Save PDF
           </button>
         </div>
 

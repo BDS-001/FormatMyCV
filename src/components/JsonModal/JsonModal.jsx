@@ -9,6 +9,8 @@ const JsonModal = ({ isOpen, onCancel }) => {
     importResumeJson,
     copyResumeToClipbaord,
     uploadJsonString,
+    exportSchemaJson,
+    copySchemaToClipboard,
   } = useContext(resumeContext)
   const { showToast } = useToast()
   const fileInputRef = useRef(null)
@@ -71,6 +73,12 @@ const JsonModal = ({ isOpen, onCancel }) => {
           </button>
           <button className="btn brand" onClick={copyResumeToClipbaord}>
             Copy to Clipboard
+          </button>
+          <button className="btn brand" onClick={exportSchemaJson}>
+            Download Schema
+          </button>
+          <button className="btn brand" onClick={copySchemaToClipboard}>
+            Save Schema to Clipboard
           </button>
           <input
             type="file"

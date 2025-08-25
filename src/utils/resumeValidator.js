@@ -12,6 +12,10 @@ export function getValidatedResumeData(resumeData) {
   return validateObject(resumeSchema, resumeData)
 }
 
+export function getResumeSchema() {
+  return resumeSchema
+}
+
 function validateType(schema, userData) {
   //array can be blank i must validate first
   if (Array.isArray(schema)) {

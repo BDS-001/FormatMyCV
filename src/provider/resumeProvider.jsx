@@ -4,6 +4,7 @@ import {
   getEmptyResume,
   getExampleResume,
   getValidatedResumeData,
+  getResumeSchema,
 } from '../utils/resumeValidator'
 import { useToast } from './toastProvider'
 
@@ -81,6 +82,39 @@ export default function ResumeProvider({ children }) {
     }
   }
 
+  const exportSchemaJson = useCallback(() => {
+    const schema = getResumeSchema()
+    const jsonString = JSON.stringify(schema, null, 2)
+
+    // Create a blob and download link
+    const blob = new Blob([jsonString], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+
+    // Create download link and trigger click
+    const downloadLink = document.createElement('a')
+    downloadLink.href = url
+    downloadLink.download = 'resume-schema.json'
+    document.body.appendChild(downloadLink)
+    downloadLink.click()
+    document.body.removeChild(downloadLink)
+
+    // Clean up
+    URL.revokeObjectURL(url)
+
+    showToast('Schema JSON downloaded successfully!')
+  }, [showToast])
+
+  const copySchemaToClipboard = async () => {
+    try {
+      const schema = getResumeSchema()
+      const schemaString = JSON.stringify(schema, null, 2)
+      await navigator.clipboard.writeText(schemaString)
+      showToast('Schema copied to clipboard')
+    } catch (error) {
+      showToast('Schema failed to copy', 'error')
+    }
+  }
+
   const uploadJsonString = resumeDataString => {
     const newResumeData = JSON.parse(resumeDataString)
     try {
@@ -108,6 +142,8 @@ export default function ResumeProvider({ children }) {
         setCurrentTemplate,
         copyResumeToClipbaord,
         uploadJsonString,
+        exportSchemaJson,
+        copySchemaToClipboard,
       }}
     >
       {children}

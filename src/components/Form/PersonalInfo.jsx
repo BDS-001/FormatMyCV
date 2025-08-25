@@ -70,7 +70,7 @@ export default function PersonalInfo() {
         />
       </div>
       <div className="formGroup">
-        <label htmlFor="linkedin">LinkedIn (Optional)</label>
+        <label htmlFor="linkedin">LinkedIn</label>
         <input
           type="text"
           id="linkedin"
@@ -80,7 +80,7 @@ export default function PersonalInfo() {
         />
       </div>
       <div className="formGroup">
-        <label htmlFor="github">github (Optional)</label>
+        <label htmlFor="github">GitHub</label>
         <input
           type="text"
           id="github"
@@ -90,7 +90,7 @@ export default function PersonalInfo() {
         />
       </div>
       <div className="formGroup">
-        <label htmlFor="website">Website (Optional)</label>
+        <label htmlFor="website">Website</label>
         <input
           type="text"
           id="website"

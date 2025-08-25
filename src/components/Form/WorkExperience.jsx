@@ -77,9 +77,7 @@ export default function WorkExperience() {
               />
             </div>
             <div className="formGroup">
-              <label htmlFor={`workLocation-${index}`}>
-                Location (Optional)
-              </label>
+              <label htmlFor={`workLocation-${index}`}>Location</label>
               <input
                 type="text"
                 id={`workLocation-${index}`}

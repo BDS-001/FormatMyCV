@@ -74,9 +74,7 @@ export default function Education() {
               />
             </div>
             <div className="formGroup">
-              <label htmlFor={`eduLocation-${index}`}>
-                Location (Optional)
-              </label>
+              <label htmlFor={`eduLocation-${index}`}>Location</label>
               <input
                 type="text"
                 id={`eduLocation-${index}`}
@@ -112,7 +110,7 @@ export default function Education() {
               />
             </div>
             <div className="formGroup">
-              <label htmlFor={`gpa-${index}`}>GPA (Optional)</label>
+              <label htmlFor={`gpa-${index}`}>GPA</label>
               <input
                 type="text"
                 id={`gpa-${index}`}
@@ -122,9 +120,7 @@ export default function Education() {
               />
             </div>
             <div className="formGroup">
-              <label htmlFor={`courses-${index}`}>
-                Relevant Courses (Optional)
-              </label>
+              <label htmlFor={`courses-${index}`}>Relevant Courses</label>
               <input
                 type="text"
                 id={`courses-${index}`}

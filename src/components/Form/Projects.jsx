@@ -72,7 +72,7 @@ export default function Projects() {
               ></textarea>
             </div>
             <div className="formGroup">
-              <label htmlFor={`projectLink-${index}`}>Link (Optional)</label>
+              <label htmlFor={`projectLink-${index}`}>Link</label>
               <input
                 type="text"
                 id={`projectLink-${index}`}
