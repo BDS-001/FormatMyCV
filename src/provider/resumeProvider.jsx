@@ -86,11 +86,9 @@ export default function ResumeProvider({ children }) {
     const schema = getResumeSchema()
     const jsonString = JSON.stringify(schema, null, 2)
 
-    // Create a blob and download link
     const blob = new Blob([jsonString], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
 
-    // Create download link and trigger click
     const downloadLink = document.createElement('a')
     downloadLink.href = url
     downloadLink.download = 'resume-schema.json'
@@ -98,7 +96,6 @@ export default function ResumeProvider({ children }) {
     downloadLink.click()
     document.body.removeChild(downloadLink)
 
-    // Clean up
     URL.revokeObjectURL(url)
 
     showToast('Schema JSON downloaded successfully!')

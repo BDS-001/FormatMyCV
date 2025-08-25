@@ -97,6 +97,22 @@ body {
   );
   border-color: rgba(123, 210, 255, 0.55);
 }
+.btn.download {
+  background: linear-gradient(
+    135deg,
+    rgba(141, 240, 200, 0.25),
+    rgba(141, 240, 200, 0.15)
+  );
+  border-color: rgba(141, 240, 200, 0.45);
+}
+.btn.clipboard {
+  background: linear-gradient(
+    135deg,
+    rgba(147, 112, 219, 0.25),
+    rgba(138, 43, 226, 0.15)
+  );
+  border-color: rgba(147, 112, 219, 0.45);
+}
 
 input,
 textarea,

@@ -8,7 +8,7 @@ import { editorContext } from '../context/editContext'
 import EditPanel from './EditPanel/EditPanel'
 import TemplateSelector from './TemplateSelector/TemplateSelector'
 import ConfirmationModal from './ConfirmationModal/ConfirmationModal'
-import JsonModal from './JsonModal/JsonModal'
+import JsonPanel from './JsonPanel/JsonPanel'
 import CutoffIndicator from './CutoffIndicator/CutoffIndicator'
 import { useContext } from 'react'
 import useResume from '../context/resumeContext'
@@ -19,13 +19,13 @@ function PrintPageContent() {
   const {
     activeSection,
     showModal,
-    showJsonModal,
+    isJsonPanelOpen,
     handleSectionClick,
     handleClearClick,
     handleConfirmClear,
     handleCancelClear,
     handleJsonSettingsClick,
-    handleCloseJsonModal,
+    closeJsonPanel,
   } = useContext(editorContext)
 
   return (
@@ -40,6 +40,7 @@ function PrintPageContent() {
       </div>
       <div className={styles.printPageWrapper}>
         <EditPanel />
+        <JsonPanel isOpen={isJsonPanelOpen} onClose={closeJsonPanel} />
         <div className={`${styles.printControls} noPrint`}>
           <TemplateSelector
             value={template}
@@ -68,8 +69,6 @@ function PrintPageContent() {
         onCancel={handleCancelClear}
         message="Are you sure you want to clear all form data? This action cannot be undone."
       />
-
-      <JsonModal isOpen={showJsonModal} onCancel={handleCloseJsonModal} />
     </>
   )
 }

@@ -1,0 +1,152 @@
+.jsonPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(420px, 92vw);
+  min-height: 100%;
+  z-index: 10;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    ),
+    #131620;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateX(110%);
+  transition: transform 0.28s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.jsonPanel.open {
+  transform: translateX(0);
+}
+
+.jsonPanelContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.jsonPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.jsonPanelHeader h2 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: #e6e8ee;
+}
+
+.jsonPanelForm {
+  padding: 1rem 1.2rem;
+  color: #a9afc3;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.jsonPanelForm textarea {
+  margin-bottom: 0.75rem;
+}
+
+.section {
+  margin: 2rem 0 1.5rem 0;
+}
+
+.section:first-of-type {
+  margin-top: 2.5rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e6e8ee;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.closePanelBtn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  color: #e6e8ee;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    0.18s ease transform,
+    0.18s ease background,
+    0.18s ease box-shadow;
+  font-size: 14px;
+}
+
+.closePanelBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.closePanelBtn:active {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+  .jsonPanel {
+    width: 100vw;
+    right: 0;
+    left: auto;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateX(100%);
+  }
+
+  .jsonPanel.open {
+    transform: translateX(0);
+  }
+
+  .jsonPanelHeader {
+    padding: 0.75rem;
+  }
+
+  .jsonPanelForm {
+    padding: 0.75rem;
+  }
+
+  .closePanelBtn {
+    min-height: var(--mobile-touch-target);
+    min-width: var(--mobile-touch-target);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .jsonPanelHeader {
+    padding: 0.5rem;
+  }
+
+  .jsonPanelForm {
+    padding: 0.5rem;
+  }
+}

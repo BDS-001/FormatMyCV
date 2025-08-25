@@ -6,7 +6,7 @@ export default function EditorProvider({ children }) {
   const [activeSection, setActiveSection] = useState(null)
   const [isEditPanelOpen, setIsEditPanelOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const [showJsonModal, setShowJsonModal] = useState(false)
+  const [isJsonPanelOpen, setIsJsonPanelOpen] = useState(false)
   const { clearData } = useContext(resumeContext)
 
   const handleSectionClick = section => {
@@ -33,11 +33,11 @@ export default function EditorProvider({ children }) {
   }
 
   const handleJsonSettingsClick = () => {
-    setShowJsonModal(true)
+    setIsJsonPanelOpen(true)
   }
 
-  const handleCloseJsonModal = () => {
-    setShowJsonModal(false)
+  const closeJsonPanel = () => {
+    setIsJsonPanelOpen(false)
   }
 
   const closeEditPanel = () => {
@@ -51,13 +51,13 @@ export default function EditorProvider({ children }) {
         activeSection,
         isEditPanelOpen,
         showModal,
-        showJsonModal,
+        isJsonPanelOpen,
         handleSectionClick,
         handleClearClick,
         handleConfirmClear,
         handleCancelClear,
         handleJsonSettingsClick,
-        handleCloseJsonModal,
+        closeJsonPanel,
         closeEditPanel,
       }}
     >
