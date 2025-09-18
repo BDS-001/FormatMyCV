@@ -1,40 +1,39 @@
 import { memo } from 'react'
-import styles from '../ATSTemplate.module.css'
+import styles from '../AtsTemplate.module.css'
+
+function ensureHttps(url) {
+  if (!url) return ''
+  if (url.startsWith('http://') || url.startsWith('https://')) return url
+  return `https://${url}`
+}
 
 const ProjectsSection = memo(({ projects = [] }) => {
-  if (projects.length === 0) return null
-
-  const formatDescription = description => ({
-    __html: description.replace(/\n/g, '<br/>'),
-  })
-
-  const formatProjectLink = link =>
-    link.startsWith('http') ? link : `https://${link}`
+  const items = (projects || []).slice(0, 3)
+  if (items.length === 0) return null
 
   return (
-    <section className={styles.resumeSection}>
-      <h3 className={styles.resumeSectionTitle}>PROJECTS</h3>
+    <section className={styles.uniSection}>
+      <h3 className={styles.uniSectionTitle}>Projects</h3>
       <div>
-        {projects.map((project, index) => (
-          <article key={index} className={styles.resumeItem}>
-            <header className={styles.resumeItemHeader}>
-              <h4 className={styles.resumeItemTitle}>{project.title}</h4>
-              {project.link && (
-                <div className={styles.resumeItemLink}>
+        {items.map((p, idx) => (
+          <article key={idx} className={styles.uniItem}>
+            <div className={styles.uniProjectHeader}>
+              <h4 className={styles.uniItemTitle}>{p.title}</h4>
+              {p.link && (
+                <span className={styles.uniLink}>
                   <a
-                    href={formatProjectLink(project.link)}
+                    href={ensureHttps(p.link)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {project.link}
+                    {ensureHttps(p.link)}
                   </a>
-                </div>
+                </span>
               )}
-            </header>
-            <div
-              className={styles.resumeItemDescription}
-              dangerouslySetInnerHTML={formatDescription(project.description)}
-            />
+            </div>
+            {p.description && (
+              <div className={styles.uniItemSub}>{p.description}</div>
+            )}
           </article>
         ))}
       </div>

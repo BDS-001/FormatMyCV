@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ModernTemplate from '../templates/modernTemplate/ModernTemplate'
-import ATSTemplate from '../templates/atsTemplate/ATSTemplate'
 import CleanTemplate from '../templates/cleanTemplate/CleanTemplate'
+import AtsTemplate from '../templates/atsTemplate/AtsTemplate'
 import styles from './PrintPage.module.css'
 import Header from './Header/Header'
 import { editorContext } from '../context/editContext'
@@ -14,7 +14,7 @@ import { useContext } from 'react'
 import useResume from '../context/resumeContext'
 
 function PrintPageContent() {
-  const [template, setTemplate] = useState('modern')
+  const [template, setTemplate] = useState('ats')
   const { resumeData } = useResume()
   const {
     activeSection,
@@ -56,7 +56,7 @@ function PrintPageContent() {
             {template === 'modern' && (
               <ModernTemplate resumeData={resumeData} />
             )}
-            {template === 'ats' && <ATSTemplate resumeData={resumeData} />}
+            {template === 'ats' && <AtsTemplate resumeData={resumeData} />}
             {template === 'clean' && <CleanTemplate resumeData={resumeData} />}
             <CutoffIndicator />
           </div>

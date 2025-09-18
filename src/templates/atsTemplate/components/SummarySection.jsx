@@ -1,13 +1,12 @@
 import { memo } from 'react'
-import styles from '../ATSTemplate.module.css'
+import styles from '../AtsTemplate.module.css'
 
 const SummarySection = memo(({ summary }) => {
   if (!summary) return null
-
   return (
-    <section className={styles.resumeSection}>
-      <h3 className={styles.resumeSectionTitle}>SUMMARY</h3>
-      <div className={styles.resumeItemDescription}>{summary}</div>
+    <section className={styles.uniSection}>
+      <h3 className={styles.uniSectionTitle}>Summary</h3>
+      <p className={styles.uniText}>{summary}</p>
     </section>
   )
 })

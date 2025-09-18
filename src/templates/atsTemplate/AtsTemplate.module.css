@@ -1,0 +1,149 @@
+.uniContent {
+  display: block;
+  padding: 18px 36px 0 36px;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #000;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.uniMain {
+  display: block;
+}
+
+/* Header */
+.uniHeader {
+  margin-bottom: 12px;
+}
+
+.uniName {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.uniTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin: 2px 0 6px 0;
+}
+
+.uniContact {
+  font-size: 11px;
+  color: #000;
+  white-space: normal;
+}
+
+.uniContact a {
+  color: #0645ad;
+  text-decoration: underline;
+}
+
+/* Sections */
+.uniSection {
+  margin: 10px 0 12px 0;
+}
+
+.uniSectionTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000;
+  padding-bottom: 4px;
+  margin: 0 0 8px 0;
+  border-bottom: 1px solid #000;
+  letter-spacing: 0.4px;
+}
+
+.uniText {
+  margin: 0;
+}
+
+/* Lists / items */
+.uniItem {
+  margin-bottom: 10px;
+}
+
+.uniItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.uniItemTitle {
+  font-weight: 700;
+  font-size: 11.5px;
+  margin: 0;
+}
+
+.uniItemMeta {
+  font-size: 10.5px;
+  color: #555;
+}
+
+.uniItemSub {
+  font-size: 11px;
+  color: #333;
+  margin: 2px 0 0 0;
+}
+
+.uniBulletList {
+  list-style: disc;
+  padding-left: 16px;
+  margin: 6px 0 0 0;
+}
+
+.uniBulletList li {
+  margin: 2px 0;
+}
+
+/* Skills grouping */
+.uniSkillsGroup {
+  margin: 2px 0;
+}
+
+.uniSkillsLabel {
+  font-weight: 700;
+}
+
+.uniInlineList {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.uniInlineList li {
+  display: inline;
+}
+
+.uniInlineList li + li::before {
+  content: ', ';
+}
+
+/* Projects */
+.uniProjectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.uniLink a {
+  color: #0645ad;
+  text-decoration: underline;
+  font-size: 10.5px;
+}

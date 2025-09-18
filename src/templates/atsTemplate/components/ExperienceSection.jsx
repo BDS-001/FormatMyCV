@@ -1,36 +1,45 @@
 import { memo } from 'react'
-import styles from '../ATSTemplate.module.css'
+import styles from '../AtsTemplate.module.css'
+
+function parseBullets(text = '') {
+  return text
+    .split('\n')
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(s => s.replace(/^•\s*/, ''))
+}
 
 const ExperienceSection = memo(({ experience = [] }) => {
-  if (experience.length === 0) return null
-
-  const formatResponsibilities = responsibilities => ({
-    __html: responsibilities.replace(/\n/g, '<br/>'),
-  })
+  const items = Array.isArray(experience) ? experience : []
+  if (items.length === 0) return null
 
   return (
-    <section className={styles.resumeSection}>
-      <h3 className={styles.resumeSectionTitle}>EXPERIENCE</h3>
+    <section className={styles.uniSection}>
+      <h3 className={styles.uniSectionTitle}>Experience</h3>
       <div>
-        {experience.map((exp, index) => (
-          <article key={index} className={styles.resumeItem}>
-            <header className={styles.resumeItemHeader}>
-              <h4 className={styles.resumeItemTitle}>{exp.position}</h4>
-              <time className={styles.resumeItemDate}>
-                {exp.startDate} - {exp.endDate}
-              </time>
-            </header>
-            <div className={styles.resumeItemSubtitle}>
-              {exp.company} | {exp.location}
-            </div>
-            <div
-              className={styles.resumeItemDescription}
-              dangerouslySetInnerHTML={formatResponsibilities(
-                exp.responsibilities
+        {items.map((exp, idx) => {
+          const bullets = parseBullets(exp.responsibilities).slice(0, 3)
+          return (
+            <article key={idx} className={styles.uniItem}>
+              <div className={styles.uniItemHeader}>
+                <h4 className={styles.uniItemTitle}>{exp.position}</h4>
+                <div className={styles.uniItemMeta}>
+                  {exp.startDate} – {exp.endDate}
+                </div>
+              </div>
+              <div className={styles.uniItemSub}>
+                {exp.company} — {exp.location}
+              </div>
+              {bullets.length > 0 && (
+                <ul className={styles.uniBulletList}>
+                  {bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
               )}
-            />
-          </article>
-        ))}
+            </article>
+          )
+        })}
       </div>
     </section>
   )

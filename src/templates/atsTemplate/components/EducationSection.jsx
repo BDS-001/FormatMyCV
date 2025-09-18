@@ -1,31 +1,30 @@
 import { memo } from 'react'
-import styles from '../ATSTemplate.module.css'
+import styles from '../AtsTemplate.module.css'
+
+const EducationLine = ({ edu }) => {
+  const parts = []
+  if (edu.degree) {
+    const date = edu.endDate ? ` (${edu.endDate})` : ''
+    parts.push(`${edu.degree}${date}`)
+  }
+  if (edu.location) parts.push(edu.location)
+  return (
+    <div className={styles.uniItemSub}>
+      {edu.school} — {parts.join(', ')}
+    </div>
+  )
+}
 
 const EducationSection = memo(({ education = [] }) => {
-  if (education.length === 0) return null
-
+  const items = Array.isArray(education) ? education : []
+  if (items.length === 0) return null
   return (
-    <section className={styles.resumeSection}>
-      <h3 className={styles.resumeSectionTitle}>EDUCATION</h3>
+    <section className={styles.uniSection}>
+      <h3 className={styles.uniSectionTitle}>Education</h3>
       <div>
-        {education.map((edu, index) => (
-          <article key={index} className={styles.resumeItem}>
-            <header className={styles.resumeItemHeader}>
-              <h4 className={styles.resumeItemTitle}>{edu.school}</h4>
-              <time className={styles.resumeItemDate}>
-                {edu.startDate} - {edu.endDate}
-              </time>
-            </header>
-            <div className={styles.resumeItemSubtitle}>{edu.degree}</div>
-            <div className={styles.resumeItemLocation}>{edu.location}</div>
-            {edu.gpa && (
-              <div className={styles.resumeItemDetail}>GPA: {edu.gpa}</div>
-            )}
-            {edu.courses && (
-              <div className={styles.resumeItemDetail}>
-                Courses: {edu.courses}
-              </div>
-            )}
+        {items.map((edu, idx) => (
+          <article key={idx} className={styles.uniItem}>
+            <EducationLine edu={edu} />
           </article>
         ))}
       </div>
