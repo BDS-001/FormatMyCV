@@ -17,6 +17,15 @@
   box-sizing: border-box;
 }
 
+/* Text Hilight Support */
+.uniContent,
+.uniContent * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 .uniMain {
   display: block;
 }

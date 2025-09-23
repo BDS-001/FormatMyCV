@@ -13,8 +13,8 @@ export default function AtsTemplate({ resumeData }) {
       <main className={styles.uniMain}>
         <SummarySection summary={resumeData.personalInfo?.summary} />
         <SkillsSection skills={resumeData.skills} />
-        <ProjectsSection projects={resumeData.projects} />
         <ExperienceSection experience={resumeData.experience} />
+        <ProjectsSection projects={resumeData.projects} />
         <EducationSection education={resumeData.education} />
       </main>
     </div>
