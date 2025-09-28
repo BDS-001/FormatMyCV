@@ -6,7 +6,7 @@ import ProjectsSection from './components/ProjectsSection'
 import SummarySection from './components/SummarySection'
 import ATSSkillsSection from './components/ATSSkillsSection'
 
-const ATSTemplate = ({ resumeData }) => {
+const ATSTemplate2 = ({ resumeData }) => {
   return (
     <div className={styles.atsContent}>
       <main className={styles.atsMain}>
@@ -21,4 +21,4 @@ const ATSTemplate = ({ resumeData }) => {
   )
 }
 
-export default ATSTemplate
+export default ATSTemplate2

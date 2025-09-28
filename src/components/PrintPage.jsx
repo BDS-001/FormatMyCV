@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ModernTemplate from '../templates/modernTemplate/ModernTemplate'
 import CleanTemplate from '../templates/cleanTemplate/CleanTemplate'
 import AtsTemplate from '../templates/atsTemplate/AtsTemplate'
+import ATSTemplate2 from '../templates/atsTemplate2/ATSTemplate'
 import styles from './PrintPage.module.css'
 import Header from './Header/Header'
 import { editorContext } from '../context/editContext'
@@ -57,6 +58,7 @@ function PrintPageContent() {
               <ModernTemplate resumeData={resumeData} />
             )}
             {template === 'ats' && <AtsTemplate resumeData={resumeData} />}
+            {template === 'ats2' && <ATSTemplate2 resumeData={resumeData} />}
             {template === 'clean' && <CleanTemplate resumeData={resumeData} />}
             <CutoffIndicator />
           </div>

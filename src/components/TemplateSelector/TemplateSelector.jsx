@@ -8,6 +8,7 @@ export default function TemplateSelector({ value, onChange }) {
       className={styles.templateSelector}
     >
       <option value="ats">ATS Template</option>
+      <option value="ats2">ATS2 Template</option>
       <option value="clean">Clean Template</option>
       <option value="modern">Modern Template</option>
     </select>
