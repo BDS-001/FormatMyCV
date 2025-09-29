@@ -13,7 +13,9 @@ const EducationSection = memo(({ education = [] }) => {
             <header className={styles.resumeItemHeader}>
               <h4 className={styles.resumeItemTitle}>{edu.school}</h4>
               <time className={styles.resumeItemDate}>
-                {edu.startDate} - {edu.endDate}
+                {edu.startDate && edu.endDate
+                  ? `${edu.startDate} - ${edu.endDate}`
+                  : edu.startDate || edu.endDate || ''}
               </time>
             </header>
             <div className={styles.resumeItemSubtitle}>{edu.degree}</div>

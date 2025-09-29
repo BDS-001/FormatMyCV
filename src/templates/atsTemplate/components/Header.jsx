@@ -1,10 +1,9 @@
 import { memo, useMemo } from 'react'
 import styles from '../AtsTemplate.module.css'
 
-function ensureHttps(url) {
+function removeProtocol(url) {
   if (!url) return ''
-  if (url.startsWith('http://') || url.startsWith('https://')) return url
-  return `https://${url}`
+  return url.replace(/^https?:\/\//, '')
 }
 
 const Header = memo(({ personalInfo }) => {
@@ -26,24 +25,9 @@ const Header = memo(({ personalInfo }) => {
     if (data.email) items.push(data.email)
     if (data.phone) items.push(data.phone)
     if (data.location) items.push(data.location)
-    if (data.linkedin)
-      items.push(
-        `<a href="${ensureHttps(data.linkedin)}" target="_blank" rel="noopener noreferrer">${ensureHttps(
-          data.linkedin
-        )}</a>`
-      )
-    if (data.github)
-      items.push(
-        `<a href="${ensureHttps(data.github)}" target="_blank" rel="noopener noreferrer">${ensureHttps(
-          data.github
-        )}</a>`
-      )
-    if (data.website)
-      items.push(
-        `<a href="${ensureHttps(data.website)}" target="_blank" rel="noopener noreferrer">${ensureHttps(
-          data.website
-        )}</a>`
-      )
+    if (data.linkedin) items.push(`LinkedIn: ${removeProtocol(data.linkedin)}`)
+    if (data.github) items.push(`GitHub: ${removeProtocol(data.github)}`)
+    if (data.website) items.push(`Portfolio: ${removeProtocol(data.website)}`)
     return items.filter(Boolean).join(' | ')
   }, [data])
 
@@ -51,10 +35,7 @@ const Header = memo(({ personalInfo }) => {
     <header className={styles.uniHeader}>
       <h1 className={styles.uniName}>{data.fullName}</h1>
       <div className={styles.uniTitle}>{data.jobTitle}</div>
-      <div
-        className={styles.uniContact}
-        dangerouslySetInnerHTML={{ __html: contactLine }}
-      />
+      <div className={styles.uniContact}>{contactLine}</div>
     </header>
   )
 })

@@ -1,6 +1,11 @@
 import { useMemo, memo } from 'react'
 import styles from '../ATSTemplate.module.css'
 
+function removeProtocol(url) {
+  if (!url) return ''
+  return url.replace(/^https?:\/\//, '')
+}
+
 const ATSHeader = memo(({ personalInfo }) => {
   const headerData = useMemo(() => {
     return {
@@ -20,9 +25,9 @@ const ATSHeader = memo(({ personalInfo }) => {
       headerData.email,
       headerData.phone,
       headerData.location,
-      headerData.linkedin && `LinkedIn: ${headerData.linkedin}`,
-      headerData.github && `GitHub: ${headerData.github}`,
-      headerData.website && `Portfolio: ${headerData.website}`,
+      headerData.linkedin && `LinkedIn: ${removeProtocol(headerData.linkedin)}`,
+      headerData.github && `GitHub: ${removeProtocol(headerData.github)}`,
+      headerData.website && `Portfolio: ${removeProtocol(headerData.website)}`,
     ]
     return items.filter(Boolean).join(' | ')
   }, [headerData])

@@ -24,7 +24,9 @@ const ExperienceSection = memo(({ experience = [] }) => {
               <div className={styles.uniItemHeader}>
                 <h4 className={styles.uniItemTitle}>{exp.position}</h4>
                 <div className={styles.uniItemMeta}>
-                  {exp.startDate} – {exp.endDate}
+                  {exp.startDate && exp.endDate
+                    ? `${exp.startDate} – ${exp.endDate}`
+                    : exp.startDate || exp.endDate || ''}
                 </div>
               </div>
               <div className={styles.uniItemSub}>
