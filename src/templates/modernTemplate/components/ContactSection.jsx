@@ -18,14 +18,20 @@ const ContactSection = memo(({ personalInfo }) => {
     <div className={styles.sidebarSection}>
       <div className={styles.sidebarSectionTitle}>Contact</div>
       <div className={styles.sidebarSectionContent}>
-        <div className={styles.contactItem}>
-          <svg className={styles.contactIcon} viewBox="0 0 24 24" fill="white">
-            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
-          </svg>
-          <div id="sidebarEmail" className={styles.contactText}>
-            {contactData.email}
+        {contactData.email && (
+          <div className={styles.contactItem}>
+            <svg
+              className={styles.contactIcon}
+              viewBox="0 0 24 24"
+              fill="white"
+            >
+              <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
+            </svg>
+            <div id="sidebarEmail" className={styles.contactText}>
+              {contactData.email}
+            </div>
           </div>
-        </div>
+        )}
         {contactData.phone && (
           <div className={styles.contactItem}>
             <svg
@@ -40,14 +46,20 @@ const ContactSection = memo(({ personalInfo }) => {
             </div>
           </div>
         )}
-        <div className={styles.contactItem}>
-          <svg className={styles.contactIcon} viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" />
-          </svg>
-          <div id="sidebarLocation" className={styles.contactText}>
-            {contactData.location}
+        {contactData.location && (
+          <div className={styles.contactItem}>
+            <svg
+              className={styles.contactIcon}
+              viewBox="0 0 24 24"
+              fill="white"
+            >
+              <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" />
+            </svg>
+            <div id="sidebarLocation" className={styles.contactText}>
+              {contactData.location}
+            </div>
           </div>
-        </div>
+        )}
         {contactData.linkedin && (
           <div className={styles.contactItem} id="linkedinContainer">
             <svg

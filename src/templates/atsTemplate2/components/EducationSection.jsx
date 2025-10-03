@@ -11,15 +11,17 @@ const EducationSection = memo(({ education = [] }) => {
         {education.map((edu, index) => (
           <article key={index} className={styles.resumeItem}>
             <header className={styles.resumeItemHeader}>
-              <h4 className={styles.resumeItemTitle}>{edu.school}</h4>
+              <h4 className={styles.resumeItemTitle}>{edu.degree}</h4>
               <time className={styles.resumeItemDate}>
                 {edu.startDate && edu.endDate
                   ? `${edu.startDate} - ${edu.endDate}`
                   : edu.startDate || edu.endDate || ''}
               </time>
             </header>
-            <div className={styles.resumeItemSubtitle}>{edu.degree}</div>
-            <div className={styles.resumeItemLocation}>{edu.location}</div>
+            <div className={styles.resumeItemSubtitle}>
+              {edu.school}
+              {edu.location ? ` — ${edu.location}` : ''}
+            </div>
             {edu.gpa && (
               <div className={styles.resumeItemDetail}>GPA: {edu.gpa}</div>
             )}
