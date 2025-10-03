@@ -1,10 +1,6 @@
 import { memo, useMemo } from 'react'
 import styles from '../AtsTemplate.module.css'
-
-function removeProtocol(url) {
-  if (!url) return ''
-  return url.replace(/^https?:\/\//, '')
-}
+import { formatPhone, stripProtocol } from '../../../utils/formatters'
 
 const Header = memo(({ personalInfo }) => {
   const data = useMemo(() => {
@@ -23,11 +19,11 @@ const Header = memo(({ personalInfo }) => {
   const contactLine = useMemo(() => {
     const items = []
     if (data.email) items.push(data.email)
-    if (data.phone) items.push(data.phone)
+    if (data.phone) items.push(formatPhone(data.phone))
     if (data.location) items.push(data.location)
-    if (data.linkedin) items.push(`LinkedIn: ${removeProtocol(data.linkedin)}`)
-    if (data.github) items.push(`GitHub: ${removeProtocol(data.github)}`)
-    if (data.website) items.push(`Portfolio: ${removeProtocol(data.website)}`)
+    if (data.linkedin) items.push(`LinkedIn: ${stripProtocol(data.linkedin)}`)
+    if (data.github) items.push(`GitHub: ${stripProtocol(data.github)}`)
+    if (data.website) items.push(`Portfolio: ${stripProtocol(data.website)}`)
     return items.filter(Boolean).join(' | ')
   }, [data])
 

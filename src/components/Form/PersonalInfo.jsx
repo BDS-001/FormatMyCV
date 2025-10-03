@@ -54,7 +54,6 @@ export default function PersonalInfo() {
         <input
           type="tel"
           id="phone"
-          placeholder="e.g. (123) 456-7890"
           value={personalInfo.phone || ''}
           onChange={e => handleUpdate('phone', e.target.value)}
         />

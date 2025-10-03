@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { stripProtocol } from '../../../utils/formatters'
 import styles from '../ModernTemplate.module.css'
 
 const ProjectsSection = memo(({ projects = [] }) => {
@@ -18,12 +19,12 @@ const ProjectsSection = memo(({ projects = [] }) => {
                     href={
                       project.link.startsWith('http')
                         ? project.link
-                        : `https://${project.link}`
+                        : `//${project.link}`
                     }
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {project.link}
+                    {stripProtocol(project.link)}
                   </a>
                 </div>
               )}

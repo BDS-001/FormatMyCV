@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import styles from '../ATSTemplate.module.css'
+import { stripProtocol } from '../../../utils/formatters'
 
 const ProjectsSection = memo(({ projects = [] }) => {
   if (projects.length === 0) return null
@@ -8,8 +9,7 @@ const ProjectsSection = memo(({ projects = [] }) => {
     __html: description.replace(/\n/g, '<br/>'),
   })
 
-  const formatProjectLink = link =>
-    link.startsWith('http') ? link : `https://${link}`
+  const hrefFor = link => (link.startsWith('http') ? link : `//${link}`)
 
   return (
     <section className={styles.resumeSection}>
@@ -22,11 +22,11 @@ const ProjectsSection = memo(({ projects = [] }) => {
               {project.link && (
                 <div className={styles.resumeItemLink}>
                   <a
-                    href={formatProjectLink(project.link)}
+                    href={hrefFor(project.link)}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {project.link}
+                    {stripProtocol(project.link)}
                   </a>
                 </div>
               )}

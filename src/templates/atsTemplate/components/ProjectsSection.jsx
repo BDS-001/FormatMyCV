@@ -1,11 +1,6 @@
 import { memo } from 'react'
 import styles from '../AtsTemplate.module.css'
-
-function ensureHttps(url) {
-  if (!url) return ''
-  if (url.startsWith('http://') || url.startsWith('https://')) return url
-  return `https://${url}`
-}
+import { stripProtocol } from '../../../utils/formatters'
 
 const ProjectsSection = memo(({ projects = [] }) => {
   const items = (projects || []).slice(0, 3)
@@ -22,11 +17,11 @@ const ProjectsSection = memo(({ projects = [] }) => {
               {p.link && (
                 <span className={styles.uniLink}>
                   <a
-                    href={ensureHttps(p.link)}
+                    href={p.link.startsWith('http') ? p.link : `//${p.link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {ensureHttps(p.link)}
+                    {stripProtocol(p.link)}
                   </a>
                 </span>
               )}
