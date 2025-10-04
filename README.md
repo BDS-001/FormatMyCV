@@ -2,9 +2,9 @@
 
 A sleek, responsive resume builder application with multiple professional templates. Originally built as a personal project using vanilla HTML, CSS, and JavaScript, FormatMyCV has now evolved into a fully-featured React application with a modular template architecture.
 
-## 🌟 Features
+## Features
 
-- **Multiple Professional Templates**: Choose between Modern and ATS-Optimized resume designs
+- **Multiple Professional Templates**: Choose between Modern, Clean, ATS, and ATS Compact resume designs
 - **Modular Template System**: Self-contained templates with their own components and styling
 - **Intuitive Form Interface**: Easy-to-use form for entering your resume details
 - **Real-time Preview**: See your changes reflected instantly in the resume preview
@@ -15,7 +15,7 @@ A sleek, responsive resume builder application with multiple professional templa
 - **Responsive Design**: Looks great on desktop and mobile devices
 - **Page Cutoff Indicator**: Visual indicator showing content that may be cut off when printing
 
-## 🎨 Available Templates
+## Available Templates
 
 ### Modern Template
 - **Design**: Two-column layout with sidebar and main content
@@ -23,13 +23,25 @@ A sleek, responsive resume builder application with multiple professional templa
 - **Best For**: Creative professionals, designers, modern industries
 - **Layout**: Sidebar (contact, skills, summary) + Main content (experience, education, projects)
 
-### ATS Optimized Template
-- **Design**: Single-column, clean black-and-white layout
-- **Features**: ATS-friendly formatting with consistent font sizing
-- **Best For**: Corporate environments, automated resume screening
-- **Layout**: Linear layout optimized for Applicant Tracking Systems
+### Clean Template
+- **Design**: Single-column, minimalist layout
+- **Features**: Clean black-and-white design with clear section separation
+- **Best For**: Professional environments, general-purpose resumes
+- **Layout**: Header + linear content sections (summary, experience, education, projects, skills)
 
-## 📋 Sections Included
+### ATS Template
+- **Design**: Single-column, ATS-optimized layout
+- **Features**: ATS-friendly formatting with consistent styling and optimal section order
+- **Best For**: Corporate environments, automated resume screening systems
+- **Layout**: Header + Summary + Skills + Experience + Projects + Education
+
+### ATS Compact Template
+- **Design**: Compact single-column, ATS-optimized layout
+- **Features**: Space-efficient ATS-friendly formatting without CSS modules for components
+- **Best For**: Applicant Tracking Systems requiring maximum compatibility
+- **Layout**: Header + Summary + Skills + Experience + Projects + Education
+
+## Sections Included
 
 - Personal Information (Name, Job Title, Contact Details)
 - Professional Summary
@@ -38,7 +50,7 @@ A sleek, responsive resume builder application with multiple professional templa
 - Skills
 - Projects
 
-## 📄 JSON Data Template
+## JSON Data Template
 
 ```json
 {
@@ -87,7 +99,7 @@ A sleek, responsive resume builder application with multiple professional templa
 }
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -118,14 +130,14 @@ A sleek, responsive resume builder application with multiple professional templa
 
 4. Open your browser and navigate to `http://localhost:5173`
 
-## 🛠️ Built With
+## Built With
 
 - [React](https://reactjs.org/) - Frontend library
 - [Vite](https://vitejs.dev/) - Build tool and development server
 - Context API - State management
 - CSS Modules - Component-scoped styling
 
-## 🏗️ Architecture
+## Architecture
 
 FormatMyCV uses a modular template architecture where each template is completely self-contained:
 
@@ -156,23 +168,46 @@ src/templates/
 │       ├── SkillsSection.module.css
 │       ├── SidebarPhoto.jsx
 │       └── SidebarPhoto.module.css
+├── cleanTemplate/
+│   ├── CleanTemplate.jsx            # Main template component
+│   ├── CleanTemplate.module.css     # Template-specific styles
+│   └── components/                  # Template-specific components
+│       ├── CleanHeader.jsx
+│       ├── CleanMain.jsx
+│       ├── SummarySection.jsx
+│       ├── ExperienceSection.jsx
+│       ├── EducationSection.jsx
+│       ├── ProjectsSection.jsx
+│       └── SkillsSection.jsx
+├── atsTemplate2/
+│   ├── ATSTemplate.jsx              # Main template component
+│   ├── ATSTemplate.module.css       # Template-specific styles
+│   └── components/                  # Template-specific components
+│       ├── ATSHeader.jsx
+│       ├── SummarySection.jsx
+│       ├── ExperienceSection.jsx
+│       ├── ExperienceSection.module.css
+│       ├── EducationSection.jsx
+│       ├── EducationSection.module.css
+│       ├── ProjectsSection.jsx
+│       ├── ProjectsSection.module.css
+│       ├── ATSSkillsSection.jsx
+│       ├── ATSSkillsSection.module.css
+│       ├── AboutMeSection.jsx
+│       └── AboutMeSection.module.css
 └── atsTemplate/
-    ├── ATSTemplate.jsx              # Main template component
-    ├── ATSTemplate.module.css       # Template-specific styles
+    ├── AtsTemplate.jsx              # Main template component
+    ├── AtsTemplate.module.css       # Template-specific styles
     └── components/                  # Template-specific components
+        ├── Header.jsx
+        ├── SummarySection.jsx
+        ├── SkillsSection.jsx
         ├── ExperienceSection.jsx
-        ├── ExperienceSection.module.css
-        ├── EducationSection.jsx
-        ├── EducationSection.module.css
         ├── ProjectsSection.jsx
-        ├── ProjectsSection.module.css
-        ├── AboutMeSection.jsx
-        ├── AboutMeSection.module.css
-        ├── ATSSkillsSection.jsx
-        └── ATSSkillsSection.module.css
+        └── EducationSection.jsx
 ```
 
-## 📱 Project Structure
+## Project Structure
 
 ```
 formatmycv/
@@ -203,6 +238,9 @@ formatmycv/
 │   │   ├── Header/
 │   │   │   ├── Header.jsx
 │   │   │   └── Header.module.css
+│   │   ├── JsonPanel/
+│   │   │   ├── JsonPanel.jsx
+│   │   │   └── JsonPanel.module.css
 │   │   ├── PrintPage.jsx
 │   │   ├── PrintPage.module.css
 │   │   ├── TemplateSelector/
@@ -213,21 +251,25 @@ formatmycv/
 │   │       └── Toast.module.css
 │   ├── templates/                 # Modular template system
 │   │   ├── modernTemplate/        # Modern template module
-│   │   └── atsTemplate/           # ATS template module
+│   │   ├── cleanTemplate/         # Clean template module
+│   │   ├── atsTemplate2/          # ATS template module
+│   │   └── atsTemplate/           # ATS compact template module
 │   ├── context/                   # React context for state management
-│   │   └── resumeContext.jsx      # Resume context provider
+│   │   ├── resumeContext.jsx      # Resume context
+│   │   └── editContext.jsx        # Edit context
 │   ├── data/                      # Data files
 │   │   └── defaultJson.js         # Default and example resume data
 │   ├── provider/                  # Context providers
 │   │   ├── resumeProvider.jsx     # Resume provider component
-│   │   └── editorProvider.jsx     # Editor provider component
+│   │   ├── editorProvider.jsx     # Editor provider component
+│   │   └── toastProvider.jsx      # Toast notification provider
 │   ├── styles/                    # Global CSS stylesheets
 │   │   └── globals.css            # Global styles
 │   └── main.jsx                   # Entry point
 └── ...
 ```
 
-## 🎨 Adding New Templates
+## Adding New Templates
 
 To add a new template:
 
@@ -244,7 +286,7 @@ Each template should be completely self-contained with its own:
 - Any template-specific components with their own CSS Modules
 - Print media queries
 
-## 🖨️ Printing Your Resume
+## Printing Your Resume
 
 To save your resume as a PDF:
 
@@ -255,13 +297,13 @@ To save your resume as a PDF:
 
 The page cutoff indicator shows content that may appear on a second page when printing.
 
-## 💾 Importing and Exporting Data
+## Importing and Exporting Data
 
 - **Export Data**: Click the "Export Data" button to save your resume data as a JSON file
 - **Import Data**: Click the "Import Data" button to load previously saved resume data
 - **Example Data**: Click "Load Example" to populate the form with sample resume data
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have any improvements or bug fixes.
 
@@ -278,6 +320,6 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
