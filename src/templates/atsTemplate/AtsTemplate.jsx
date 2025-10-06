@@ -6,9 +6,14 @@ import ProjectsSection from './components/ProjectsSection'
 import ExperienceSection from './components/ExperienceSection'
 import EducationSection from './components/EducationSection'
 
-export default function AtsTemplate({ resumeData }) {
+export default function AtsTemplate({ resumeData, accentColor = '' }) {
+  const templateAccentColor = accentColor || '#000000'
+
   return (
-    <div className={styles.uniContent}>
+    <div
+      className={styles.uniContent}
+      style={{ '--accent-color': templateAccentColor }}
+    >
       <Header personalInfo={resumeData.personalInfo} />
       <main className={styles.uniMain}>
         <SummarySection summary={resumeData.personalInfo?.summary} />

@@ -6,9 +6,14 @@ import ProjectsSection from './components/ProjectsSection'
 import SummarySection from './components/SummarySection'
 import ATSSkillsSection from './components/ATSSkillsSection'
 
-const ATSTemplate2 = ({ resumeData }) => {
+const ATSTemplate2 = ({ resumeData, accentColor = '' }) => {
+  const templateAccentColor = accentColor || '#000000'
+
   return (
-    <div className={styles.atsContent}>
+    <div
+      className={styles.atsContent}
+      style={{ '--accent-color': templateAccentColor }}
+    >
       <main className={styles.atsMain}>
         <ATSHeader personalInfo={resumeData.personalInfo} />
         <SummarySection summary={resumeData.personalInfo?.summary} />

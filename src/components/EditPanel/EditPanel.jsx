@@ -6,6 +6,7 @@ import Education from '../Form/Education'
 import WorkExperience from '../Form/WorkExperience'
 import Skills from '../Form/Skills'
 import Projects from '../Form/Projects'
+import AccentColor from '../Form/AccentColor'
 import styles from './EditPanel.module.css'
 
 export default function EditPanel() {
@@ -26,6 +27,8 @@ export default function EditPanel() {
         return <Skills />
       case 'projects':
         return <Projects />
+      case 'accentColor':
+        return <AccentColor />
       default:
         return null
     }

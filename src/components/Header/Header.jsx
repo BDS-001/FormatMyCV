@@ -21,6 +21,7 @@ export default function Header({
           'experience',
           'skills',
           'projects',
+          'accentColor',
         ].map(section => (
           <button
             key={section}
@@ -28,14 +29,18 @@ export default function Header({
             data-edit={
               section === 'personal'
                 ? 'Personal Info'
-                : section.charAt(0).toUpperCase() + section.slice(1)
+                : section === 'accentColor'
+                  ? 'Accent Color'
+                  : section.charAt(0).toUpperCase() + section.slice(1)
             }
             onClick={() => onSectionClick(section)}
           >
             <span>
               {section === 'personal'
                 ? 'Personal Info'
-                : section.charAt(0).toUpperCase() + section.slice(1)}
+                : section === 'accentColor'
+                  ? 'Accent Color'
+                  : section.charAt(0).toUpperCase() + section.slice(1)}
             </span>
           </button>
         ))}

@@ -16,7 +16,7 @@ import useResume from '../context/resumeContext'
 
 function PrintPageContent() {
   const [template, setTemplate] = useState('ats')
-  const { resumeData } = useResume()
+  const { resumeData, accentColor, accentColorEnabled } = useResume()
   const {
     activeSection,
     showModal,
@@ -28,6 +28,8 @@ function PrintPageContent() {
     handleJsonSettingsClick,
     closeJsonPanel,
   } = useContext(editorContext)
+
+  const finalAccentColor = accentColorEnabled ? accentColor : ''
 
   return (
     <>
@@ -55,11 +57,29 @@ function PrintPageContent() {
         <div className={styles.mainContent}>
           <div className={styles.preview}>
             {template === 'modern' && (
-              <ModernTemplate resumeData={resumeData} />
+              <ModernTemplate
+                resumeData={resumeData}
+                accentColor={finalAccentColor}
+              />
             )}
-            {template === 'ats' && <AtsTemplate resumeData={resumeData} />}
-            {template === 'ats2' && <ATSTemplate2 resumeData={resumeData} />}
-            {template === 'clean' && <CleanTemplate resumeData={resumeData} />}
+            {template === 'ats' && (
+              <AtsTemplate
+                resumeData={resumeData}
+                accentColor={finalAccentColor}
+              />
+            )}
+            {template === 'ats2' && (
+              <ATSTemplate2
+                resumeData={resumeData}
+                accentColor={finalAccentColor}
+              />
+            )}
+            {template === 'clean' && (
+              <CleanTemplate
+                resumeData={resumeData}
+                accentColor={finalAccentColor}
+              />
+            )}
             <CutoffIndicator />
           </div>
         </div>

@@ -10,7 +10,9 @@ import { useToast } from './toastProvider'
 
 export default function ResumeProvider({ children }) {
   const [resumeData, setResumeData] = useState(getEmptyResume())
-  const [currentTemplate, setCurrentTemplate] = useState('modern')
+  const [currentTemplate, setCurrentTemplate] = useState('')
+  const [accentColor, setAccentColor] = useState('#57372c')
+  const [accentColorEnabled, setAccentColorEnabled] = useState(false)
   const { showToast } = useToast()
 
   const clearData = useCallback(() => {
@@ -141,6 +143,10 @@ export default function ResumeProvider({ children }) {
         uploadJsonString,
         exportSchemaJson,
         copySchemaToClipboard,
+        accentColor,
+        setAccentColor,
+        accentColorEnabled,
+        setAccentColorEnabled,
       }}
     >
       {children}
