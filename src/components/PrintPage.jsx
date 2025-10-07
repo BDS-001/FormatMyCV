@@ -49,11 +49,10 @@ function PrintPageContent() {
             value={template}
             onChange={e => setTemplate(e.target.value)}
           />
-          <button onClick={() => window.print()} className="btn icon">
+          <button onClick={() => window.print()} className="btn download icon">
             Print / Save PDF
           </button>
         </div>
-
         <div className={styles.mainContent}>
           <div className={styles.preview}>
             {template === 'modern' && (
