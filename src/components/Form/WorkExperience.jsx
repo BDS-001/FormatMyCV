@@ -66,7 +66,7 @@ export default function WorkExperience() {
               />
             </div>
             <div className="formGroup">
-              <label htmlFor={`workLink-${index}`}>Link (optional)</label>
+              <label htmlFor={`workLink-${index}`}>Link</label>
               <input
                 type="text"
                 id={`workLink-${index}`}
