@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import ModernTemplate from '../templates/modernTemplate/ModernTemplate'
 import CleanTemplate from '../templates/cleanTemplate/CleanTemplate'
 import AtsTemplate from '../templates/atsTemplate/AtsTemplate'
@@ -31,9 +31,21 @@ function PrintPageContent() {
 
   const finalAccentColor = accentColorEnabled ? accentColor : ''
 
+  const headerRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const setHeaderHeight = () => {
+      const h = headerRef.current ? headerRef.current.offsetHeight : 0
+      document.documentElement.style.setProperty('--header-height', `${h}px`)
+    }
+    setHeaderHeight()
+    window.addEventListener('resize', setHeaderHeight)
+    return () => window.removeEventListener('resize', setHeaderHeight)
+  }, [])
+
   return (
     <>
-      <div className={`${styles.headerWrapper} noPrint`}>
+      <div ref={headerRef} className={`${styles.headerWrapper} noPrint`}>
         <Header
           activeSection={activeSection}
           onSectionClick={handleSectionClick}
