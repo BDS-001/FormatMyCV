@@ -20,10 +20,8 @@
 }
 
 .previewScroller {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
+  width: auto;
+  overflow: visible;
 }
 
 .preview {
@@ -75,6 +73,12 @@
   .mainContent {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .previewScroller {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .printControls {
