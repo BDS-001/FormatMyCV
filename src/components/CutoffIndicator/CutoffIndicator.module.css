@@ -26,9 +26,3 @@
   font-weight: 500;
   white-space: nowrap;
 }
-
-@media print {
-  .cutoffIndicator {
-    display: none !important;
-  }
-}

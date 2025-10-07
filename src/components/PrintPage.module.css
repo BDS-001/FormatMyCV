@@ -87,11 +87,6 @@
     margin: 0;
   }
 
-  .preview * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
   .printPageWrapper {
     padding: 0;
     margin: 0;

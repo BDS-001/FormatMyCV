@@ -16,7 +16,7 @@ const Toast = ({ message, type = 'success', isVisible, onClose }) => {
 
   return (
     <div
-      className={`${styles.toast} ${type === 'error' ? styles.toastError : ''}`}
+      className={`${styles.toast} ${type === 'error' ? styles.toastError : ''} noPrint`}
     >
       <span className={styles.toastMessage}>{message}</span>
       <button className={styles.toastClose} onClick={onClose}>
