@@ -28,6 +28,7 @@ const resumeSchema = {
       location: '',
       startDate: '',
       endDate: '',
+      link: '',
       responsibilities: '',
     },
   ],

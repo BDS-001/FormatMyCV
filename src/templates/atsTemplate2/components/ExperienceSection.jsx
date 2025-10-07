@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { stripProtocol } from '../../../utils/formatters'
 import styles from '../ATSTemplate.module.css'
 
 const ExperienceSection = memo(({ experience = [] }) => {
@@ -24,6 +25,21 @@ const ExperienceSection = memo(({ experience = [] }) => {
             </header>
             <div className={styles.resumeItemSubtitle}>
               {exp.company} | {exp.location}
+              {exp.link && (
+                <>
+                  {' '}
+                  |{' '}
+                  <a
+                    href={
+                      exp.link.startsWith('http') ? exp.link : `//${exp.link}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {stripProtocol(exp.link)}
+                  </a>
+                </>
+              )}
             </div>
             <div
               className={styles.resumeItemDescription}

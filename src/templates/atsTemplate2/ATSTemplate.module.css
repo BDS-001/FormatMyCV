@@ -19,7 +19,7 @@
   text-align: center;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid var(--accent-color, #333);
 }
 
 .atsNameTitle {
@@ -33,7 +33,7 @@
 .atsName {
   font-size: 24px;
   font-weight: bold;
-  color: #000;
+  color: var(--accent-color, #000);
   margin: 0;
   letter-spacing: 1px;
 }
@@ -57,7 +57,7 @@
   font-weight: bold;
   color: #000;
   text-transform: uppercase;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--accent-color, #000);
   padding-bottom: 4px;
   margin: 0 0 12px 0;
   letter-spacing: 0.5px;
@@ -121,8 +121,21 @@
 /* Links */
 .resumeItemLink a {
   font-size: 10px;
-  color: #0066cc;
+  color: #000;
   text-decoration: underline;
+}
+
+.resumeItemLink a:hover {
+  color: var(--accent-color, #0066cc);
+}
+
+.resumeItemSubtitle a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.resumeItemSubtitle a:hover {
+  color: var(--accent-color, #0066cc);
 }
 
 /* Skills Section */
@@ -152,5 +165,5 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #666;
+  color: var(--accent-color, #666);
 }

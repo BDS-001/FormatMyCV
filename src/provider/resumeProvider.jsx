@@ -11,7 +11,7 @@ import { useToast } from './toastProvider'
 export default function ResumeProvider({ children }) {
   const [resumeData, setResumeData] = useState(getEmptyResume())
   const [currentTemplate, setCurrentTemplate] = useState('')
-  const [accentColor, setAccentColor] = useState('#57372c')
+  const [accentColor, setAccentColor] = useState('#1a5fb4')
   const [accentColorEnabled, setAccentColorEnabled] = useState(false)
   const { showToast } = useToast()
 

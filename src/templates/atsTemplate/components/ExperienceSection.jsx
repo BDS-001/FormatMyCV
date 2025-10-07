@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { stripProtocol } from '../../../utils/formatters'
 import styles from '../AtsTemplate.module.css'
 
 function parseBullets(text = '') {
@@ -31,6 +32,21 @@ const ExperienceSection = memo(({ experience = [] }) => {
               </div>
               <div className={styles.uniItemSub}>
                 {exp.company} — {exp.location}
+                {exp.link && (
+                  <>
+                    {' '}
+                    •{' '}
+                    <a
+                      href={
+                        exp.link.startsWith('http') ? exp.link : `//${exp.link}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {stripProtocol(exp.link)}
+                    </a>
+                  </>
+                )}
               </div>
               {bullets.length > 0 && (
                 <ul className={styles.uniBulletList}>

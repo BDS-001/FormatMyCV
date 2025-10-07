@@ -56,9 +56,9 @@ export default function AccentColor() {
             value={colorInput}
             onChange={handleTextInputChange}
             maxLength={7}
-            placeholder="#57372c"
+            placeholder="#1a5fb4"
             pattern="^#[0-9A-Fa-f]{6}$"
-            title="Hex color like #57372C"
+            title="Hex color like #1A5FB4"
             disabled={!accentColorEnabled}
           />
           <span

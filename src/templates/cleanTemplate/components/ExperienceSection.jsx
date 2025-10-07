@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { stripProtocol } from '../../../utils/formatters'
 import styles from '../CleanTemplate.module.css'
 
 const ExperienceSection = memo(({ experience = [] }) => {
@@ -12,7 +13,24 @@ const ExperienceSection = memo(({ experience = [] }) => {
           <div className={styles.cleanJobHeader}>
             <div>
               <h3 className={styles.cleanJobTitle}>{job.position}</h3>
-              <p className={styles.cleanJobCompany}>{job.company}</p>
+              <p className={styles.cleanJobCompany}>
+                {job.company}
+                {job.link && (
+                  <>
+                    {' '}
+                    •{' '}
+                    <a
+                      href={
+                        job.link.startsWith('http') ? job.link : `//${job.link}`
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {stripProtocol(job.link)}
+                    </a>
+                  </>
+                )}
+              </p>
             </div>
             <div className={styles.cleanJobDates}>
               {job.startDate} - {job.endDate}

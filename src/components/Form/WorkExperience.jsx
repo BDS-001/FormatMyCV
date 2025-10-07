@@ -15,6 +15,7 @@ export default function WorkExperience() {
       location: '',
       startDate: '',
       endDate: '',
+      link: '',
       responsibilities: '',
     }
     setResumeData({
@@ -62,6 +63,16 @@ export default function WorkExperience() {
                 onChange={e =>
                   updateExperience(index, 'company', e.target.value)
                 }
+              />
+            </div>
+            <div className="formGroup">
+              <label htmlFor={`workLink-${index}`}>Link (optional)</label>
+              <input
+                type="text"
+                id={`workLink-${index}`}
+                placeholder="e.g. company.com or case study URL"
+                value={exp.link || ''}
+                onChange={e => updateExperience(index, 'link', e.target.value)}
               />
             </div>
             <div className="formGroup">

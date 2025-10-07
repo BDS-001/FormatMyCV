@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 
-.checkboxLabel input[type="checkbox"] {
+.checkboxLabel input[type='checkbox'] {
   cursor: pointer;
   width: auto;
   height: auto;
