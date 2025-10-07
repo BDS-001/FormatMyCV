@@ -217,9 +217,23 @@
 }
 
 .cleanSkillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 4px 12px;
+}
+
+.cleanSkillsList li {
+  position: relative;
+  padding-left: 10px;
+}
+
+.cleanSkillsList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
 }
 
 .cleanSkillTag {

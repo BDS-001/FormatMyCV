@@ -2,7 +2,7 @@
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   color: var(--text);
-  background: var(--panel);
+  background-color: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   font: inherit;
@@ -13,9 +13,4 @@
 
 .templateSelector:hover {
   border-color: rgba(255, 255, 255, 0.2);
-}
-
-.templateSelector option {
-  background: var(--panel);
-  color: var(--text);
 }

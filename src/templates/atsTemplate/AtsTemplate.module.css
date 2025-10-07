@@ -128,7 +128,28 @@
 }
 
 .uniInlineList li + li::before {
-  content: ', ';
+  content: ' • ';
+}
+
+.uniSkillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.uniSkillsList li {
+  position: relative;
+  padding-left: 10px;
+}
+
+.uniSkillsList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color, #000);
 }
 
 /* Projects */

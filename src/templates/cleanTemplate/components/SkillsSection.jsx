@@ -7,14 +7,11 @@ const SkillsSection = memo(({ skills = [] }) => {
   return (
     <section className={styles.cleanSection}>
       <h2 className={styles.cleanSectionTitle}>Skills</h2>
-      <div className={styles.cleanSkillsGrid}>
+      <ul className={styles.cleanSkillsList}>
         {skills.map((skill, index) => (
-          <span key={index} className={styles.cleanSkillTag}>
-            {skill}
-            {index < skills.length - 1 ? ' • ' : ''}
-          </span>
+          <li key={index}>{skill}</li>
         ))}
-      </div>
+      </ul>
     </section>
   )
 })

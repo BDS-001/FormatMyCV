@@ -11,6 +11,7 @@
   --radius: 16px;
   --blur: 10px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
 }
 
 * {

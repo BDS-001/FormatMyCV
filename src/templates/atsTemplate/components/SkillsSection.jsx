@@ -7,7 +7,7 @@ const SkillsSection = memo(({ skills = [] }) => {
   return (
     <section className={styles.uniSection}>
       <h3 className={styles.uniSectionTitle}>Skills</h3>
-      <ul className={styles.uniInlineList}>
+      <ul className={styles.uniSkillsList}>
         {skills.map((skill, index) => (
           <li key={index}>{skill}</li>
         ))}
