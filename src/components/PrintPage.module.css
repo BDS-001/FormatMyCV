@@ -8,6 +8,7 @@
   min-height: 100vh;
   padding: 20px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .mainContent {
@@ -15,6 +16,14 @@
   display: flex;
   position: relative;
   justify-content: center;
+  max-width: 100%;
+}
+
+.previewScroller {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
 }
 
 .preview {
@@ -63,9 +72,9 @@
     padding: 10px;
   }
 
-  .preview {
-    overflow-x: auto;
-    overflow-y: hidden;
+  .mainContent {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .printControls {

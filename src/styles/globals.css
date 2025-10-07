@@ -245,15 +245,15 @@ label {
 
 /* Mobile touch targets and responsive adjustments */
 :root {
-  --mobile-touch-target: 44px;
-  --mobile-font-size: 16px;
+  --mobile-touch-target: 36px;
+  --mobile-font-size: 14px;
 }
 
 @media screen and (max-width: 768px) {
   .btn {
     min-height: var(--mobile-touch-target);
-    padding: 0.7rem 1rem;
-    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
   }
 
   input,
@@ -277,7 +277,7 @@ label {
 
 @media screen and (max-width: 480px) {
   .btn {
-    padding: 0.8rem 1rem;
+    padding: 0.45rem 0.65rem;
   }
 
   .formContainer {

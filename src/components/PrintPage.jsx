@@ -54,32 +54,34 @@ function PrintPageContent() {
           </button>
         </div>
         <div className={styles.mainContent}>
-          <div className={styles.preview}>
-            {template === 'modern' && (
-              <ModernTemplate
-                resumeData={resumeData}
-                accentColor={finalAccentColor}
-              />
-            )}
-            {template === 'ats' && (
-              <AtsTemplate
-                resumeData={resumeData}
-                accentColor={finalAccentColor}
-              />
-            )}
-            {template === 'ats2' && (
-              <ATSTemplate2
-                resumeData={resumeData}
-                accentColor={finalAccentColor}
-              />
-            )}
-            {template === 'clean' && (
-              <CleanTemplate
-                resumeData={resumeData}
-                accentColor={finalAccentColor}
-              />
-            )}
-            <CutoffIndicator />
+          <div className={styles.previewScroller}>
+            <div className={styles.preview}>
+              {template === 'modern' && (
+                <ModernTemplate
+                  resumeData={resumeData}
+                  accentColor={finalAccentColor}
+                />
+              )}
+              {template === 'ats' && (
+                <AtsTemplate
+                  resumeData={resumeData}
+                  accentColor={finalAccentColor}
+                />
+              )}
+              {template === 'ats2' && (
+                <ATSTemplate2
+                  resumeData={resumeData}
+                  accentColor={finalAccentColor}
+                />
+              )}
+              {template === 'clean' && (
+                <CleanTemplate
+                  resumeData={resumeData}
+                  accentColor={finalAccentColor}
+                />
+              )}
+              <CutoffIndicator />
+            </div>
           </div>
         </div>
       </div>

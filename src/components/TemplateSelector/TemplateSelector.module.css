@@ -14,3 +14,11 @@
 .templateSelector:hover {
   border-color: rgba(255, 255, 255, 0.2);
 }
+
+@media screen and (max-width: 768px) {
+  .templateSelector {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.9rem;
+    min-height: var(--mobile-touch-target);
+  }
+}
