@@ -14,6 +14,8 @@ A sleek, responsive resume builder application with multiple professional templa
 - **Example Resume**: Load an example resume to get started quickly
 - **Responsive Design**: Looks great on desktop and mobile devices
 - **Page Cutoff Indicator**: Visual indicator showing content that may be cut off when printing
+- **Custom Accent Color**: Optional toggle to set a custom highlight/accent color via picker or hex input
+- **JSON Settings Panel**: Import from file or pasted text, export/download JSON, copy resume JSON to clipboard, and download/copy the template schema
 
 ## Available Templates
 
@@ -83,6 +85,7 @@ A sleek, responsive resume builder application with multiple professional templa
       "location": "",
       "startDate": "",
       "endDate": "",
+      "link": "",
       "responsibilities": ""
     }
   ],
@@ -103,15 +106,15 @@ A sleek, responsive resume builder application with multiple professional templa
 
 ### Prerequisites
 
-- Node.js (v14.0.0 or newer)
+- Node.js (v18.0.0 or newer)
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/formatmycv.git
-   cd formatmycv
+   git clone https://github.com/BDS-001/FormatMyCV.git
+   cd FormatMyCV
    ```
 
 2. Install dependencies
@@ -126,6 +129,12 @@ A sleek, responsive resume builder application with multiple professional templa
    npm run dev
    # or
    yarn dev
+   ```
+
+   Alternatively, preview the production build:
+   ```bash
+   npm run build
+   npm run preview
    ```
 
 4. Open your browser and navigate to `http://localhost:5173`
@@ -234,7 +243,9 @@ formatmycv/
 │   │   │   ├── Skills.jsx         # Skills section
 │   │   │   ├── Skills.module.css
 │   │   │   ├── Projects.jsx       # Projects section
-│   │   │   └── Projects.module.css
+│   │   │   ├── Projects.module.css
+│   │   │   ├── AccentColor.jsx     # Accent color controls
+│   │   │   └── AccentColor.module.css
 │   │   ├── Header/
 │   │   │   ├── Header.jsx
 │   │   │   └── Header.module.css
@@ -263,6 +274,8 @@ formatmycv/
 │   │   ├── resumeProvider.jsx     # Resume provider component
 │   │   ├── editorProvider.jsx     # Editor provider component
 │   │   └── toastProvider.jsx      # Toast notification provider
+│   ├── utils/                     # Validation utilities
+│   │   └── resumeValidator.js
 │   ├── styles/                    # Global CSS stylesheets
 │   │   └── globals.css            # Global styles
 │   └── main.jsx                   # Entry point
@@ -295,12 +308,15 @@ To save your resume as a PDF:
 3. In the print dialog, select "Save as PDF" as the destination
 4. Click "Save" to download your resume as a PDF file
 
-The page cutoff indicator shows content that may appear on a second page when printing.
+The page cutoff indicator is a preview-only guide showing content that may appear on a second page; it does not appear in the printed/PDF output.
 
 ## Importing and Exporting Data
 
-- **Export Data**: Click the "Export Data" button to save your resume data as a JSON file
-- **Import Data**: Click the "Import Data" button to load previously saved resume data
+- **Download JSON**: Save your current resume data as a JSON file
+- **Import JSON**: Load resume data from a `.json` file
+- **Import from Text**: Paste JSON into the JSON Settings panel and click "Import from Text"
+- **Copy to Clipboard**: Copy the current resume JSON to your clipboard
+- **Schema Tools**: Download the template schema JSON or copy it to the clipboard
 - **Example Data**: Click "Load Example" to populate the form with sample resume data
 
 ## Contributing
