@@ -1,7 +1,7 @@
 const STORAGE_KEY = 'resumeData'
 
 export function storeData(data) {
-  localStorage.setItem(STORAGE_KEY, data)
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
 }
 
 export function clearData() {
@@ -9,7 +9,8 @@ export function clearData() {
 }
 
 export function getData() {
-  return localStorage.getItem(STORAGE_KEY)
+  const data = localStorage.getItem(STORAGE_KEY)
+  return data ? JSON.parse(data) : null
 }
 
 let saveTimer = null

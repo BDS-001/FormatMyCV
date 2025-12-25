@@ -1,5 +1,6 @@
 import { resumeContext } from '../context/resumeContext'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
+import * as storageManager from '../utils/storageManager'
 import {
   getEmptyResume,
   getExampleResume,
@@ -9,15 +10,27 @@ import {
 import { useToast } from './toastProvider'
 
 export default function ResumeProvider({ children }) {
-  const [resumeData, setResumeData] = useState(getEmptyResume())
+  const [resumeData, setResumeData] = useState(
+    () => storageManager.getData() ?? getEmptyResume()
+  )
   const [currentTemplate, setCurrentTemplate] = useState('')
   const [accentColor, setAccentColor] = useState('#1a5fb4')
   const [accentColorEnabled, setAccentColorEnabled] = useState(false)
   const { showToast } = useToast()
+  const isFirstRender = useRef(true)
 
   const clearData = useCallback(() => {
     setResumeData(getEmptyResume())
+    storageManager.clearData()
   }, [])
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    storageManager.save(resumeData)
+  }, [resumeData])
 
   const loadExample = useCallback(() => {
     setResumeData(getExampleResume())
