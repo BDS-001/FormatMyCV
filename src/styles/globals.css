@@ -8,9 +8,8 @@
   --brand2: #7bd2ff;
   --accent: #8df0c8;
   --danger: #ff6d8d;
-  --radius: 16px;
-  --blur: 10px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   color-scheme: dark;
 }
 
@@ -19,18 +18,7 @@
 }
 html {
   min-height: 100%;
-  background:
-    radial-gradient(
-      1200px 700px at 10% -10%,
-      rgba(125, 170, 255, 0.15),
-      transparent 60%
-    ),
-    radial-gradient(
-      800px 700px at 110% 10%,
-      rgba(139, 240, 200, 0.1),
-      transparent 60%
-    ),
-    var(--bg);
+  background: var(--bg);
   background-attachment: fixed;
 }
 body {
@@ -58,28 +46,18 @@ body {
   cursor: pointer;
   white-space: nowrap;
   padding: 0.55rem 0.8rem;
-  border-radius: 10px;
+  border-radius: 8px;
   color: var(--text);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition:
-    0.18s ease transform,
-    0.18s ease background,
-    0.18s ease box-shadow;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 10px 16px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
 }
 .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 .btn:active {
-  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.08);
 }
 .btn.icon {
   display: flex;
@@ -91,28 +69,31 @@ body {
   border-color: rgba(255, 255, 255, 0.08);
 }
 .btn.brand {
-  background: linear-gradient(
-    135deg,
-    rgba(109, 140, 255, 0.35),
-    rgba(123, 210, 255, 0.25)
-  );
-  border-color: rgba(123, 210, 255, 0.55);
+  background: rgba(109, 140, 255, 0.15);
+  border-color: rgba(109, 140, 255, 0.3);
+  color: #a8c1ff;
+}
+.btn.brand:hover {
+  background: rgba(109, 140, 255, 0.2);
+  border-color: rgba(109, 140, 255, 0.4);
 }
 .btn.download {
-  background: linear-gradient(
-    135deg,
-    rgba(141, 240, 200, 0.25),
-    rgba(141, 240, 200, 0.15)
-  );
-  border-color: rgba(141, 240, 200, 0.45);
+  background: rgba(141, 240, 200, 0.12);
+  border-color: rgba(141, 240, 200, 0.25);
+  color: #a8f0d2;
+}
+.btn.download:hover {
+  background: rgba(141, 240, 200, 0.18);
+  border-color: rgba(141, 240, 200, 0.35);
 }
 .btn.clipboard {
-  background: linear-gradient(
-    135deg,
-    rgba(147, 112, 219, 0.25),
-    rgba(138, 43, 226, 0.15)
-  );
-  border-color: rgba(147, 112, 219, 0.45);
+  background: rgba(147, 112, 219, 0.12);
+  border-color: rgba(147, 112, 219, 0.25);
+  color: #b899e0;
+}
+.btn.clipboard:hover {
+  background: rgba(147, 112, 219, 0.18);
+  border-color: rgba(147, 112, 219, 0.35);
 }
 
 input,
@@ -123,13 +104,12 @@ select {
   margin: 0.4rem 0;
   font: inherit;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border-radius: 8px;
   outline: none;
   transition: all 0.2s ease;
   resize: vertical;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) inset;
 }
 
 input::placeholder,
@@ -140,14 +120,15 @@ textarea::placeholder {
 input:hover,
 textarea:hover,
 select:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
+  background: rgba(255, 255, 255, 0.06);
   border-color: var(--brand2);
-  box-shadow: 0 0 0 3px rgba(123, 210, 255, 0.25);
 }
 
 textarea {
@@ -191,14 +172,15 @@ label {
 }
 
 .btn.danger {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 109, 141, 0.2),
-    rgba(255, 109, 141, 0.1)
-  );
-  border-color: var(--danger);
+  background: rgba(255, 109, 141, 0.1);
+  border-color: rgba(255, 109, 141, 0.25);
+  color: #ffa3bb;
   font-size: 0.8rem;
   margin-top: 0.75rem;
+}
+.btn.danger:hover {
+  background: rgba(255, 109, 141, 0.15);
+  border-color: rgba(255, 109, 141, 0.35);
 }
 
 .dynamicList {
@@ -206,8 +188,8 @@ label {
 }
 
 .listItem {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   padding: 1rem;
   margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.02);
@@ -237,13 +219,12 @@ label {
 
 .formContainer {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 1.25rem;
   background: rgba(255, 255, 255, 0.02);
   margin-bottom: 1.5rem;
 }
 
-/* Mobile touch targets and responsive adjustments */
 :root {
   --mobile-touch-target: 36px;
   --mobile-font-size: 14px;

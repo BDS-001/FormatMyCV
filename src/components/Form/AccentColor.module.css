@@ -25,9 +25,9 @@
   width: 40px;
   height: 36px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .hexInput {
@@ -38,7 +38,7 @@
   width: 28px;
   height: 28px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .disabled {

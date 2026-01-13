@@ -5,15 +5,9 @@
   width: min(420px, 92vw);
   height: calc(100vh - var(--header-height, 0px));
   z-index: 900;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.02)
-    ),
-    #131620;
+  background: #131620;
   border-left: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3);
   transform: translateX(110%);
   transition: transform 0.28s ease;
   display: flex;
@@ -38,7 +32,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .jsonPanelHeader h2 {
@@ -90,29 +84,21 @@
   cursor: pointer;
   white-space: nowrap;
   padding: 0.55rem 0.8rem;
-  border-radius: 10px;
+  border-radius: 8px;
   color: #e6e8ee;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition:
-    0.18s ease transform,
-    0.18s ease background,
-    0.18s ease box-shadow;
+  transition: all 0.2s ease;
   font-size: 14px;
 }
 
 .closePanelBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .closePanelBtn:active {
-  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 @media screen and (max-width: 768px) {

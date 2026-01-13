@@ -1,9 +1,7 @@
-/* Overlay */
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(var(--blur)) saturate(140%);
+  background: rgba(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
   z-index: 2000;
@@ -11,18 +9,11 @@
   animation: overlayFade 0.22s ease forwards;
 }
 
-/* Panel */
 .modalContent {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.02)
-    ),
-    var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   width: min(480px, 92vw);
   padding: 1.2rem 1.2rem 1rem;
   color: var(--text);
@@ -31,7 +22,6 @@
   animation: panelIn 0.24s ease forwards;
 }
 
-/* Header row (optional icon + title slot) */
 .modalHeader {
   display: flex;
   align-items: center;
@@ -52,62 +42,54 @@
   margin: 0 0 1.25rem 0;
 }
 
-/* Buttons row */
 .modalButtons {
   display: flex;
   gap: 0.6rem;
   justify-content: flex-end;
 }
 
-/* Buttons (match app buttons) */
 .modalBtn {
   appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   padding: 0.55rem 0.9rem;
-  border-radius: 10px;
+  border-radius: 8px;
   color: var(--text);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
-  transition:
-    0.18s ease transform,
-    0.18s ease box-shadow,
-    0.18s ease background;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.05) inset,
-    0 10px 16px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
 }
 
 .modalBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .modalBtn:active {
-  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* Primary confirm */
 .confirmButton {
-  background: linear-gradient(
-    135deg,
-    rgba(109, 140, 255, 0.35),
-    rgba(123, 210, 255, 0.25)
-  );
-  border-color: rgba(123, 210, 255, 0.55);
+  background: rgba(109, 140, 255, 0.15);
+  border-color: rgba(109, 140, 255, 0.3);
+  color: #a8c1ff;
 }
 
-/* Subtle cancel */
+.confirmButton:hover {
+  background: rgba(109, 140, 255, 0.2);
+  border-color: rgba(109, 140, 255, 0.4);
+}
+
 .cancelButton {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.12);
   color: var(--muted);
 }
 
-/* Animations */
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
 @keyframes overlayFade {
   to {
     opacity: 1;

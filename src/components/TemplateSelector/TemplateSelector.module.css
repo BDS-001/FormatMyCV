@@ -1,6 +1,6 @@
 .templateSelector {
   padding: 0.5rem 0.75rem;
-  border-radius: 8px;
+  border-radius: 6px;
   color: var(--text);
   background-color: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -9,10 +9,12 @@
   outline: none;
   width: auto;
   margin: 0;
+  transition: all 0.2s ease;
 }
 
 .templateSelector:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 @media screen and (max-width: 768px) {
