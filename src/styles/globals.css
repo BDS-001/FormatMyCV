@@ -132,6 +132,11 @@ select:focus {
   border-color: var(--brand2);
 }
 
+select option {
+  background-color: #fff;
+  color: #000;
+}
+
 textarea {
   min-height: 150px;
   line-height: 1.5;

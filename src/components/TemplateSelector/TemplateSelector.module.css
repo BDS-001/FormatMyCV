@@ -17,6 +17,11 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 
+.templateSelector option {
+  background-color: #fff;
+  color: #000;
+}
+
 @media screen and (max-width: 768px) {
   .templateSelector {
     padding: 0.45rem 0.6rem;
