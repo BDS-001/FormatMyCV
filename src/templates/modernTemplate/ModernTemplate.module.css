@@ -223,20 +223,17 @@
    BULLET POINTS
    ================================= */
 .modernContent .bulletPoints {
-  padding-left: 5px;
+  list-style: disc;
+  padding-left: 16px;
+  margin: 0;
 }
 
 .modernContent .bulletPoints > * {
-  position: relative;
-  padding-left: 10px;
+  margin: 2px 0;
 }
 
-.modernContent .bulletPoints > *::before {
-  content: '•';
-  position: absolute;
-  left: 0;
+.modernContent .bulletPoints > *::marker {
   color: var(--accent-color, #57372c);
-  font-weight: bold;
 }
 
 /* =================================
@@ -265,26 +262,19 @@
 }
 
 .modernContent .sidebarSection .skillsList {
-  list-style: none;
-  padding: 0;
+  list-style: disc;
+  padding-left: 16px;
   margin: 5px 0 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
   color: inherit;
 }
 
 .modernContent .sidebarSection .skillsList li {
   font-size: 11px;
-  position: relative;
-  padding-left: 10px;
+  margin: 2px 0;
   color: inherit;
 }
 
-.modernContent .sidebarSection .skillsList li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
+.modernContent .sidebarSection .skillsList li::marker {
   color: inherit;
 }
 

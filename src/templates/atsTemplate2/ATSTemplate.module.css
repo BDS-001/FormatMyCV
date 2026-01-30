@@ -139,24 +139,17 @@
 
 .atsSkillsSection .skillsList,
 .skillsList {
-  list-style: none;
-  padding: 0;
+  list-style: disc;
+  padding-left: 16px;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
 }
 
 .skillsList li {
   font-size: 11px;
   color: #000;
-  position: relative;
-  padding-left: 10px;
+  margin: 2px 0;
 }
 
-.skillsList li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
+.skillsList li::marker {
   color: var(--accent-color, #666);
 }
