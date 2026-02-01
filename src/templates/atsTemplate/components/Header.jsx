@@ -16,7 +16,7 @@ const Header = memo(({ personalInfo }) => {
     }
   }, [personalInfo])
 
-  const contactLine = useMemo(() => {
+  const contactItems = useMemo(() => {
     const items = []
     if (data.email) items.push(data.email)
     if (data.phone) items.push(formatPhone(data.phone))
@@ -24,14 +24,28 @@ const Header = memo(({ personalInfo }) => {
     if (data.linkedin) items.push(`LinkedIn: ${stripProtocol(data.linkedin)}`)
     if (data.github) items.push(`GitHub: ${stripProtocol(data.github)}`)
     if (data.website) items.push(`Portfolio: ${stripProtocol(data.website)}`)
-    return items.filter(Boolean).join(' | ')
+    return items.filter(Boolean)
   }, [data])
 
   return (
     <header className={styles.uniHeader}>
-      <h1 className={styles.uniName}>{data.fullName}</h1>
-      <div className={styles.uniTitle}>{data.jobTitle}</div>
-      <div className={styles.uniContact}>{contactLine}</div>
+      <div className={styles.uniNameRow}>
+        <h1 className={styles.uniName}>{data.fullName}</h1>
+        {data.jobTitle && (
+          <>
+            <span className={styles.uniSeparator}>|</span>
+            <span className={styles.uniTitle}>{data.jobTitle}</span>
+          </>
+        )}
+      </div>
+      <div className={styles.uniContact}>
+        {contactItems.map((item, idx) => (
+          <span key={idx} className={styles.uniContactItem}>
+            {idx > 0 && ' | '}
+            {item}
+          </span>
+        ))}
+      </div>
     </header>
   )
 })

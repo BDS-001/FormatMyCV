@@ -16,6 +16,15 @@
 /* Header */
 .uniHeader {
   margin-bottom: 12px;
+  text-align: center;
+}
+
+.uniNameRow {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .uniName {
@@ -26,17 +35,25 @@
   color: var(--accent-color, #000);
 }
 
+.uniSeparator {
+  color: #666;
+  margin: 0 4px;
+}
+
 .uniTitle {
   font-size: 12px;
   font-weight: 600;
   color: #333;
-  margin: 2px 0 6px 0;
 }
 
 .uniContact {
   font-size: 11px;
   color: #000;
-  white-space: normal;
+  margin-top: 6px;
+}
+
+.uniContactItem {
+  white-space: nowrap;
 }
 
 .uniContact a {
@@ -105,30 +122,6 @@
 
 .uniBulletList li::marker {
   color: var(--accent-color, #000);
-}
-
-/* Skills grouping */
-.uniSkillsGroup {
-  margin: 2px 0;
-}
-
-.uniSkillsLabel {
-  font-weight: 700;
-}
-
-.uniInlineList {
-  display: inline;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.uniInlineList li {
-  display: inline;
-}
-
-.uniInlineList li + li::before {
-  content: ' • ';
 }
 
 .uniSkillsList {
