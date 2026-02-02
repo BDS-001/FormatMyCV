@@ -114,16 +114,11 @@ const example = {
     },
   ],
   skills: [
-    'JavaScript',
-    'React',
-    'Node.js',
-    'Python',
-    'AWS',
-    'Docker',
-    'Kubernetes',
-    'GraphQL',
-    'MongoDB',
-    'PostgreSQL',
+    'Languages: JavaScript, Python',
+    'Frameworks: React, Node.js',
+    'Cloud & DevOps: AWS, Docker, Kubernetes',
+    'Databases: MongoDB, PostgreSQL',
+    'APIs: GraphQL',
   ],
   projects: [
     {
