@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react'
+import React, { memo, useMemo } from 'react'
 import styles from '../AtsTemplate.module.css'
 import { formatPhone, stripProtocol } from '../../../utils/formatters'
 
@@ -40,10 +40,10 @@ const Header = memo(({ personalInfo }) => {
       </div>
       <div className={styles.uniContact}>
         {contactItems.map((item, idx) => (
-          <span key={idx} className={styles.uniContactItem}>
-            {idx > 0 && ' | '}
-            {item}
-          </span>
+          <React.Fragment key={idx}>
+            {idx > 0 && <span className={styles.uniContactDivider}>|</span>}
+            <span className={styles.uniContactItem}>{item}</span>
+          </React.Fragment>
         ))}
       </div>
     </header>
